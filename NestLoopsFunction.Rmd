@@ -18,18 +18,16 @@ This started as a joke inspired by the programming language speed comparison mem
 
 ### Understanding R's Homoiconic Nature and AST Manipulation
 
-Before we dive into the implementation, it's essential to understand what makes this possible. R is a **homoiconic language**, meaning that code and data share the same representation. As stated in the [R Language Definition](https://cran.r-project.org/doc/manuals/r-release/R-lang.html):
-
-> "R is a functional programming language with lazy evaluation. R functions are objects and can be manipulated in much the same way as any other object."
+Before we dive into the implementation, it's essential to understand what makes this possible. R is a **homoiconic language**, meaning that code and data share the same representation. In R, functions are first-class objects that can be manipulated programmatically, and expressions are represented as language objects that can be constructed and modified at runtime.
 
 This homoiconicity allows us to:
 
 - Treat code as data structures (Abstract Syntax Trees)
-- Manipulate these ASTs programmatically
+- Manipulate these ASTs programmatically using functions like `call()`, `quote()`, and `substitute()`
 - Generate new code dynamically at runtime
 - Build complex nested structures through metaprogramming
 
-The R Language Definition further explains that expressions in R are represented as language objects, which can be constructed using functions like `call()`, `quote()`, and `substitute()`. This is exactly what we're exploiting to create arbitrary levels of nested loops.
+R's language objects can be constructed using base functions such as `call()` for creating function calls, `quote()` for capturing expressions without evaluation, and `substitute()` for template-based expression manipulation. This is exactly what we're exploiting to create arbitrary levels of nested loops.
 
 ### The Challenge
 

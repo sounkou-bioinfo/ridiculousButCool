@@ -47,35 +47,84 @@
     <table>
         <tr>
             <th>Name</th>
+            <th>Size</th>
         </tr>
         <tr>
             <td><a href="../">../</a></td>
+            <td class="size">-</td>
         </tr>
         <tbody id="fileList">
         </tbody>
     </table>
 
     <script>
-        // Static file listing (must be manually maintained)
-        function loadFiles() {
-            // Files in this directory - update manually when you add/remove files
-            let files = [
-                'NestLoopsFunction.html',
-                'NestLoopsFunction.md', 
-                'NestLoopsFunction.Rmd'
-            ];
+        // Use GitHub API to dynamically list repository files
+        async function loadFiles() {
+            const owner = 'sounkou-bioinfo';
+            const repo = 'ridiculousButCool';
+            const path = 'ridiculousButCool'; // subfolder
             
-            files.forEach(file => {
-                addFileRow(file);
-            });
+            try {
+                const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`);
+                
+                if (!response.ok) {
+                    throw new Error(`GitHub API error: ${response.status}`);
+                }
+                
+                const files = await response.json();
+                
+                // Filter for our document files and exclude index.html
+                const relevantFiles = files.filter(file => 
+                    file.type === 'file' && 
+                    file.name !== 'index.html' &&
+                    (file.name.endsWith('.html') || file.name.endsWith('.md') || file.name.endsWith('.Rmd'))
+                );
+                
+                // Sort files by type (html, md, Rmd)
+                relevantFiles.sort((a, b) => {
+                    const order = { '.html': 1, '.md': 2, '.Rmd': 3 };
+                    const extA = a.name.substring(a.name.lastIndexOf('.'));
+                    const extB = b.name.substring(b.name.lastIndexOf('.'));
+                    return (order[extA] || 999) - (order[extB] || 999);
+                });
+                
+                relevantFiles.forEach(file => {
+                    addFileRow(file.name, formatFileSize(file.size));
+                });
+                
+            } catch (error) {
+                console.error('Failed to load files from GitHub API:', error);
+                // Fallback to static list
+                const fallbackFiles = [
+                    'NestLoopsFunction.html',
+                    'NestLoopsFunction.md', 
+                    'NestLoopsFunction.Rmd'
+                ];
+                fallbackFiles.forEach(file => {
+                    addFileRow(file, '-');
+                });
+            }
         }
 
-        function addFileRow(name) {
+        function formatFileSize(bytes) {
+            if (!bytes) return '-';
+            if (bytes < 1024) return bytes + ' B';
+            if (bytes < 1048576) return Math.round(bytes / 1024) + ' K';
+            return Math.round(bytes / 1048576) + ' M';
+        }
+
+        function addFileRow(name, size) {
             let tbody = document.getElementById('fileList');
             let row = tbody.insertRow();
             
             let nameCell = row.insertCell(0);
             nameCell.innerHTML = `<a href="${name}">${name}</a>`;
+            
+            if (size) {
+                let sizeCell = row.insertCell(1);
+                sizeCell.className = 'size';
+                sizeCell.textContent = size;
+            }
         }
 
         // Load files when page loads
