@@ -33,6 +33,30 @@ This started as a joke inspired by the programming language speed
 comparison meme, but let’s see if we can actually create a function that
 generates functions with arbitrary nested loops in R!
 
+### Understanding R’s Homoiconic Nature and AST Manipulation
+
+Before we dive into the implementation, it’s essential to understand
+what makes this possible. R is a **homoiconic language**, meaning that
+code and data share the same representation. As stated in the [R
+Language
+Definition](https://cran.r-project.org/doc/manuals/r-release/R-lang.html):
+
+> “R is a functional programming language with lazy evaluation. R
+> functions are objects and can be manipulated in much the same way as
+> any other object.”
+
+This homoiconicity allows us to:
+
+- Treat code as data structures (Abstract Syntax Trees)
+- Manipulate these ASTs programmatically
+- Generate new code dynamically at runtime
+- Build complex nested structures through metaprogramming
+
+The R Language Definition further explains that expressions in R are
+represented as language objects, which can be constructed using
+functions like `call()`, `quote()`, and `substitute()`. This is exactly
+what we’re exploiting to create arbitrary levels of nested loops.
+
 ### The Challenge
 
 We want to create a function `create_nested_loops(n, k)` that:
@@ -100,7 +124,7 @@ print(nested_3_5)
     ##     }
     ##     return(counter)
     ## }
-    ## <environment: 0x5c769555f270>
+    ## <environment: 0x5d1ed5d918f8>
 
 ``` r
 cat("\n")
@@ -168,7 +192,7 @@ print(nested_4_3)
     ##         1
     ##     return(counter)
     ## }
-    ## <environment: 0x5c7692f71b40>
+    ## <environment: 0x5d1ed36bffb0>
 
 ``` r
 cat("\n")
@@ -242,7 +266,7 @@ print(nested_2_10)
     ##     }
     ##     return(counter)
     ## }
-    ## <environment: 0x5c7695e53270>
+    ## <environment: 0x5d1ed6679b48>
 
 ``` r
 cat("\n")
@@ -331,7 +355,7 @@ print(nested_tailcall)
     ##     }
     ##     return(counter)
     ## }
-    ## <environment: 0x5c7696d946a0>
+    ## <environment: 0x5d1ed75b5130>
 
 ``` r
 cat("\n")
@@ -425,8 +449,8 @@ print(nested_exec)
     ##     }, list(LOOPS = body_expr))
     ##     Exec(expr_to_exec, environment())
     ## }
-    ## <bytecode: 0x5c7697dde3c8>
-    ## <environment: 0x5c7697af4f68>
+    ## <bytecode: 0x5d1ed85fee58>
+    ## <environment: 0x5d1ed8319828>
 
 ``` r
 cat("\n")
@@ -556,7 +580,7 @@ print(nested_5_2)
     ##     }
     ##     return(list(count = counter, vars = c(i1, i2, i3, i4, i5)))
     ## }
-    ## <environment: 0x5c76985cdbf0>
+    ## <environment: 0x5d1ed8df43d0>
 
 ``` r
 cat("\n")
@@ -649,19 +673,19 @@ if (requireNamespace("microbenchmark", quietly = TRUE)) {
 
     ## Unit: milliseconds
     ##                   expr       min        lq      mean    median        uq
-    ##                 static  3.301676  3.964191  4.966958  4.627334  5.221474
-    ##  dynamic_v1_substitute  3.416146  4.011893  5.325392  4.586756  5.151597
-    ##        dynamic_v2_call  3.385975  4.124058  5.121859  4.618359  5.405191
-    ##      dynamic_v3_string  3.401898  4.154928  5.141246  4.669763  5.278918
-    ##    dynamic_v4_tailcall  3.213188  3.807537  5.174589  4.496591  4.955309
-    ##        dynamic_v5_exec 33.557897 38.565517 43.665580 41.234500 45.366450
-    ##       max neval
-    ##  26.33868   100
-    ##  56.54084   100
-    ##  36.23631   100
-    ##  34.57653   100
-    ##  53.90769   100
-    ##  77.79019   100
+    ##                 static  3.355944  3.926687  4.717372  4.450811  4.940643
+    ##  dynamic_v1_substitute  3.289106  4.166870  5.281867  4.760906  5.256954
+    ##        dynamic_v2_call  3.270039  4.180839  4.935649  4.621643  5.035068
+    ##      dynamic_v3_string  3.346656  3.896096  4.883679  4.372170  4.920528
+    ##    dynamic_v4_tailcall  3.235398  4.068535  4.976384  4.467747  5.013907
+    ##        dynamic_v5_exec 31.684894 36.609995 40.876614 38.921428 43.723261
+    ##        max neval
+    ##   9.474738   100
+    ##  39.251917   100
+    ##  25.907763   100
+    ##  35.792329   100
+    ##  31.798455   100
+    ##  87.523624   100
 
 ## Advanced: Custom Actions in Nested Loops
 
@@ -709,7 +733,7 @@ print(matrix_builder)
     ##     for (i1 in 1:4) for (i2 in 1:5) result[i1, i2] <- i1 * i2
     ##     return(result)
     ## }
-    ## <environment: 0x5c7695f10430>
+    ## <environment: 0x5d1ed6874438>
 
 ``` r
 cat("\n")
@@ -824,7 +848,7 @@ print(final_func)
     ##         1
     ##     return(counter)
     ## }
-    ## <environment: 0x5c7697701fc8>
+    ## <environment: 0x5d1ed77f0ae8>
 
 ``` r
 cat("\n")
@@ -874,25 +898,32 @@ cat("Each loop runs only 1 iteration, but the nesting depth is INSANE!\n\n")
 
 ``` r
 # Create the monster
-thousand_loops_func <- create_nested_loops_v2(1000, 1)
-cat("Generated function body (first few lines only - too big to print fully):\n")
+cat("Building AST for 1000 nested loops... (this might take a moment)\n")
 ```
 
-    ## Generated function body (first few lines only - too big to print fully):
+    ## Building AST for 1000 nested loops... (this might take a moment)
+
+``` r
+thousand_loops_func <- create_nested_loops_v2(1000, 1)
+
+cat("Generated function AST structure analysis:\n")
+```
+
+    ## Generated function AST structure analysis:
 
 ``` r
 # Print just the structure, not the full body (it would be enormous!)
 func_str <- deparse(body(thousand_loops_func))
-cat("Function has", length(func_str), "lines of generated code!\n")
+cat("Function has", length(func_str), "lines of generated AST code!\n")
 ```
 
-    ## Function has 6 lines of generated code!
+    ## Function has 6 lines of generated AST code!
 
 ``` r
-cat("First 5 lines:\n")
+cat("First 5 lines of the parsed AST:\n")
 ```
 
-    ## First 5 lines:
+    ## First 5 lines of the parsed AST:
 
 ``` r
 cat(paste(func_str[1:5], collapse = "\n"), "\n")
@@ -911,10 +942,10 @@ cat("...\n")
     ## ...
 
 ``` r
-cat("Last 5 lines:\n")
+cat("Last 5 lines of the parsed AST:\n")
 ```
 
-    ## Last 5 lines:
+    ## Last 5 lines of the parsed AST:
 
 ``` r
 cat(paste(func_str[(length(func_str)-4):length(func_str)], collapse = "\n"), "\n\n")
@@ -925,6 +956,37 @@ cat(paste(func_str[(length(func_str)-4):length(func_str)], collapse = "\n"), "\n
     ##         1
     ##     return(counter)
     ## }
+
+``` r
+# Show the AST object size
+cat("AST object information:\n")
+```
+
+    ## AST object information:
+
+``` r
+cat("- Object class:", class(body(thousand_loops_func)), "\n")
+```
+
+    ## - Object class: {
+
+``` r
+cat("- Object size:", format(object.size(thousand_loops_func), units = "Kb"), "\n")
+```
+
+    ## - Object size: 657.7 Kb
+
+``` r
+cat("- Nesting depth: 1000 levels\n")
+```
+
+    ## - Nesting depth: 1000 levels
+
+``` r
+cat("- Variable names: i1, i2, i3, ..., i1000\n\n")
+```
+
+    ## - Variable names: i1, i2, i3, ..., i1000
 
 ``` r
 # Run it and time it
@@ -953,7 +1015,7 @@ cat("Expected: ", 1^1000, " iterations (since each loop runs once)\n")
 cat("Execution time: ", round(as.numeric(end_time - start_time, units = "secs") * 1000, 2), " milliseconds\n")
 ```
 
-    ## Execution time:  5.92  milliseconds
+    ## Execution time:  6.62  milliseconds
 
 ``` r
 cat("Function call stack depth: 1000 levels deep!\n")
@@ -969,7 +1031,13 @@ cat("\nSuccess! We just executed a function with 1000 nested for loops! 🤯\n")
     ## Success! We just executed a function with 1000 nested for loops! 🤯
 
 ``` r
-cat("This is the most ridiculous thing R has ever computed! 🎉\n")
+cat("This demonstrates R's incredible AST manipulation capabilities! 🎉\n")
 ```
 
-    ## This is the most ridiculous thing R has ever computed! 🎉
+    ## This demonstrates R's incredible AST manipulation capabilities! 🎉
+
+``` r
+cat("R's homoiconic nature makes this kind of metaprogramming not just possible, but elegant!\n")
+```
+
+    ## R's homoiconic nature makes this kind of metaprogramming not just possible, but elegant!
