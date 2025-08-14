@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+@font-face {
+font-family: octicons-link;
+src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+}
+body {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+color: #333;
+font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+}
+a {
+background-color: transparent;
+}
+a:active,
+a:hover {
+outline: 0;
+}
+strong {
+font-weight: bold;
+}
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+img {
+border: 0;
+}
+hr {
+box-sizing: content-box;
+height: 0;
+}
+pre {
+overflow: auto;
+}
+code,
+kbd,
+pre {
+font-family: monospace, monospace;
+font-size: 1em;
+}
+input {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+html input[disabled] {
+cursor: default;
+}
+input {
+line-height: normal;
+}
+input[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+td,
+th {
+padding: 0;
+}
+* {
+box-sizing: border-box;
+}
+input {
+font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+a {
+color: #4078c0;
+text-decoration: none;
+}
+a:hover,
+a:active {
+text-decoration: underline;
+}
+hr {
+height: 0;
+margin: 15px 0;
+overflow: hidden;
+background: transparent;
+border: 0;
+border-bottom: 1px solid #ddd;
+}
+hr:before {
+display: table;
+content: "";
+}
+hr:after {
+display: table;
+clear: both;
+content: "";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 15px;
+margin-bottom: 15px;
+line-height: 1.1;
+}
+h1 {
+font-size: 30px;
+}
+h2 {
+font-size: 21px;
+}
+h3 {
+font-size: 16px;
+}
+h4 {
+font-size: 14px;
+}
+h5 {
+font-size: 12px;
+}
+h6 {
+font-size: 11px;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code {
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size: 12px;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+.select::-ms-expand {
+opacity: 0;
+}
+.octicon {
+font: normal normal normal 16px/1 octicons-link;
+display: inline-block;
+text-decoration: none;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.octicon-link:before {
+content: '\f05c';
+}
+.markdown-body:before {
+display: table;
+content: "";
+}
+.markdown-body:after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+display: inline-block;
+padding-right: 2px;
+margin-left: -18px;
+}
+.anchor:focus {
+outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1em;
+margin-bottom: 16px;
+font-weight: bold;
+line-height: 1.4;
+}
+h1 .octicon-link,
+h2 .octicon-link,
+h3 .octicon-link,
+h4 .octicon-link,
+h5 .octicon-link,
+h6 .octicon-link {
+color: #000;
+vertical-align: middle;
+visibility: hidden;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1:hover .anchor .octicon-link,
+h2:hover .anchor .octicon-link,
+h3:hover .anchor .octicon-link,
+h4:hover .anchor .octicon-link,
+h5:hover .anchor .octicon-link,
+h6:hover .anchor .octicon-link {
+visibility: visible;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2.25em;
+line-height: 1.2;
+border-bottom: 1px solid #eee;
+}
+h1 .anchor {
+line-height: 1;
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.75em;
+line-height: 1.225;
+border-bottom: 1px solid #eee;
+}
+h2 .anchor {
+line-height: 1;
+}
+h3 {
+font-size: 1.5em;
+line-height: 1.43;
+}
+h3 .anchor {
+line-height: 1.2;
+}
+h4 {
+font-size: 1.25em;
+}
+h4 .anchor {
+line-height: 1.2;
+}
+h5 {
+font-size: 1em;
+}
+h5 .anchor {
+line-height: 1.1;
+}
+h6 {
+font-size: 1em;
+color: #777;
+}
+h6 .anchor {
+line-height: 1.1;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 16px;
+}
+hr {
+height: 4px;
+padding: 0;
+margin: 16px 0;
+background-color: #e7e7e7;
+border: 0 none;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li>p {
+margin-top: 16px;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 16px;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+dl dd {
+padding: 0 16px;
+margin-bottom: 16px;
+}
+blockquote {
+padding: 0 15px;
+color: #777;
+border-left: 4px solid #ddd;
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+word-break: normal;
+word-break: keep-all;
+}
+table th {
+font-weight: bold;
+}
+table th,
+table td {
+padding: 6px 13px;
+border: 1px solid #ddd;
+}
+table tr {
+background-color: #fff;
+border-top: 1px solid #ccc;
+}
+table tr:nth-child(2n) {
+background-color: #f8f8f8;
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+background-color: #fff;
+}
+code {
+padding: 0;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+margin: 0;
+font-size: 85%;
+background-color: rgba(0,0,0,0.04);
+border-radius: 3px;
+}
+code:before,
+code:after {
+letter-spacing: -0.2em;
+content: "\00a0";
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 100%;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 16px;
+}
+.highlight pre,
+pre {
+padding: 16px;
+overflow: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+pre {
+word-wrap: normal;
+}
+pre code {
+display: inline;
+max-width: initial;
+padding: 0;
+margin: 0;
+overflow: initial;
+line-height: inherit;
+word-wrap: normal;
+background-color: transparent;
+border: 0;
+}
+pre code:before,
+pre code:after {
+content: normal;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.pl-c {
+color: #969896;
+}
+.pl-c1,
+.pl-s .pl-v {
+color: #0086b3;
+}
+.pl-e,
+.pl-en {
+color: #795da3;
+}
+.pl-s .pl-s1,
+.pl-smi {
+color: #333;
+}
+.pl-ent {
+color: #63a35c;
+}
+.pl-k {
+color: #a71d5d;
+}
+.pl-pds,
+.pl-s,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sra,
+.pl-sr .pl-sre {
+color: #183691;
+}
+.pl-v {
+color: #ed6a43;
+}
+.pl-id {
+color: #b52a1d;
+}
+.pl-ii {
+background-color: #b52a1d;
+color: #f8f8f8;
+}
+.pl-sr .pl-cce {
+color: #63a35c;
+font-weight: bold;
+}
+.pl-ml {
+color: #693a17;
+}
+.pl-mh,
+.pl-mh .pl-en,
+.pl-ms {
+color: #1d3e81;
+font-weight: bold;
+}
+.pl-mq {
+color: #008080;
+}
+.pl-mi {
+color: #333;
+font-style: italic;
+}
+.pl-mb {
+color: #333;
+font-weight: bold;
+}
+.pl-md {
+background-color: #ffecec;
+color: #bd2c00;
+}
+.pl-mi1 {
+background-color: #eaffea;
+color: #55a532;
+}
+.pl-mdr {
+color: #795da3;
+font-weight: bold;
+}
+.pl-mo {
+color: #1d3e81;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 3px;
+}
+.task-list-item input {
+margin: 0 0.35em 0.25em -1.6em;
+vertical-align: middle;
+}
+:checked+.radio-label {
+z-index: 1;
+position: relative;
+border-color: #4078c0;
+}
+.sourceLine {
+display: inline-block;
+}
+code .kw { color: #000000; }
+code .dt { color: #ed6a43; }
+code .dv { color: #009999; }
+code .bn { color: #009999; }
+code .fl { color: #009999; }
+code .ch { color: #009999; }
+code .st { color: #183691; }
+code .co { color: #969896; }
+code .ot { color: #0086b3; }
+code .al { color: #a61717; }
+code .fu { color: #63a35c; }
+code .er { color: #a61717; background-color: #e3d2d2; }
+code .wa { color: #000000; }
+code .cn { color: #008080; }
+code .sc { color: #008080; }
+code .vs { color: #183691; }
+code .ss { color: #183691; }
+code .im { color: #000000; }
+code .va {color: #008080; }
+code .cf { color: #000000; }
+code .op { color: #000000; }
+code .bu { color: #000000; }
+code .ex { color: #000000; }
+code .pp { color: #999999; }
+code .at { color: #008080; }
+code .do { color: #969896; }
+code .an { color: #008080; }
+code .cv { color: #008080; }
+code .in { color: #008080; }
+</style>
+<style>
+body {
+box-sizing: border-box;
+min-width: 200px;
+max-width: 980px;
+margin: 0 auto;
+padding: 45px;
+padding-top: 0px;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="dynamic-nested-loop-function-generator-in-r">Dynamic Nested Loop
+Function Generator in R</h1>
+<p>AST Manipulation Master 2025-08-15</p>
+<ul>
+<li><a href="#creating-functions-with-n-nested-loops-of-k-iterations">Creating
+Functions with N Nested Loops of K Iterations</a></li>
+<li><a href="#method-1-using-ast-manipulation-with-substitute-and-eval">Method
+1: Using AST Manipulation with <code>substitute()</code> and
+<code>eval()</code></a></li>
+<li><a href="#method-2-using-base-r-ast-manipulation-with-language-objects">Method
+2: Using Base R AST Manipulation with Language Objects</a></li>
+<li><a href="#method-3-recursive-approach-with-custom-actions">Method 3:
+Recursive Approach with Custom Actions</a></li>
+<li><a href="#method-4-tail-call-optimized-approach">Method 4: Tail Call
+Optimized Approach</a></li>
+<li><a href="#method-5-using-exec-for-expression-evaluation">Method 5:
+Using Exec for Expression Evaluation</a></li>
+<li><a href="#method-6-the-ridiculous-but-cool-version---string-generation">Method
+6: The Ridiculous But Cool Version - String Generation</a></li>
+<li><a href="#performance-comparison-the-language-wars-continue">Performance
+Comparison: The Language Wars Continue</a></li>
+<li><a href="#advanced-custom-actions-in-nested-loops">Advanced: Custom
+Actions in Nested Loops</a></li>
+<li><a href="#the-ultimate-test-generating-the-1-billion-iteration-function">The
+Ultimate Test: Generating the 1 Billion Iteration Function</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<h2 id="creating-functions-with-n-nested-loops-of-k-iterations">Creating
+Functions with N Nested Loops of K Iterations</h2>
+<p>This started as a joke inspired by the programming language speed
+comparison meme, but let’s see if we can actually create a function that
+generates functions with arbitrary nested loops in R!</p>
+<h3 id="the-challenge">The Challenge</h3>
+<p>We want to create a function <code>create_nested_loops(n, k)</code>
+that:</p>
+<ul>
+<li>Takes <code>n</code> (number of nested loops) and <code>k</code>
+(iterations per loop)</li>
+<li>Returns a function that executes n nested loops, each running k
+times</li>
+<li>Should be able to handle arbitrary values of n and k</li>
+</ul>
+<h2 id="method-1-using-ast-manipulation-with-substitute-and-eval">Method
+1: Using AST Manipulation with <code>substitute()</code> and
+<code>eval()</code></h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>create_nested_loops_v1 <span class="ot">&lt;-</span> <span class="cf">function</span>(n, k, <span class="at">action =</span> <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span>)) {</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>  <span class="cf">if</span> (n <span class="sc">&lt;=</span> <span class="dv">0</span>) {</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;Number of loops must be positive&quot;</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>  }</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>  </span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>  <span class="co"># Start with the innermost action</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>  body_expr <span class="ot">&lt;-</span> action</span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>  </span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>  <span class="co"># Build nested loops from inside out using lapply</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>  body_expr <span class="ot">&lt;-</span> <span class="fu">Reduce</span>(<span class="cf">function</span>(body, i) {</span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>    loop_var <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;i&quot;</span>, i)</span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a>    <span class="fu">substitute</span>(</span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a>      <span class="cf">for</span> (VAR <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>K) {</span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a>        BODY</span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>      },</span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a>      <span class="fu">list</span>(<span class="at">VAR =</span> <span class="fu">as.name</span>(loop_var), <span class="at">K =</span> k, <span class="at">BODY =</span> body)</span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a>    )</span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a>  }, n<span class="sc">:</span><span class="dv">1</span>, <span class="at">init =</span> body_expr)</span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a>  </span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a>  <span class="co"># Create the complete function body</span></span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a>  complete_body <span class="ot">&lt;-</span> <span class="fu">substitute</span>({</span>
+<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a>    counter <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a>    LOOPS</span>
+<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a>    <span class="fu">return</span>(counter)</span>
+<span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a>  }, <span class="fu">list</span>(<span class="at">LOOPS =</span> body_expr))</span>
+<span id="cb1-26"><a href="#cb1-26" tabindex="-1"></a>  </span>
+<span id="cb1-27"><a href="#cb1-27" tabindex="-1"></a>  <span class="co"># Create and return the function</span></span>
+<span id="cb1-28"><a href="#cb1-28" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="cf">function</span>() {}</span>
+<span id="cb1-29"><a href="#cb1-29" tabindex="-1"></a>  <span class="fu">body</span>(f) <span class="ot">&lt;-</span> complete_body</span>
+<span id="cb1-30"><a href="#cb1-30" tabindex="-1"></a>  </span>
+<span id="cb1-31"><a href="#cb1-31" tabindex="-1"></a>  <span class="fu">return</span>(f)</span>
+<span id="cb1-32"><a href="#cb1-32" tabindex="-1"></a>}</span>
+<span id="cb1-33"><a href="#cb1-33" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" tabindex="-1"></a><span class="co"># Test with 3 nested loops of 5 iterations each</span></span>
+<span id="cb1-35"><a href="#cb1-35" tabindex="-1"></a>nested_3_5 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v1</span>(<span class="dv">3</span>, <span class="dv">5</span>)</span>
+<span id="cb1-36"><a href="#cb1-36" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated function body:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Generated function body:</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">body</span>(nested_3_5))</span></code></pre></div>
+<pre><code>## {
+##     counter &lt;- 0
+##     for (i1 in 1:5) {
+##         for (i2 in 1:5) {
+##             for (i3 in 1:5) {
+##                 counter &lt;- counter + 1
+##             }
+##         }
+##     }
+##     return(counter)
+## }</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>result1 <span class="ot">&lt;-</span> <span class="fu">nested_3_5</span>()</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;3 nested loops of 5 iterations:&quot;</span>, result1, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## 3 nested loops of 5 iterations: 125 total iterations</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">5</span><span class="sc">^</span><span class="dv">3</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Expected: 125</code></pre>
+<h2 id="method-2-using-base-r-ast-manipulation-with-language-objects">Method
+2: Using Base R AST Manipulation with Language Objects</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>create_nested_loops_v2 <span class="ot">&lt;-</span> <span class="cf">function</span>(n, k, <span class="at">action =</span> <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span>)) {</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>  <span class="cf">if</span> (n <span class="sc">&lt;=</span> <span class="dv">0</span>) {</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;Number of loops must be positive&quot;</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>  }</span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>  </span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>  <span class="co"># Start with the action</span></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>  body_expr <span class="ot">&lt;-</span> action</span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>  </span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>  <span class="co"># Build nested loops from inside out using Reduce</span></span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a>  body_expr <span class="ot">&lt;-</span> <span class="fu">Reduce</span>(<span class="cf">function</span>(body, i) {</span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a>    loop_var <span class="ot">&lt;-</span> <span class="fu">as.name</span>(<span class="fu">paste0</span>(<span class="st">&quot;i&quot;</span>, i))</span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a>    <span class="co"># Create the for loop structure: for (loop_var in 1:k) { body }</span></span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a>    <span class="fu">call</span>(<span class="st">&quot;for&quot;</span>, loop_var, <span class="fu">call</span>(<span class="st">&quot;:&quot;</span>, <span class="dv">1</span>, k), body)</span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a>  }, n<span class="sc">:</span><span class="dv">1</span>, <span class="at">init =</span> body_expr)</span>
+<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a>  </span>
+<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a>  <span class="co"># Create complete function body using call()</span></span>
+<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a>  complete_expr <span class="ot">&lt;-</span> <span class="fu">call</span>(<span class="st">&quot;{&quot;</span>, </span>
+<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a>                       <span class="fu">call</span>(<span class="st">&quot;&lt;-&quot;</span>, <span class="fu">quote</span>(counter), <span class="dv">0</span>),</span>
+<span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a>                       body_expr,</span>
+<span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a>                       <span class="fu">call</span>(<span class="st">&quot;return&quot;</span>, <span class="fu">quote</span>(counter)))</span>
+<span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a>  </span>
+<span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a>  <span class="co"># Create and return the function</span></span>
+<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="cf">function</span>() {}</span>
+<span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a>  <span class="fu">body</span>(f) <span class="ot">&lt;-</span> complete_expr</span>
+<span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a>  </span>
+<span id="cb10-26"><a href="#cb10-26" tabindex="-1"></a>  <span class="fu">return</span>(f)</span>
+<span id="cb10-27"><a href="#cb10-27" tabindex="-1"></a>}</span>
+<span id="cb10-28"><a href="#cb10-28" tabindex="-1"></a></span>
+<span id="cb10-29"><a href="#cb10-29" tabindex="-1"></a><span class="co"># Test the base R version</span></span>
+<span id="cb10-30"><a href="#cb10-30" tabindex="-1"></a>nested_4_3 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v2</span>(<span class="dv">4</span>, <span class="dv">3</span>)</span>
+<span id="cb10-31"><a href="#cb10-31" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated function body (call objects):</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Generated function body (call objects):</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">body</span>(nested_4_3))</span></code></pre></div>
+<pre><code>## {
+##     counter &lt;- 0
+##     for (i1 in 1:3) for (i2 in 1:3) for (i3 in 1:3) for (i4 in 1:3) counter &lt;- counter + 
+##         1
+##     return(counter)
+## }</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>result2 <span class="ot">&lt;-</span> <span class="fu">nested_4_3</span>()</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;4 nested loops of 3 iterations:&quot;</span>, result2, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## 4 nested loops of 3 iterations: 81 total iterations</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">3</span><span class="sc">^</span><span class="dv">4</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Expected: 81</code></pre>
+<h2 id="method-3-recursive-approach-with-custom-actions">Method 3:
+Recursive Approach with Custom Actions</h2>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>create_nested_loops_v3 <span class="ot">&lt;-</span> <span class="cf">function</span>(n, k, <span class="at">custom_action =</span> <span class="cn">NULL</span>) {</span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>  <span class="co"># Default action: increment counter</span></span>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(custom_action)) {</span>
+<span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a>    action_code <span class="ot">&lt;-</span> <span class="st">&quot;counter &lt;- counter + 1&quot;</span></span>
+<span id="cb19-5"><a href="#cb19-5" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb19-6"><a href="#cb19-6" tabindex="-1"></a>    action_code <span class="ot">&lt;-</span> <span class="fu">deparse</span>(<span class="fu">substitute</span>(custom_action))</span>
+<span id="cb19-7"><a href="#cb19-7" tabindex="-1"></a>  }</span>
+<span id="cb19-8"><a href="#cb19-8" tabindex="-1"></a>  </span>
+<span id="cb19-9"><a href="#cb19-9" tabindex="-1"></a>  <span class="co"># Build the nested loop structure recursively</span></span>
+<span id="cb19-10"><a href="#cb19-10" tabindex="-1"></a>  build_loops <span class="ot">&lt;-</span> <span class="cf">function</span>(depth, max_depth) {</span>
+<span id="cb19-11"><a href="#cb19-11" tabindex="-1"></a>    <span class="cf">if</span> (depth <span class="sc">&gt;</span> max_depth) {</span>
+<span id="cb19-12"><a href="#cb19-12" tabindex="-1"></a>      <span class="fu">return</span>(action_code)</span>
+<span id="cb19-13"><a href="#cb19-13" tabindex="-1"></a>    }</span>
+<span id="cb19-14"><a href="#cb19-14" tabindex="-1"></a>    </span>
+<span id="cb19-15"><a href="#cb19-15" tabindex="-1"></a>    inner <span class="ot">&lt;-</span> <span class="fu">build_loops</span>(depth <span class="sc">+</span> <span class="dv">1</span>, max_depth)</span>
+<span id="cb19-16"><a href="#cb19-16" tabindex="-1"></a>    <span class="fu">paste0</span>(<span class="st">&quot;for (i&quot;</span>, depth, <span class="st">&quot; in 1:&quot;</span>, k, <span class="st">&quot;) {</span><span class="sc">\n</span><span class="st">&quot;</span>, </span>
+<span id="cb19-17"><a href="#cb19-17" tabindex="-1"></a>           <span class="fu">paste</span>(<span class="fu">rep</span>(<span class="st">&quot;  &quot;</span>, depth), <span class="at">collapse =</span> <span class="st">&quot;&quot;</span>), inner, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb19-18"><a href="#cb19-18" tabindex="-1"></a>           <span class="fu">paste</span>(<span class="fu">rep</span>(<span class="st">&quot;  &quot;</span>, depth <span class="sc">-</span> <span class="dv">1</span>), <span class="at">collapse =</span> <span class="st">&quot;&quot;</span>), <span class="st">&quot;}&quot;</span>)</span>
+<span id="cb19-19"><a href="#cb19-19" tabindex="-1"></a>  }</span>
+<span id="cb19-20"><a href="#cb19-20" tabindex="-1"></a>  </span>
+<span id="cb19-21"><a href="#cb19-21" tabindex="-1"></a>  <span class="co"># Create function string</span></span>
+<span id="cb19-22"><a href="#cb19-22" tabindex="-1"></a>  func_string <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;function() {</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb19-23"><a href="#cb19-23" tabindex="-1"></a>                       <span class="st">&quot;  counter &lt;- 0</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb19-24"><a href="#cb19-24" tabindex="-1"></a>                       <span class="st">&quot;  &quot;</span>, <span class="fu">build_loops</span>(<span class="dv">1</span>, n), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb19-25"><a href="#cb19-25" tabindex="-1"></a>                       <span class="st">&quot;  return(counter)</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb19-26"><a href="#cb19-26" tabindex="-1"></a>                       <span class="st">&quot;}&quot;</span>)</span>
+<span id="cb19-27"><a href="#cb19-27" tabindex="-1"></a>  </span>
+<span id="cb19-28"><a href="#cb19-28" tabindex="-1"></a>  <span class="co"># Parse and return function</span></span>
+<span id="cb19-29"><a href="#cb19-29" tabindex="-1"></a>  <span class="fu">eval</span>(<span class="fu">parse</span>(<span class="at">text =</span> func_string))</span>
+<span id="cb19-30"><a href="#cb19-30" tabindex="-1"></a>}</span>
+<span id="cb19-31"><a href="#cb19-31" tabindex="-1"></a></span>
+<span id="cb19-32"><a href="#cb19-32" tabindex="-1"></a><span class="co"># Test recursive approach</span></span>
+<span id="cb19-33"><a href="#cb19-33" tabindex="-1"></a>nested_2_10 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v3</span>(<span class="dv">2</span>, <span class="dv">10</span>)</span>
+<span id="cb19-34"><a href="#cb19-34" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated function (string method):</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Generated function (string method):</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="fu">print</span>(nested_2_10)</span></code></pre></div>
+<pre><code>## function () 
+## {
+##     counter &lt;- 0
+##     for (i1 in 1:10) {
+##         for (i2 in 1:10) {
+##             counter &lt;- counter + 1
+##         }
+##     }
+##     return(counter)
+## }
+## &lt;environment: 0x6335e6c454c8&gt;</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a>result3 <span class="ot">&lt;-</span> <span class="fu">nested_2_10</span>()</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;2 nested loops of 10 iterations:&quot;</span>, result3, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## 2 nested loops of 10 iterations: 100 total iterations</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">10</span><span class="sc">^</span><span class="dv">2</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Expected: 100</code></pre>
+<h2 id="method-4-tail-call-optimized-approach">Method 4: Tail Call
+Optimized Approach</h2>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a>create_nested_loops_tailcall <span class="ot">&lt;-</span> <span class="cf">function</span>(n, k, <span class="at">action =</span> <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span>)) {</span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a>  <span class="cf">if</span> (n <span class="sc">&lt;=</span> <span class="dv">0</span>) {</span>
+<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;Number of loops must be positive&quot;</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" tabindex="-1"></a>  }</span>
+<span id="cb28-5"><a href="#cb28-5" tabindex="-1"></a>  </span>
+<span id="cb28-6"><a href="#cb28-6" tabindex="-1"></a>  <span class="co"># Tail-recursive function to build nested loops</span></span>
+<span id="cb28-7"><a href="#cb28-7" tabindex="-1"></a>  build_nested_expr <span class="ot">&lt;-</span> <span class="cf">function</span>(body_expr, depth, max_depth) {</span>
+<span id="cb28-8"><a href="#cb28-8" tabindex="-1"></a>    <span class="fu">force</span>(body_expr)  <span class="co"># Force evaluation to avoid accumulating deferred evaluations</span></span>
+<span id="cb28-9"><a href="#cb28-9" tabindex="-1"></a>    <span class="fu">force</span>(depth)</span>
+<span id="cb28-10"><a href="#cb28-10" tabindex="-1"></a>    <span class="fu">force</span>(max_depth)</span>
+<span id="cb28-11"><a href="#cb28-11" tabindex="-1"></a>    </span>
+<span id="cb28-12"><a href="#cb28-12" tabindex="-1"></a>    <span class="cf">if</span> (depth <span class="sc">&gt;</span> max_depth) {</span>
+<span id="cb28-13"><a href="#cb28-13" tabindex="-1"></a>      <span class="fu">return</span>(body_expr)</span>
+<span id="cb28-14"><a href="#cb28-14" tabindex="-1"></a>    }</span>
+<span id="cb28-15"><a href="#cb28-15" tabindex="-1"></a>    </span>
+<span id="cb28-16"><a href="#cb28-16" tabindex="-1"></a>    loop_var <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;i&quot;</span>, depth)</span>
+<span id="cb28-17"><a href="#cb28-17" tabindex="-1"></a>    new_body <span class="ot">&lt;-</span> <span class="fu">substitute</span>(</span>
+<span id="cb28-18"><a href="#cb28-18" tabindex="-1"></a>      <span class="cf">for</span> (VAR <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>K) {</span>
+<span id="cb28-19"><a href="#cb28-19" tabindex="-1"></a>        BODY</span>
+<span id="cb28-20"><a href="#cb28-20" tabindex="-1"></a>      },</span>
+<span id="cb28-21"><a href="#cb28-21" tabindex="-1"></a>      <span class="fu">list</span>(<span class="at">VAR =</span> <span class="fu">as.name</span>(loop_var), <span class="at">K =</span> k, <span class="at">BODY =</span> body_expr)</span>
+<span id="cb28-22"><a href="#cb28-22" tabindex="-1"></a>    )</span>
+<span id="cb28-23"><a href="#cb28-23" tabindex="-1"></a>    </span>
+<span id="cb28-24"><a href="#cb28-24" tabindex="-1"></a>    <span class="co"># Use Tailcall for stack-efficient recursion</span></span>
+<span id="cb28-25"><a href="#cb28-25" tabindex="-1"></a>    <span class="fu">Tailcall</span>(build_nested_expr, new_body, depth <span class="sc">+</span> <span class="dv">1</span>, max_depth)</span>
+<span id="cb28-26"><a href="#cb28-26" tabindex="-1"></a>  }</span>
+<span id="cb28-27"><a href="#cb28-27" tabindex="-1"></a>  </span>
+<span id="cb28-28"><a href="#cb28-28" tabindex="-1"></a>  <span class="co"># Build the expression using tail recursion</span></span>
+<span id="cb28-29"><a href="#cb28-29" tabindex="-1"></a>  body_expr <span class="ot">&lt;-</span> <span class="fu">build_nested_expr</span>(action, <span class="dv">1</span>, n)</span>
+<span id="cb28-30"><a href="#cb28-30" tabindex="-1"></a>  </span>
+<span id="cb28-31"><a href="#cb28-31" tabindex="-1"></a>  <span class="co"># Create the complete function body</span></span>
+<span id="cb28-32"><a href="#cb28-32" tabindex="-1"></a>  complete_body <span class="ot">&lt;-</span> <span class="fu">substitute</span>({</span>
+<span id="cb28-33"><a href="#cb28-33" tabindex="-1"></a>    counter <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb28-34"><a href="#cb28-34" tabindex="-1"></a>    LOOPS</span>
+<span id="cb28-35"><a href="#cb28-35" tabindex="-1"></a>    <span class="fu">return</span>(counter)</span>
+<span id="cb28-36"><a href="#cb28-36" tabindex="-1"></a>  }, <span class="fu">list</span>(<span class="at">LOOPS =</span> body_expr))</span>
+<span id="cb28-37"><a href="#cb28-37" tabindex="-1"></a>  </span>
+<span id="cb28-38"><a href="#cb28-38" tabindex="-1"></a>  <span class="co"># Create and return the function</span></span>
+<span id="cb28-39"><a href="#cb28-39" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="cf">function</span>() {}</span>
+<span id="cb28-40"><a href="#cb28-40" tabindex="-1"></a>  <span class="fu">body</span>(f) <span class="ot">&lt;-</span> complete_body</span>
+<span id="cb28-41"><a href="#cb28-41" tabindex="-1"></a>  </span>
+<span id="cb28-42"><a href="#cb28-42" tabindex="-1"></a>  <span class="fu">return</span>(f)</span>
+<span id="cb28-43"><a href="#cb28-43" tabindex="-1"></a>}</span>
+<span id="cb28-44"><a href="#cb28-44" tabindex="-1"></a></span>
+<span id="cb28-45"><a href="#cb28-45" tabindex="-1"></a><span class="co"># Test tail call optimized version</span></span>
+<span id="cb28-46"><a href="#cb28-46" tabindex="-1"></a>nested_tailcall <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_tailcall</span>(<span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb28-47"><a href="#cb28-47" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated function body (Tailcall method):</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Generated function body (Tailcall method):</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">body</span>(nested_tailcall))</span></code></pre></div>
+<pre><code>## {
+##     counter &lt;- 0
+##     for (i3 in 1:4) {
+##         for (i2 in 1:4) {
+##             for (i1 in 1:4) {
+##                 counter &lt;- counter + 1
+##             }
+##         }
+##     }
+##     return(counter)
+## }</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a>result_tailcall <span class="ot">&lt;-</span> <span class="fu">nested_tailcall</span>()</span>
+<span id="cb33-2"><a href="#cb33-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Tail call optimized - 3 nested loops of 4 iterations:&quot;</span>, result_tailcall, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Tail call optimized - 3 nested loops of 4 iterations: 64 total iterations</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">4</span><span class="sc">^</span><span class="dv">3</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Expected: 64</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a><span class="co"># Test with deeper nesting to show stack efficiency</span></span>
+<span id="cb37-2"><a href="#cb37-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">=== Testing stack efficiency with deep nesting ===</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## === Testing stack efficiency with deep nesting ===</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a>deep_nested <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_tailcall</span>(<span class="dv">10</span>, <span class="dv">2</span>)</span>
+<span id="cb39-2"><a href="#cb39-2" tabindex="-1"></a>deep_result <span class="ot">&lt;-</span> <span class="fu">deep_nested</span>()</span>
+<span id="cb39-3"><a href="#cb39-3" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;10 nested loops of 2 iterations:&quot;</span>, deep_result, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## 10 nested loops of 2 iterations: 1024 total iterations</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">2</span><span class="sc">^</span><span class="dv">10</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Expected: 1024</code></pre>
+<h2 id="method-5-using-exec-for-expression-evaluation">Method 5: Using
+Exec for Expression Evaluation</h2>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" tabindex="-1"></a>create_nested_loops_exec <span class="ot">&lt;-</span> <span class="cf">function</span>(n, k, <span class="at">action =</span> <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span>)) {</span>
+<span id="cb43-2"><a href="#cb43-2" tabindex="-1"></a>  <span class="cf">if</span> (n <span class="sc">&lt;=</span> <span class="dv">0</span>) {</span>
+<span id="cb43-3"><a href="#cb43-3" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;Number of loops must be positive&quot;</span>)</span>
+<span id="cb43-4"><a href="#cb43-4" tabindex="-1"></a>  }</span>
+<span id="cb43-5"><a href="#cb43-5" tabindex="-1"></a>  </span>
+<span id="cb43-6"><a href="#cb43-6" tabindex="-1"></a>  <span class="co"># Build expression using our previous method</span></span>
+<span id="cb43-7"><a href="#cb43-7" tabindex="-1"></a>  body_expr <span class="ot">&lt;-</span> <span class="fu">Reduce</span>(<span class="cf">function</span>(body, i) {</span>
+<span id="cb43-8"><a href="#cb43-8" tabindex="-1"></a>    loop_var <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;i&quot;</span>, i)</span>
+<span id="cb43-9"><a href="#cb43-9" tabindex="-1"></a>    <span class="fu">substitute</span>(</span>
+<span id="cb43-10"><a href="#cb43-10" tabindex="-1"></a>      <span class="cf">for</span> (VAR <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>K) {</span>
+<span id="cb43-11"><a href="#cb43-11" tabindex="-1"></a>        BODY</span>
+<span id="cb43-12"><a href="#cb43-12" tabindex="-1"></a>      },</span>
+<span id="cb43-13"><a href="#cb43-13" tabindex="-1"></a>      <span class="fu">list</span>(<span class="at">VAR =</span> <span class="fu">as.name</span>(loop_var), <span class="at">K =</span> k, <span class="at">BODY =</span> body)</span>
+<span id="cb43-14"><a href="#cb43-14" tabindex="-1"></a>    )</span>
+<span id="cb43-15"><a href="#cb43-15" tabindex="-1"></a>  }, n<span class="sc">:</span><span class="dv">1</span>, <span class="at">init =</span> action)</span>
+<span id="cb43-16"><a href="#cb43-16" tabindex="-1"></a>  </span>
+<span id="cb43-17"><a href="#cb43-17" tabindex="-1"></a>  <span class="co"># Create a function that uses Exec for cleaner call stack</span></span>
+<span id="cb43-18"><a href="#cb43-18" tabindex="-1"></a>  <span class="cf">function</span>() {</span>
+<span id="cb43-19"><a href="#cb43-19" tabindex="-1"></a>    <span class="co"># Create the expression to execute (without return statement for Exec)</span></span>
+<span id="cb43-20"><a href="#cb43-20" tabindex="-1"></a>    expr_to_exec <span class="ot">&lt;-</span> <span class="fu">substitute</span>({</span>
+<span id="cb43-21"><a href="#cb43-21" tabindex="-1"></a>      counter <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb43-22"><a href="#cb43-22" tabindex="-1"></a>      LOOPS</span>
+<span id="cb43-23"><a href="#cb43-23" tabindex="-1"></a>      counter  <span class="co"># Return value without explicit return()</span></span>
+<span id="cb43-24"><a href="#cb43-24" tabindex="-1"></a>    }, <span class="fu">list</span>(<span class="at">LOOPS =</span> body_expr))</span>
+<span id="cb43-25"><a href="#cb43-25" tabindex="-1"></a>    </span>
+<span id="cb43-26"><a href="#cb43-26" tabindex="-1"></a>    <span class="co"># Use Exec to evaluate with simplified call stack</span></span>
+<span id="cb43-27"><a href="#cb43-27" tabindex="-1"></a>    <span class="fu">Exec</span>(expr_to_exec, <span class="fu">environment</span>())</span>
+<span id="cb43-28"><a href="#cb43-28" tabindex="-1"></a>  }</span>
+<span id="cb43-29"><a href="#cb43-29" tabindex="-1"></a>}</span>
+<span id="cb43-30"><a href="#cb43-30" tabindex="-1"></a></span>
+<span id="cb43-31"><a href="#cb43-31" tabindex="-1"></a><span class="co"># Test Exec version</span></span>
+<span id="cb43-32"><a href="#cb43-32" tabindex="-1"></a>nested_exec <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_exec</span>(<span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb43-33"><a href="#cb43-33" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated function body (Exec method):</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Generated function body (Exec method):</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">body</span>(nested_exec))</span></code></pre></div>
+<pre><code>## {
+##     expr_to_exec &lt;- substitute({
+##         counter &lt;- 0
+##         LOOPS
+##         counter
+##     }, list(LOOPS = body_expr))
+##     Exec(expr_to_exec, environment())
+## }</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" tabindex="-1"></a>result_exec <span class="ot">&lt;-</span> <span class="fu">nested_exec</span>()</span>
+<span id="cb48-2"><a href="#cb48-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Exec-based - 3 nested loops of 3 iterations:&quot;</span>, result_exec, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Exec-based - 3 nested loops of 3 iterations: 27 total iterations</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">3</span><span class="sc">^</span><span class="dv">3</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Expected: 27</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">=== Exec provides cleaner call stack evaluation ===</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## === Exec provides cleaner call stack evaluation ===</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Exec successfully demonstrated for dynamic nested loop generation!</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Exec successfully demonstrated for dynamic nested loop generation!</code></pre>
+<h2 id="method-6-the-ridiculous-but-cool-version---string-generation">Method
+6: The Ridiculous But Cool Version - String Generation</h2>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" tabindex="-1"></a>create_ridiculous_nested_loops <span class="ot">&lt;-</span> <span class="cf">function</span>(n, k, <span class="at">print_code =</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb56-2"><a href="#cb56-2" tabindex="-1"></a>  <span class="co"># Generate variable names</span></span>
+<span id="cb56-3"><a href="#cb56-3" tabindex="-1"></a>  vars <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;i&quot;</span>, <span class="dv">1</span><span class="sc">:</span>n)</span>
+<span id="cb56-4"><a href="#cb56-4" tabindex="-1"></a>  </span>
+<span id="cb56-5"><a href="#cb56-5" tabindex="-1"></a>  <span class="co"># Build the nested structure using lapply</span></span>
+<span id="cb56-6"><a href="#cb56-6" tabindex="-1"></a>  loop_components <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span>n, <span class="cf">function</span>(i) {</span>
+<span id="cb56-7"><a href="#cb56-7" tabindex="-1"></a>    indent <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">rep</span>(<span class="st">&quot;  &quot;</span>, i), <span class="at">collapse =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb56-8"><a href="#cb56-8" tabindex="-1"></a>    <span class="fu">list</span>(</span>
+<span id="cb56-9"><a href="#cb56-9" tabindex="-1"></a>      <span class="at">start =</span> <span class="fu">paste0</span>(indent, <span class="st">&quot;for (&quot;</span>, vars[i], <span class="st">&quot; in 1:&quot;</span>, k, <span class="st">&quot;) {&quot;</span>),</span>
+<span id="cb56-10"><a href="#cb56-10" tabindex="-1"></a>      <span class="at">end =</span> <span class="fu">paste0</span>(<span class="fu">paste</span>(<span class="fu">rep</span>(<span class="st">&quot;  &quot;</span>, i <span class="sc">-</span> <span class="dv">1</span>), <span class="at">collapse =</span> <span class="st">&quot;&quot;</span>), <span class="st">&quot;}&quot;</span>)</span>
+<span id="cb56-11"><a href="#cb56-11" tabindex="-1"></a>    )</span>
+<span id="cb56-12"><a href="#cb56-12" tabindex="-1"></a>  })</span>
+<span id="cb56-13"><a href="#cb56-13" tabindex="-1"></a>  </span>
+<span id="cb56-14"><a href="#cb56-14" tabindex="-1"></a>  loop_start <span class="ot">&lt;-</span> <span class="fu">sapply</span>(loop_components, <span class="cf">function</span>(x) x<span class="sc">$</span>start)</span>
+<span id="cb56-15"><a href="#cb56-15" tabindex="-1"></a>  loop_end <span class="ot">&lt;-</span> <span class="fu">rev</span>(<span class="fu">sapply</span>(loop_components, <span class="cf">function</span>(x) x<span class="sc">$</span>end))</span>
+<span id="cb56-16"><a href="#cb56-16" tabindex="-1"></a>  </span>
+<span id="cb56-17"><a href="#cb56-17" tabindex="-1"></a>  <span class="co"># The action (with proper indentation)</span></span>
+<span id="cb56-18"><a href="#cb56-18" tabindex="-1"></a>  action_indent <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">rep</span>(<span class="st">&quot;  &quot;</span>, n <span class="sc">+</span> <span class="dv">1</span>), <span class="at">collapse =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb56-19"><a href="#cb56-19" tabindex="-1"></a>  action <span class="ot">&lt;-</span> <span class="fu">paste0</span>(action_indent, <span class="st">&quot;counter &lt;- counter + 1&quot;</span>)</span>
+<span id="cb56-20"><a href="#cb56-20" tabindex="-1"></a>  </span>
+<span id="cb56-21"><a href="#cb56-21" tabindex="-1"></a>  <span class="co"># Combine everything</span></span>
+<span id="cb56-22"><a href="#cb56-22" tabindex="-1"></a>  func_body <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb56-23"><a href="#cb56-23" tabindex="-1"></a>    <span class="st">&quot;function() {&quot;</span>,</span>
+<span id="cb56-24"><a href="#cb56-24" tabindex="-1"></a>    <span class="st">&quot;  counter &lt;- 0&quot;</span>,</span>
+<span id="cb56-25"><a href="#cb56-25" tabindex="-1"></a>    loop_start,</span>
+<span id="cb56-26"><a href="#cb56-26" tabindex="-1"></a>    action,</span>
+<span id="cb56-27"><a href="#cb56-27" tabindex="-1"></a>    loop_end,</span>
+<span id="cb56-28"><a href="#cb56-28" tabindex="-1"></a>    <span class="fu">paste0</span>(<span class="st">&quot;  return(list(count = counter, vars = c(&quot;</span>, </span>
+<span id="cb56-29"><a href="#cb56-29" tabindex="-1"></a>           <span class="fu">paste</span>(vars, <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>), <span class="st">&quot;)))&quot;</span>),</span>
+<span id="cb56-30"><a href="#cb56-30" tabindex="-1"></a>    <span class="st">&quot;}&quot;</span></span>
+<span id="cb56-31"><a href="#cb56-31" tabindex="-1"></a>  )</span>
+<span id="cb56-32"><a href="#cb56-32" tabindex="-1"></a>  </span>
+<span id="cb56-33"><a href="#cb56-33" tabindex="-1"></a>  func_string <span class="ot">&lt;-</span> <span class="fu">paste</span>(func_body, <span class="at">collapse =</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb56-34"><a href="#cb56-34" tabindex="-1"></a>  </span>
+<span id="cb56-35"><a href="#cb56-35" tabindex="-1"></a>  <span class="cf">if</span> (print_code) {</span>
+<span id="cb56-36"><a href="#cb56-36" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">&quot;Generated function:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb56-37"><a href="#cb56-37" tabindex="-1"></a>    <span class="fu">cat</span>(func_string, <span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span>
+<span id="cb56-38"><a href="#cb56-38" tabindex="-1"></a>  }</span>
+<span id="cb56-39"><a href="#cb56-39" tabindex="-1"></a>  </span>
+<span id="cb56-40"><a href="#cb56-40" tabindex="-1"></a>  <span class="fu">eval</span>(<span class="fu">parse</span>(<span class="at">text =</span> func_string))</span>
+<span id="cb56-41"><a href="#cb56-41" tabindex="-1"></a>}</span>
+<span id="cb56-42"><a href="#cb56-42" tabindex="-1"></a></span>
+<span id="cb56-43"><a href="#cb56-43" tabindex="-1"></a><span class="co"># Test the ridiculous version</span></span>
+<span id="cb56-44"><a href="#cb56-44" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;=== Testing with 5 nested loops ===</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## === Testing with 5 nested loops ===</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" tabindex="-1"></a>nested_5_2 <span class="ot">&lt;-</span> <span class="fu">create_ridiculous_nested_loops</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="at">print_code =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## Generated function:
+## function() {
+##   counter &lt;- 0
+##   for (i1 in 1:2) {
+##     for (i2 in 1:2) {
+##       for (i3 in 1:2) {
+##         for (i4 in 1:2) {
+##           for (i5 in 1:2) {
+##             counter &lt;- counter + 1
+##         }
+##       }
+##     }
+##   }
+## }
+##   return(list(count = counter, vars = c(i1, i2, i3, i4, i5)))
+## }</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated function object:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Generated function object:</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" tabindex="-1"></a><span class="fu">print</span>(nested_5_2)</span></code></pre></div>
+<pre><code>## function () 
+## {
+##     counter &lt;- 0
+##     for (i1 in 1:2) {
+##         for (i2 in 1:2) {
+##             for (i3 in 1:2) {
+##                 for (i4 in 1:2) {
+##                   for (i5 in 1:2) {
+##                     counter &lt;- counter + 1
+##                   }
+##                 }
+##             }
+##         }
+##     }
+##     return(list(count = counter, vars = c(i1, i2, i3, i4, i5)))
+## }
+## &lt;environment: 0x6335e93cb918&gt;</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" tabindex="-1"></a>result4 <span class="ot">&lt;-</span> <span class="fu">nested_5_2</span>()</span>
+<span id="cb65-2"><a href="#cb65-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Result:&quot;</span>, result4<span class="sc">$</span>count, <span class="st">&quot;iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Result: 32 iterations</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">2</span><span class="sc">^</span><span class="dv">5</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Expected: 32</code></pre>
+<h2 id="performance-comparison-the-language-wars-continue">Performance
+Comparison: The Language Wars Continue</h2>
+<p>Let’s see how our dynamic R functions perform compared to a static
+implementation:</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" tabindex="-1"></a><span class="co"># Static implementation for comparison</span></span>
+<span id="cb69-2"><a href="#cb69-2" tabindex="-1"></a>static_3_loops <span class="ot">&lt;-</span> <span class="cf">function</span>(k) {</span>
+<span id="cb69-3"><a href="#cb69-3" tabindex="-1"></a>  counter <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb69-4"><a href="#cb69-4" tabindex="-1"></a>  <span class="cf">for</span> (i1 <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k) {</span>
+<span id="cb69-5"><a href="#cb69-5" tabindex="-1"></a>    <span class="cf">for</span> (i2 <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k) {</span>
+<span id="cb69-6"><a href="#cb69-6" tabindex="-1"></a>      <span class="cf">for</span> (i3 <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k) {</span>
+<span id="cb69-7"><a href="#cb69-7" tabindex="-1"></a>        counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb69-8"><a href="#cb69-8" tabindex="-1"></a>      }</span>
+<span id="cb69-9"><a href="#cb69-9" tabindex="-1"></a>    }</span>
+<span id="cb69-10"><a href="#cb69-10" tabindex="-1"></a>  }</span>
+<span id="cb69-11"><a href="#cb69-11" tabindex="-1"></a>  <span class="fu">return</span>(counter)</span>
+<span id="cb69-12"><a href="#cb69-12" tabindex="-1"></a>}</span>
+<span id="cb69-13"><a href="#cb69-13" tabindex="-1"></a></span>
+<span id="cb69-14"><a href="#cb69-14" tabindex="-1"></a><span class="co"># Benchmark (only if microbenchmark is available)</span></span>
+<span id="cb69-15"><a href="#cb69-15" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">requireNamespace</span>(<span class="st">&quot;microbenchmark&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb69-16"><a href="#cb69-16" tabindex="-1"></a>  <span class="fu">library</span>(microbenchmark)</span>
+<span id="cb69-17"><a href="#cb69-17" tabindex="-1"></a>  </span>
+<span id="cb69-18"><a href="#cb69-18" tabindex="-1"></a>  k <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb69-19"><a href="#cb69-19" tabindex="-1"></a>  dynamic_func_v1 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v1</span>(<span class="dv">3</span>, k)</span>
+<span id="cb69-20"><a href="#cb69-20" tabindex="-1"></a>  dynamic_func_v2 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v2</span>(<span class="dv">3</span>, k)</span>
+<span id="cb69-21"><a href="#cb69-21" tabindex="-1"></a>  dynamic_func_v3 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v3</span>(<span class="dv">3</span>, k)</span>
+<span id="cb69-22"><a href="#cb69-22" tabindex="-1"></a>  dynamic_func_tailcall <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_tailcall</span>(<span class="dv">3</span>, k)</span>
+<span id="cb69-23"><a href="#cb69-23" tabindex="-1"></a>  dynamic_func_exec <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_exec</span>(<span class="dv">3</span>, k)</span>
+<span id="cb69-24"><a href="#cb69-24" tabindex="-1"></a>  </span>
+<span id="cb69-25"><a href="#cb69-25" tabindex="-1"></a>  benchmark_results <span class="ot">&lt;-</span> <span class="fu">microbenchmark</span>(</span>
+<span id="cb69-26"><a href="#cb69-26" tabindex="-1"></a>    <span class="at">static =</span> <span class="fu">static_3_loops</span>(k),</span>
+<span id="cb69-27"><a href="#cb69-27" tabindex="-1"></a>    <span class="at">dynamic_v1_substitute =</span> <span class="fu">dynamic_func_v1</span>(),</span>
+<span id="cb69-28"><a href="#cb69-28" tabindex="-1"></a>    <span class="at">dynamic_v2_call =</span> <span class="fu">dynamic_func_v2</span>(),</span>
+<span id="cb69-29"><a href="#cb69-29" tabindex="-1"></a>    <span class="at">dynamic_v3_string =</span> <span class="fu">dynamic_func_v3</span>(),</span>
+<span id="cb69-30"><a href="#cb69-30" tabindex="-1"></a>    <span class="at">dynamic_v4_tailcall =</span> <span class="fu">dynamic_func_tailcall</span>(),</span>
+<span id="cb69-31"><a href="#cb69-31" tabindex="-1"></a>    <span class="at">dynamic_v5_exec =</span> <span class="fu">dynamic_func_exec</span>(),</span>
+<span id="cb69-32"><a href="#cb69-32" tabindex="-1"></a>    <span class="at">times =</span> <span class="dv">100</span></span>
+<span id="cb69-33"><a href="#cb69-33" tabindex="-1"></a>  )</span>
+<span id="cb69-34"><a href="#cb69-34" tabindex="-1"></a>  </span>
+<span id="cb69-35"><a href="#cb69-35" tabindex="-1"></a>  <span class="fu">print</span>(benchmark_results)</span>
+<span id="cb69-36"><a href="#cb69-36" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb69-37"><a href="#cb69-37" tabindex="-1"></a>  <span class="co"># Simple timing comparison if microbenchmark not available</span></span>
+<span id="cb69-38"><a href="#cb69-38" tabindex="-1"></a>  k <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb69-39"><a href="#cb69-39" tabindex="-1"></a>  dynamic_func_v1 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v1</span>(<span class="dv">3</span>, k)</span>
+<span id="cb69-40"><a href="#cb69-40" tabindex="-1"></a>  dynamic_func_v2 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v2</span>(<span class="dv">3</span>, k)</span>
+<span id="cb69-41"><a href="#cb69-41" tabindex="-1"></a>  dynamic_func_v3 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v3</span>(<span class="dv">3</span>, k)</span>
+<span id="cb69-42"><a href="#cb69-42" tabindex="-1"></a>  dynamic_func_tailcall <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_tailcall</span>(<span class="dv">3</span>, k)</span>
+<span id="cb69-43"><a href="#cb69-43" tabindex="-1"></a>  dynamic_func_exec <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_exec</span>(<span class="dv">3</span>, k)</span>
+<span id="cb69-44"><a href="#cb69-44" tabindex="-1"></a>  </span>
+<span id="cb69-45"><a href="#cb69-45" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Simple timing comparison:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb69-46"><a href="#cb69-46" tabindex="-1"></a>  </span>
+<span id="cb69-47"><a href="#cb69-47" tabindex="-1"></a>  t1 <span class="ot">&lt;-</span> <span class="fu">system.time</span>(<span class="fu">invisible</span>(<span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="cf">function</span>(x) <span class="fu">static_3_loops</span>(k))))</span>
+<span id="cb69-48"><a href="#cb69-48" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Static implementation:&quot;</span>, t1[<span class="dv">3</span>], <span class="st">&quot;seconds</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb69-49"><a href="#cb69-49" tabindex="-1"></a>  </span>
+<span id="cb69-50"><a href="#cb69-50" tabindex="-1"></a>  t2 <span class="ot">&lt;-</span> <span class="fu">system.time</span>(<span class="fu">invisible</span>(<span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="cf">function</span>(x) <span class="fu">dynamic_func_v1</span>())))</span>
+<span id="cb69-51"><a href="#cb69-51" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Dynamic v1 (substitute):&quot;</span>, t2[<span class="dv">3</span>], <span class="st">&quot;seconds</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb69-52"><a href="#cb69-52" tabindex="-1"></a>  </span>
+<span id="cb69-53"><a href="#cb69-53" tabindex="-1"></a>  t3 <span class="ot">&lt;-</span> <span class="fu">system.time</span>(<span class="fu">invisible</span>(<span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="cf">function</span>(x) <span class="fu">dynamic_func_v2</span>())))</span>
+<span id="cb69-54"><a href="#cb69-54" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Dynamic v2 (call objects):&quot;</span>, t3[<span class="dv">3</span>], <span class="st">&quot;seconds</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb69-55"><a href="#cb69-55" tabindex="-1"></a>  </span>
+<span id="cb69-56"><a href="#cb69-56" tabindex="-1"></a>  t4 <span class="ot">&lt;-</span> <span class="fu">system.time</span>(<span class="fu">invisible</span>(<span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="cf">function</span>(x) <span class="fu">dynamic_func_v3</span>())))</span>
+<span id="cb69-57"><a href="#cb69-57" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Dynamic v3 (string generation):&quot;</span>, t4[<span class="dv">3</span>], <span class="st">&quot;seconds</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb69-58"><a href="#cb69-58" tabindex="-1"></a>  </span>
+<span id="cb69-59"><a href="#cb69-59" tabindex="-1"></a>  t5 <span class="ot">&lt;-</span> <span class="fu">system.time</span>(<span class="fu">invisible</span>(<span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="cf">function</span>(x) <span class="fu">dynamic_func_tailcall</span>())))</span>
+<span id="cb69-60"><a href="#cb69-60" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Dynamic v4 (Tailcall):&quot;</span>, t5[<span class="dv">3</span>], <span class="st">&quot;seconds</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb69-61"><a href="#cb69-61" tabindex="-1"></a>  </span>
+<span id="cb69-62"><a href="#cb69-62" tabindex="-1"></a>  t6 <span class="ot">&lt;-</span> <span class="fu">system.time</span>(<span class="fu">invisible</span>(<span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="cf">function</span>(x) <span class="fu">dynamic_func_exec</span>())))</span>
+<span id="cb69-63"><a href="#cb69-63" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Dynamic v5 (Exec):&quot;</span>, t6[<span class="dv">3</span>], <span class="st">&quot;seconds</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb69-64"><a href="#cb69-64" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## Unit: milliseconds
+##                   expr       min        lq      mean    median        uq
+##                 static  3.238192  3.696385  4.345908  4.262763  4.761919
+##  dynamic_v1_substitute  3.361532  3.942646  4.854054  4.484475  4.963586
+##        dynamic_v2_call  3.314598  3.690345  4.598120  4.219078  4.704999
+##      dynamic_v3_string 33.560552 36.579476 39.279383 38.613184 40.763283
+##    dynamic_v4_tailcall  3.326891  3.759975  4.704157  4.342941  4.675909
+##        dynamic_v5_exec 33.488126 35.736177 39.322758 37.563924 39.985076
+##         max neval
+##    9.862218   100
+##   35.179752   100
+##   25.577483   100
+##   63.341920   100
+##   40.561371   100
+##  117.122149   100</code></pre>
+<h2 id="advanced-custom-actions-in-nested-loops">Advanced: Custom
+Actions in Nested Loops</h2>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" tabindex="-1"></a><span class="co"># Create a function that builds a matrix using nested loops</span></span>
+<span id="cb71-2"><a href="#cb71-2" tabindex="-1"></a>create_matrix_builder <span class="ot">&lt;-</span> <span class="cf">function</span>(rows, cols) {</span>
+<span id="cb71-3"><a href="#cb71-3" tabindex="-1"></a>  <span class="co"># Define the action: result[i1, i2] &lt;- i1 * i2</span></span>
+<span id="cb71-4"><a href="#cb71-4" tabindex="-1"></a>  action <span class="ot">&lt;-</span> <span class="fu">call</span>(<span class="st">&quot;&lt;-&quot;</span>, </span>
+<span id="cb71-5"><a href="#cb71-5" tabindex="-1"></a>                <span class="fu">call</span>(<span class="st">&quot;[&quot;</span>, <span class="fu">quote</span>(result), <span class="fu">quote</span>(i1), <span class="fu">quote</span>(i2)),</span>
+<span id="cb71-6"><a href="#cb71-6" tabindex="-1"></a>                <span class="fu">call</span>(<span class="st">&quot;*&quot;</span>, <span class="fu">quote</span>(i1), <span class="fu">quote</span>(i2)))</span>
+<span id="cb71-7"><a href="#cb71-7" tabindex="-1"></a>  </span>
+<span id="cb71-8"><a href="#cb71-8" tabindex="-1"></a>  <span class="co"># Build the nested loops using Reduce</span></span>
+<span id="cb71-9"><a href="#cb71-9" tabindex="-1"></a>  body_expr <span class="ot">&lt;-</span> <span class="fu">Reduce</span>(<span class="cf">function</span>(body, i) {</span>
+<span id="cb71-10"><a href="#cb71-10" tabindex="-1"></a>    var_name <span class="ot">&lt;-</span> <span class="fu">as.name</span>(<span class="fu">paste0</span>(<span class="st">&quot;i&quot;</span>, i))</span>
+<span id="cb71-11"><a href="#cb71-11" tabindex="-1"></a>    max_val <span class="ot">&lt;-</span> <span class="cf">if</span> (i <span class="sc">==</span> <span class="dv">1</span>) rows <span class="cf">else</span> cols</span>
+<span id="cb71-12"><a href="#cb71-12" tabindex="-1"></a>    <span class="fu">call</span>(<span class="st">&quot;for&quot;</span>, var_name, <span class="fu">call</span>(<span class="st">&quot;:&quot;</span>, <span class="dv">1</span>, max_val), body)</span>
+<span id="cb71-13"><a href="#cb71-13" tabindex="-1"></a>  }, <span class="dv">2</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">init =</span> action)</span>
+<span id="cb71-14"><a href="#cb71-14" tabindex="-1"></a>  </span>
+<span id="cb71-15"><a href="#cb71-15" tabindex="-1"></a>  <span class="co"># Create complete function body</span></span>
+<span id="cb71-16"><a href="#cb71-16" tabindex="-1"></a>  complete_body <span class="ot">&lt;-</span> <span class="fu">call</span>(<span class="st">&quot;{&quot;</span>,</span>
+<span id="cb71-17"><a href="#cb71-17" tabindex="-1"></a>                       <span class="fu">call</span>(<span class="st">&quot;&lt;-&quot;</span>, <span class="fu">quote</span>(result), </span>
+<span id="cb71-18"><a href="#cb71-18" tabindex="-1"></a>                           <span class="fu">call</span>(<span class="st">&quot;matrix&quot;</span>, <span class="dv">0</span>, <span class="at">nrow =</span> rows, <span class="at">ncol =</span> cols)),</span>
+<span id="cb71-19"><a href="#cb71-19" tabindex="-1"></a>                       body_expr,</span>
+<span id="cb71-20"><a href="#cb71-20" tabindex="-1"></a>                       <span class="fu">call</span>(<span class="st">&quot;return&quot;</span>, <span class="fu">quote</span>(result)))</span>
+<span id="cb71-21"><a href="#cb71-21" tabindex="-1"></a>  </span>
+<span id="cb71-22"><a href="#cb71-22" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="cf">function</span>() {}</span>
+<span id="cb71-23"><a href="#cb71-23" tabindex="-1"></a>  <span class="fu">body</span>(f) <span class="ot">&lt;-</span> complete_body</span>
+<span id="cb71-24"><a href="#cb71-24" tabindex="-1"></a>  <span class="fu">return</span>(f)</span>
+<span id="cb71-25"><a href="#cb71-25" tabindex="-1"></a>}</span>
+<span id="cb71-26"><a href="#cb71-26" tabindex="-1"></a></span>
+<span id="cb71-27"><a href="#cb71-27" tabindex="-1"></a><span class="co"># Test matrix builder</span></span>
+<span id="cb71-28"><a href="#cb71-28" tabindex="-1"></a>matrix_builder <span class="ot">&lt;-</span> <span class="fu">create_matrix_builder</span>(<span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb71-29"><a href="#cb71-29" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated matrix builder function body:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Generated matrix builder function body:</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">body</span>(matrix_builder))</span></code></pre></div>
+<pre><code>## {
+##     result &lt;- matrix(0, nrow = 4, ncol = 5)
+##     for (i1 in 1:4) for (i2 in 1:5) result[i1, i2] &lt;- i1 * i2
+##     return(result)
+## }</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" tabindex="-1"></a>my_matrix <span class="ot">&lt;-</span> <span class="fu">matrix_builder</span>()</span>
+<span id="cb76-2"><a href="#cb76-2" tabindex="-1"></a><span class="fu">print</span>(my_matrix)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    2    3    4    5
+## [2,]    2    4    6    8   10
+## [3,]    3    6    9   12   15
+## [4,]    4    8   12   16   20</code></pre>
+<h2 id="the-ultimate-test-generating-the-1-billion-iteration-function">The
+Ultimate Test: Generating the 1 Billion Iteration Function</h2>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" tabindex="-1"></a><span class="co"># </span><span class="al">WARNING</span><span class="co">: Don&#39;t actually run this unless you have time to kill!</span></span>
+<span id="cb78-2"><a href="#cb78-2" tabindex="-1"></a><span class="co"># This would create the equivalent of the benchmark from the meme</span></span>
+<span id="cb78-3"><a href="#cb78-3" tabindex="-1"></a></span>
+<span id="cb78-4"><a href="#cb78-4" tabindex="-1"></a>create_billion_iteration_function <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb78-5"><a href="#cb78-5" tabindex="-1"></a>  <span class="co"># For 1 billion iterations, we could do 10 loops of 100 iterations each</span></span>
+<span id="cb78-6"><a href="#cb78-6" tabindex="-1"></a>  <span class="co"># 100^10 = 10^20 (way too much!)</span></span>
+<span id="cb78-7"><a href="#cb78-7" tabindex="-1"></a>  <span class="co"># Let&#39;s do 4 loops of 178 iterations: 178^4 ≈ 1 billion</span></span>
+<span id="cb78-8"><a href="#cb78-8" tabindex="-1"></a>  </span>
+<span id="cb78-9"><a href="#cb78-9" tabindex="-1"></a>  k <span class="ot">&lt;-</span> <span class="dv">178</span>  <span class="co"># 178^4 = 1,002,002,816 ≈ 1 billion</span></span>
+<span id="cb78-10"><a href="#cb78-10" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb78-11"><a href="#cb78-11" tabindex="-1"></a>  </span>
+<span id="cb78-12"><a href="#cb78-12" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Creating function with&quot;</span>, n, <span class="st">&quot;nested loops of&quot;</span>, k, <span class="st">&quot;iterations each</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb78-13"><a href="#cb78-13" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Total iterations:&quot;</span>, k<span class="sc">^</span>n, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb78-14"><a href="#cb78-14" tabindex="-1"></a>  </span>
+<span id="cb78-15"><a href="#cb78-15" tabindex="-1"></a>  <span class="fu">create_nested_loops_v1</span>(n, k)</span>
+<span id="cb78-16"><a href="#cb78-16" tabindex="-1"></a>}</span>
+<span id="cb78-17"><a href="#cb78-17" tabindex="-1"></a></span>
+<span id="cb78-18"><a href="#cb78-18" tabindex="-1"></a><span class="co"># Generate but don&#39;t run (for your sanity)</span></span>
+<span id="cb78-19"><a href="#cb78-19" tabindex="-1"></a>billion_func <span class="ot">&lt;-</span> <span class="fu">create_billion_iteration_function</span>()</span>
+<span id="cb78-20"><a href="#cb78-20" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Function created! (But we won&#39;t run it...)</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<h2 id="conclusion">Conclusion</h2>
+<p><strong>Yes, you absolutely CAN create functions that generate
+functions with n nested loops of k iterations in R using only base
+R!</strong></p>
+<p>We’ve demonstrated multiple approaches:</p>
+<ol style="list-style-type: decimal">
+<li><strong>AST manipulation with <code>substitute()</code></strong> -
+Classic R metaprogramming using <code>Reduce()</code></li>
+<li><strong>Language objects with <code>call()</code> and
+<code>as.name()</code></strong> - Pure base R approach</li>
+<li><strong>Recursive string generation</strong> - More readable for
+complex cases</li>
+<li><strong>Tail call optimization with <code>Tailcall</code></strong> -
+Stack-efficient recursive building</li>
+<li><strong>Expression evaluation with <code>Exec</code></strong> -
+Simplified call stack execution</li>
+<li><strong>String concatenation</strong> - The most flexible but
+verbose approach</li>
+</ol>
+<p>R’s metaprogramming capabilities in base R alone make this not just
+possible, but surprisingly elegant. The <code>Tailcall()</code> and
+<code>Exec()</code> functions add sophisticated options for stack
+management and call optimization, while using <code>lapply()</code>
+instead of traditional loops makes the code more functional.</p>
+<p>Key base R functions used:</p>
+<ul>
+<li><code>call()</code> - Creates language objects (calls)</li>
+<li><code>as.name()</code> - Creates symbol objects</li>
+<li><code>quote()</code> - Captures expressions without evaluation</li>
+<li><code>substitute()</code> - Template-based expression
+manipulation</li>
+<li><code>body()&lt;-</code> - Modifies function bodies</li>
+<li><code>Reduce()</code> - Functional programming for accumulative
+operations</li>
+<li><code>lapply()</code> - Functional alternative to for loops</li>
+<li><code>Tailcall()</code> - Stack-efficient tail recursion</li>
+<li><code>Exec()</code> - Simplified call stack evaluation</li>
+</ul>
+<p>While Daniel Lockyer might say “they’re basically all the same, just
+marginally different syntax,” R’s built-in metaprogramming features make
+it particularly well-suited for this kind of ridiculous-but-cool
+programming challenge.</p>
+<p>The performance is actually quite reasonable too - the overhead of
+dynamic function generation is minimal compared to the actual loop
+execution.</p>
+<p>So there you have it: <strong>R can absolutely compete in the nested
+loop olympics using only base R!</strong> 🏆</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" tabindex="-1"></a><span class="co"># One final demonstration</span></span>
+<span id="cb79-2"><a href="#cb79-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Creating a function with 6 nested loops of 3 iterations each...</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Creating a function with 6 nested loops of 3 iterations each...</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" tabindex="-1"></a>final_func <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v2</span>(<span class="dv">6</span>, <span class="dv">3</span>)</span>
+<span id="cb81-2"><a href="#cb81-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Final generated function body:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Final generated function body:</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">body</span>(final_func))</span></code></pre></div>
+<pre><code>## {
+##     counter &lt;- 0
+##     for (i1 in 1:3) for (i2 in 1:3) for (i3 in 1:3) for (i4 in 1:3) for (i5 in 1:3) for (i6 in 1:3) counter &lt;- counter + 
+##         1
+##     return(counter)
+## }</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" tabindex="-1"></a>final_result <span class="ot">&lt;-</span> <span class="fu">final_func</span>()</span>
+<span id="cb86-2"><a href="#cb86-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Total iterations:&quot;</span>, final_result, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Total iterations: 729</code></pre>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">3</span><span class="sc">^</span><span class="dv">6</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Expected: 729</code></pre>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Math checks out! ✓</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Math checks out! ✓</code></pre>
+
+</body>
+</html>

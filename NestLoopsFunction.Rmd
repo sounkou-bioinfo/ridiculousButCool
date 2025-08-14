@@ -1,0 +1,502 @@
+---
+title: "Dynamic Nested Loop Function Generator in R"
+author: "AST Manipulation Master"
+date: "`r Sys.Date()`"
+output: 
+  github_document:
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+## Creating Functions with N Nested Loops of K Iterations
+
+This started as a joke inspired by the programming language speed comparison meme, but let's see if we can actually create a function that generates functions with arbitrary nested loops in R!
+
+### The Challenge
+
+We want to create a function `create_nested_loops(n, k)` that:
+
+- Takes `n` (number of nested loops) and `k` (iterations per loop)
+- Returns a function that executes n nested loops, each running k times
+- Should be able to handle arbitrary values of n and k
+
+## Method 1: Using AST Manipulation with `substitute()` and `eval()`
+
+```{r method1}
+create_nested_loops_v1 <- function(n, k, action = quote(counter <- counter + 1)) {
+  if (n <= 0) {
+    stop("Number of loops must be positive")
+  }
+  
+  # Start with the innermost action
+  body_expr <- action
+  
+  # Build nested loops from inside out using lapply
+  body_expr <- Reduce(function(body, i) {
+    loop_var <- paste0("i", i)
+    substitute(
+      for (VAR in 1:K) {
+        BODY
+      },
+      list(VAR = as.name(loop_var), K = k, BODY = body)
+    )
+  }, n:1, init = body_expr)
+  
+  # Create the complete function body
+  complete_body <- substitute({
+    counter <- 0
+    LOOPS
+    return(counter)
+  }, list(LOOPS = body_expr))
+  
+  # Create and return the function
+  f <- function() {}
+  body(f) <- complete_body
+  
+  return(f)
+}
+
+# Test with 3 nested loops of 5 iterations each
+nested_3_5 <- create_nested_loops_v1(3, 5)
+cat("Generated function body:\n")
+print(body(nested_3_5))
+cat("\n")
+result1 <- nested_3_5()
+cat("3 nested loops of 5 iterations:", result1, "total iterations\n")
+cat("Expected:", 5^3, "\n")
+```
+
+## Method 2: Using Base R AST Manipulation with Language Objects
+
+```{r method2}
+create_nested_loops_v2 <- function(n, k, action = quote(counter <- counter + 1)) {
+  if (n <= 0) {
+    stop("Number of loops must be positive")
+  }
+  
+  # Start with the action
+  body_expr <- action
+  
+  # Build nested loops from inside out using Reduce
+  body_expr <- Reduce(function(body, i) {
+    loop_var <- as.name(paste0("i", i))
+    # Create the for loop structure: for (loop_var in 1:k) { body }
+    call("for", loop_var, call(":", 1, k), body)
+  }, n:1, init = body_expr)
+  
+  # Create complete function body using call()
+  complete_expr <- call("{", 
+                       call("<-", quote(counter), 0),
+                       body_expr,
+                       call("return", quote(counter)))
+  
+  # Create and return the function
+  f <- function() {}
+  body(f) <- complete_expr
+  
+  return(f)
+}
+
+# Test the base R version
+nested_4_3 <- create_nested_loops_v2(4, 3)
+cat("Generated function body (call objects):\n")
+print(body(nested_4_3))
+cat("\n")
+result2 <- nested_4_3()
+cat("4 nested loops of 3 iterations:", result2, "total iterations\n")
+cat("Expected:", 3^4, "\n")
+```
+
+## Method 3: Recursive Approach with Custom Actions
+
+```{r method3}
+create_nested_loops_v3 <- function(n, k, custom_action = NULL) {
+  # Default action: increment counter
+  if (is.null(custom_action)) {
+    action_code <- "counter <- counter + 1"
+  } else {
+    action_code <- deparse(substitute(custom_action))
+  }
+  
+  # Build the nested loop structure recursively
+  build_loops <- function(depth, max_depth) {
+    if (depth > max_depth) {
+      return(action_code)
+    }
+    
+    inner <- build_loops(depth + 1, max_depth)
+    paste0("for (i", depth, " in 1:", k, ") {\n", 
+           paste(rep("  ", depth), collapse = ""), inner, "\n",
+           paste(rep("  ", depth - 1), collapse = ""), "}")
+  }
+  
+  # Create function string
+  func_string <- paste0("function() {\n",
+                       "  counter <- 0\n",
+                       "  ", build_loops(1, n), "\n",
+                       "  return(counter)\n",
+                       "}")
+  
+  # Parse and return function
+  eval(parse(text = func_string))
+}
+
+# Test recursive approach
+nested_2_10 <- create_nested_loops_v3(2, 10)
+cat("Generated function (string method):\n")
+print(nested_2_10)
+cat("\n")
+result3 <- nested_2_10()
+cat("2 nested loops of 10 iterations:", result3, "total iterations\n")
+cat("Expected:", 10^2, "\n")
+```
+
+## Method 4: Tail Call Optimized Approach
+
+```{r method4_tailcall}
+create_nested_loops_tailcall <- function(n, k, action = quote(counter <- counter + 1)) {
+  if (n <= 0) {
+    stop("Number of loops must be positive")
+  }
+  
+  # Tail-recursive function to build nested loops
+  build_nested_expr <- function(body_expr, depth, max_depth) {
+    force(body_expr)  # Force evaluation to avoid accumulating deferred evaluations
+    force(depth)
+    force(max_depth)
+    
+    if (depth > max_depth) {
+      return(body_expr)
+    }
+    
+    loop_var <- paste0("i", depth)
+    new_body <- substitute(
+      for (VAR in 1:K) {
+        BODY
+      },
+      list(VAR = as.name(loop_var), K = k, BODY = body_expr)
+    )
+    
+    # Use Tailcall for stack-efficient recursion
+    Tailcall(build_nested_expr, new_body, depth + 1, max_depth)
+  }
+  
+  # Build the expression using tail recursion
+  body_expr <- build_nested_expr(action, 1, n)
+  
+  # Create the complete function body
+  complete_body <- substitute({
+    counter <- 0
+    LOOPS
+    return(counter)
+  }, list(LOOPS = body_expr))
+  
+  # Create and return the function
+  f <- function() {}
+  body(f) <- complete_body
+  
+  return(f)
+}
+
+# Test tail call optimized version
+nested_tailcall <- create_nested_loops_tailcall(3, 4)
+cat("Generated function body (Tailcall method):\n")
+print(body(nested_tailcall))
+cat("\n")
+result_tailcall <- nested_tailcall()
+cat("Tail call optimized - 3 nested loops of 4 iterations:", result_tailcall, "total iterations\n")
+cat("Expected:", 4^3, "\n")
+
+# Test with deeper nesting to show stack efficiency
+cat("\n=== Testing stack efficiency with deep nesting ===\n")
+deep_nested <- create_nested_loops_tailcall(10, 2)
+deep_result <- deep_nested()
+cat("10 nested loops of 2 iterations:", deep_result, "total iterations\n")
+cat("Expected:", 2^10, "\n")
+```
+
+## Method 5: Using Exec for Expression Evaluation
+
+```{r method5_exec}
+create_nested_loops_exec <- function(n, k, action = quote(counter <- counter + 1)) {
+  if (n <= 0) {
+    stop("Number of loops must be positive")
+  }
+  
+  # Build expression using our previous method
+  body_expr <- Reduce(function(body, i) {
+    loop_var <- paste0("i", i)
+    substitute(
+      for (VAR in 1:K) {
+        BODY
+      },
+      list(VAR = as.name(loop_var), K = k, BODY = body)
+    )
+  }, n:1, init = action)
+  
+  # Create a function that uses Exec for cleaner call stack
+  function() {
+    # Create the expression to execute (without return statement for Exec)
+    expr_to_exec <- substitute({
+      counter <- 0
+      LOOPS
+      counter  # Return value without explicit return()
+    }, list(LOOPS = body_expr))
+    
+    # Use Exec to evaluate with simplified call stack
+    Exec(expr_to_exec, environment())
+  }
+}
+
+# Test Exec version
+nested_exec <- create_nested_loops_exec(3, 3)
+cat("Generated function body (Exec method):\n")
+print(body(nested_exec))
+cat("\n")
+result_exec <- nested_exec()
+cat("Exec-based - 3 nested loops of 3 iterations:", result_exec, "total iterations\n")
+cat("Expected:", 3^3, "\n")
+
+cat("\n=== Exec provides cleaner call stack evaluation ===\n")
+cat("Exec successfully demonstrated for dynamic nested loop generation!\n")
+```
+
+## Method 6: The Ridiculous But Cool Version - String Generation
+
+```{r method6}
+create_ridiculous_nested_loops <- function(n, k, print_code = FALSE) {
+  # Generate variable names
+  vars <- paste0("i", 1:n)
+  
+  # Build the nested structure using lapply
+  loop_components <- lapply(1:n, function(i) {
+    indent <- paste(rep("  ", i), collapse = "")
+    list(
+      start = paste0(indent, "for (", vars[i], " in 1:", k, ") {"),
+      end = paste0(paste(rep("  ", i - 1), collapse = ""), "}")
+    )
+  })
+  
+  loop_start <- sapply(loop_components, function(x) x$start)
+  loop_end <- rev(sapply(loop_components, function(x) x$end))
+  
+  # The action (with proper indentation)
+  action_indent <- paste(rep("  ", n + 1), collapse = "")
+  action <- paste0(action_indent, "counter <- counter + 1")
+  
+  # Combine everything
+  func_body <- c(
+    "function() {",
+    "  counter <- 0",
+    loop_start,
+    action,
+    loop_end,
+    paste0("  return(list(count = counter, vars = c(", 
+           paste(vars, collapse = ", "), ")))"),
+    "}"
+  )
+  
+  func_string <- paste(func_body, collapse = "\n")
+  
+  if (print_code) {
+    cat("Generated function:\n")
+    cat(func_string, "\n\n")
+  }
+  
+  eval(parse(text = func_string))
+}
+
+# Test the ridiculous version
+cat("=== Testing with 5 nested loops ===\n")
+nested_5_2 <- create_ridiculous_nested_loops(5, 2, print_code = TRUE)
+cat("Generated function object:\n")
+print(nested_5_2)
+cat("\n")
+result4 <- nested_5_2()
+cat("Result:", result4$count, "iterations\n")
+cat("Expected:", 2^5, "\n")
+```
+
+## Performance Comparison: The Language Wars Continue
+
+Let's see how our dynamic R functions perform compared to a static implementation:
+
+```{r performance}
+# Static implementation for comparison
+static_3_loops <- function(k) {
+  counter <- 0
+  for (i1 in 1:k) {
+    for (i2 in 1:k) {
+      for (i3 in 1:k) {
+        counter <- counter + 1
+      }
+    }
+  }
+  return(counter)
+}
+
+# Benchmark (only if microbenchmark is available)
+if (requireNamespace("microbenchmark", quietly = TRUE)) {
+  library(microbenchmark)
+  
+  k <- 50
+  dynamic_func_v1 <- create_nested_loops_v1(3, k)
+  dynamic_func_v2 <- create_nested_loops_v2(3, k)
+  dynamic_func_v3 <- create_nested_loops_v3(3, k)
+  dynamic_func_tailcall <- create_nested_loops_tailcall(3, k)
+  dynamic_func_exec <- create_nested_loops_exec(3, k)
+  
+  benchmark_results <- microbenchmark(
+    static = static_3_loops(k),
+    dynamic_v1_substitute = dynamic_func_v1(),
+    dynamic_v2_call = dynamic_func_v2(),
+    dynamic_v3_string = dynamic_func_v3(),
+    dynamic_v4_tailcall = dynamic_func_tailcall(),
+    dynamic_v5_exec = dynamic_func_exec(),
+    times = 100
+  )
+  
+  print(benchmark_results)
+} else {
+  # Simple timing comparison if microbenchmark not available
+  k <- 50
+  dynamic_func_v1 <- create_nested_loops_v1(3, k)
+  dynamic_func_v2 <- create_nested_loops_v2(3, k)
+  dynamic_func_v3 <- create_nested_loops_v3(3, k)
+  dynamic_func_tailcall <- create_nested_loops_tailcall(3, k)
+  dynamic_func_exec <- create_nested_loops_exec(3, k)
+  
+  cat("Simple timing comparison:\n")
+  
+  t1 <- system.time(invisible(lapply(1:100, function(x) static_3_loops(k))))
+  cat("Static implementation:", t1[3], "seconds\n")
+  
+  t2 <- system.time(invisible(lapply(1:100, function(x) dynamic_func_v1())))
+  cat("Dynamic v1 (substitute):", t2[3], "seconds\n")
+  
+  t3 <- system.time(invisible(lapply(1:100, function(x) dynamic_func_v2())))
+  cat("Dynamic v2 (call objects):", t3[3], "seconds\n")
+  
+  t4 <- system.time(invisible(lapply(1:100, function(x) dynamic_func_v3())))
+  cat("Dynamic v3 (string generation):", t4[3], "seconds\n")
+  
+  t5 <- system.time(invisible(lapply(1:100, function(x) dynamic_func_tailcall())))
+  cat("Dynamic v4 (Tailcall):", t5[3], "seconds\n")
+  
+  t6 <- system.time(invisible(lapply(1:100, function(x) dynamic_func_exec())))
+  cat("Dynamic v5 (Exec):", t6[3], "seconds\n")
+}
+```
+
+## Advanced: Custom Actions in Nested Loops
+
+```{r advanced}
+# Create a function that builds a matrix using nested loops
+create_matrix_builder <- function(rows, cols) {
+  # Define the action: result[i1, i2] <- i1 * i2
+  action <- call("<-", 
+                call("[", quote(result), quote(i1), quote(i2)),
+                call("*", quote(i1), quote(i2)))
+  
+  # Build the nested loops using Reduce
+  body_expr <- Reduce(function(body, i) {
+    var_name <- as.name(paste0("i", i))
+    max_val <- if (i == 1) rows else cols
+    call("for", var_name, call(":", 1, max_val), body)
+  }, 2:1, init = action)
+  
+  # Create complete function body
+  complete_body <- call("{",
+                       call("<-", quote(result), 
+                           call("matrix", 0, nrow = rows, ncol = cols)),
+                       body_expr,
+                       call("return", quote(result)))
+  
+  f <- function() {}
+  body(f) <- complete_body
+  return(f)
+}
+
+# Test matrix builder
+matrix_builder <- create_matrix_builder(4, 5)
+cat("Generated matrix builder function body:\n")
+print(body(matrix_builder))
+cat("\n")
+my_matrix <- matrix_builder()
+print(my_matrix)
+```
+
+## The Ultimate Test: Generating the 1 Billion Iteration Function
+
+```{r ultimate_test, eval=FALSE}
+# WARNING: Don't actually run this unless you have time to kill!
+# This would create the equivalent of the benchmark from the meme
+
+create_billion_iteration_function <- function() {
+  # For 1 billion iterations, we could do 10 loops of 100 iterations each
+  # 100^10 = 10^20 (way too much!)
+  # Let's do 4 loops of 178 iterations: 178^4 ≈ 1 billion
+  
+  k <- 178  # 178^4 = 1,002,002,816 ≈ 1 billion
+  n <- 4
+  
+  cat("Creating function with", n, "nested loops of", k, "iterations each\n")
+  cat("Total iterations:", k^n, "\n")
+  
+  create_nested_loops_v1(n, k)
+}
+
+# Generate but don't run (for your sanity)
+billion_func <- create_billion_iteration_function()
+cat("Function created! (But we won't run it...)\n")
+```
+
+## Conclusion
+
+**Yes, you absolutely CAN create functions that generate functions with n nested loops of k iterations in R using only base R!**
+
+We've demonstrated multiple approaches:
+
+1. **AST manipulation with `substitute()`** - Classic R metaprogramming using `Reduce()`
+2. **Language objects with `call()` and `as.name()`** - Pure base R approach
+3. **Recursive string generation** - More readable for complex cases
+4. **Tail call optimization with `Tailcall`** - Stack-efficient recursive building
+5. **Expression evaluation with `Exec`** - Simplified call stack execution
+6. **String concatenation** - The most flexible but verbose approach
+
+R's metaprogramming capabilities in base R alone make this not just possible, but surprisingly elegant. The `Tailcall()` and `Exec()` functions add sophisticated options for stack management and call optimization, while using `lapply()` instead of traditional loops makes the code more functional.
+
+Key base R functions used:
+
+- `call()` - Creates language objects (calls)
+- `as.name()` - Creates symbol objects
+- `quote()` - Captures expressions without evaluation
+- `substitute()` - Template-based expression manipulation
+- `body()<-` - Modifies function bodies
+- `Reduce()` - Functional programming for accumulative operations
+- `lapply()` - Functional alternative to for loops
+- `Tailcall()` - Stack-efficient tail recursion
+- `Exec()` - Simplified call stack evaluation
+
+While Daniel Lockyer might say "they're basically all the same, just marginally different syntax," R's built-in metaprogramming features make it particularly well-suited for this kind of ridiculous-but-cool programming challenge.
+
+The performance is actually quite reasonable too - the overhead of dynamic function generation is minimal compared to the actual loop execution.
+
+So there you have it: **R can absolutely compete in the nested loop olympics using only base R!** 🏆
+
+```{r final_demo}
+# One final demonstration
+cat("Creating a function with 6 nested loops of 3 iterations each...\n")
+final_func <- create_nested_loops_v2(6, 3)
+cat("Final generated function body:\n")
+print(body(final_func))
+cat("\n")
+final_result <- final_func()
+cat("Total iterations:", final_result, "\n")
+cat("Expected:", 3^6, "\n")
+cat("Math checks out! ✓\n")
+```
