@@ -40,6 +40,25 @@
         .date { 
             white-space: nowrap; 
         }
+        .loader {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        #loadingMessage {
+            padding: 10px;
+            color: #666;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -54,6 +73,11 @@
             <td class="size">-</td>
         </tr>
         <tbody id="fileList">
+            <tr id="loadingMessage">
+                <td colspan="2">
+                    <span class="loader"></span>Loading files from repository...
+                </td>
+            </tr>
         </tbody>
     </table>
 
@@ -64,6 +88,14 @@
             const repo = 'ridiculousButCool';
             const path = 'ridiculousButCool'; // subfolder
             
+            // Clear loading message
+            const clearLoadingMessage = () => {
+                const loadingRow = document.getElementById('loadingMessage');
+                if (loadingRow) {
+                    loadingRow.remove();
+                }
+            };
+            
             try {
                 const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`);
                 
@@ -72,6 +104,9 @@
                 }
                 
                 const files = await response.json();
+                
+                // Clear loading message first
+                clearLoadingMessage();
                 
                 // Filter for our document files and exclude index.html
                 const relevantFiles = files.filter(file => 
@@ -94,15 +129,26 @@
                 
             } catch (error) {
                 console.error('Failed to load files from GitHub API:', error);
-                // Fallback to static list
-                const fallbackFiles = [
-                    'NestLoopsFunction.html',
-                    'NestLoopsFunction.md', 
-                    'NestLoopsFunction.Rmd'
-                ];
-                fallbackFiles.forEach(file => {
-                    addFileRow(file, '-');
-                });
+                // Clear loading message and show fallback
+                clearLoadingMessage();
+                
+                // Show error message briefly before fallback
+                const tbody = document.getElementById('fileList');
+                const errorRow = tbody.insertRow();
+                errorRow.innerHTML = '<td colspan="2" style="color: #e74c3c; font-style: italic;">Failed to load from GitHub API, using fallback...</td>';
+                
+                setTimeout(() => {
+                    errorRow.remove();
+                    // Fallback to static list
+                    const fallbackFiles = [
+                     //   'NestLoopsFunction.html',
+                      //  'NestLoopsFunction.md', 
+                       // 'NestLoopsFunction.Rmd'
+                    ];
+                    fallbackFiles.forEach(file => {
+                        addFileRow(file, '-');
+                    });
+                }, 1500);
             }
         }
 
