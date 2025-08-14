@@ -103,7 +103,7 @@ print(nested_3_5)
 #>         1
 #>     return(counter)
 #> }
-#> <environment: 0x634b476f74e0>
+#> <environment: 0x556bd9ea74e0>
 cat("\n")
 result1 <- nested_3_5()
 cat("3 nested loops of 5 iterations:", result1, "total iterations\n")
@@ -140,7 +140,7 @@ print(nested_4_3)
 #>         1
 #>     return(counter)
 #> }
-#> <environment: 0x634b46129528>
+#> <environment: 0x556bd88d9528>
 cat("\n")
 result2 <- nested_4_3()
 cat("4 nested loops of 3 iterations:", result2, "total iterations\n")
@@ -186,7 +186,7 @@ print(nested_2_10)
 #>     for (i2 in 1:10) for (i1 in 1:10) counter <- counter + 1
 #>     return(counter)
 #> }
-#> <environment: 0x634b47699220>
+#> <environment: 0x556bd9e49220>
 cat("\n")
 result3 <- nested_2_10()
 cat("2 nested loops of 10 iterations:", result3, "total iterations\n")
@@ -227,7 +227,7 @@ print(nested_mapreduce)
 #>         1
 #>     return(counter)
 #> }
-#> <environment: 0x634b450407d8>
+#> <environment: 0x556bd77f07d8>
 cat("\n")
 result_mapreduce <- nested_mapreduce()
 cat("Map-Reduce pattern - 3 nested loops of 4 iterations:", result_mapreduce, "total iterations\n")
@@ -272,7 +272,7 @@ print(nested_pointfree)
 #>     for (i1 in 1:5) for (i2 in 1:5) counter <- counter + 1
 #>     return(counter)
 #> }
-#> <environment: 0x634b475c75f0>
+#> <environment: 0x556bd9d775f0>
 cat("\n")
 result_pointfree <- nested_pointfree()
 cat("Point-free style - 2 nested loops of 5 iterations:", result_pointfree, "total iterations\n")
@@ -331,7 +331,7 @@ print(nested_walker)
 #>         1
 #>     return(counter)
 #> }
-#> <environment: 0x634b49001f40>
+#> <environment: 0x556bdb7b1f40>
 cat("\n")
 result_walker <- nested_walker()
 cat("Walker pattern - 5 nested loops of 2 iterations:", result_walker, "total iterations\n")
@@ -425,14 +425,14 @@ if (requireNamespace("microbenchmark", quietly = TRUE)) {
 }
 #> Unit: milliseconds
 #>              expr       min        lq      mean    median        uq       max
-#>            static  3.490528  4.381144  5.246997  4.935090  5.573997  15.67972
-#>     functional_v1 27.742353 31.725820 34.421562 33.573541 36.160218  56.35542
-#>  ultra_concise_v2  3.679099  4.407893  5.481982  4.887562  5.658470  30.26837
-#>       tailcall_v3  3.650883  4.244185  5.457232  4.951956  5.572636  31.34847
-#>      mapreduce_v4 27.873165 30.672788 34.249480 33.538201 35.727795  53.26110
-#>      pointfree_v5  3.552407  4.225607  5.355192  4.906524  5.384099  36.08552
-#>         walker_v6 27.071807 30.416471 34.373499 33.045401 35.571525 124.63002
-#>          oneliner  3.408744  4.624122  5.753809  5.056719  5.781846  47.07561
+#>            static  3.788610  4.353486  5.375706  5.013801  5.611292  14.30943
+#>     functional_v1 26.548626 30.335455 34.446255 32.102614 35.947726 136.73651
+#>  ultra_concise_v2  3.760324  4.282493  5.437483  4.932016  5.414620  38.40621
+#>       tailcall_v3  3.781695  4.280118  5.442646  4.911344  5.330984  35.16439
+#>      mapreduce_v4  3.803557  4.438762  5.513396  4.948989  5.583286  39.01306
+#>      pointfree_v5 26.449660 30.486591 33.879743 32.504026 35.400694  57.30302
+#>         walker_v6 27.215261 30.777969 34.053825 33.283769 36.028497  50.19702
+#>          oneliner  3.943309  4.502388  5.570772  5.079522  5.743398  31.27108
 #>  neval
 #>    100
 #>    100
@@ -496,7 +496,7 @@ print(matrix_builder)
 #>     for (i1 in 1:4) for (i2 in 1:5) result[i1, i2] <- i1 * i2
 #>     return(result)
 #> }
-#> <environment: 0x634b4aeaf588>
+#> <environment: 0x556bdd5dcb40>
 cat("\n")
 my_matrix <- matrix_builder()
 print(my_matrix)
@@ -681,7 +681,7 @@ cat("- Iterations completed:", thousand_result, "\n")
 cat("- Expected result:", 1^1000, "(each loop runs once)\n")
 #> - Expected result: 1 (each loop runs once)
 cat("- Execution time:", execution_time, "milliseconds\n")
-#> - Execution time: 5.49 milliseconds
+#> - Execution time: 5.52 milliseconds
 cat("- Call stack depth: 1000 levels\n\n")
 #> - Call stack depth: 1000 levels
 

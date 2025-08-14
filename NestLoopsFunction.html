@@ -706,7 +706,7 @@ Pure Functional AST Composition (No Loops!)</h2>
 <span id="cb1-33"><a href="#cb1-33" tabindex="-1"></a><span class="co">#&gt;         1</span></span>
 <span id="cb1-34"><a href="#cb1-34" tabindex="-1"></a><span class="co">#&gt;     return(counter)</span></span>
 <span id="cb1-35"><a href="#cb1-35" tabindex="-1"></a><span class="co">#&gt; }</span></span>
-<span id="cb1-36"><a href="#cb1-36" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x634b476f74e0&gt;</span></span>
+<span id="cb1-36"><a href="#cb1-36" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x556bd9ea74e0&gt;</span></span>
 <span id="cb1-37"><a href="#cb1-37" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb1-38"><a href="#cb1-38" tabindex="-1"></a>result1 <span class="ot">&lt;-</span> <span class="fu">nested_3_5</span>()</span>
 <span id="cb1-39"><a href="#cb1-39" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;3 nested loops of 5 iterations:&quot;</span>, result1, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
@@ -740,7 +740,7 @@ Ultra-Concise Language Object Composition</h2>
 <span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a><span class="co">#&gt;         1</span></span>
 <span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a><span class="co">#&gt;     return(counter)</span></span>
 <span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a><span class="co">#&gt; }</span></span>
-<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x634b46129528&gt;</span></span>
+<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x556bd88d9528&gt;</span></span>
 <span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a>result2 <span class="ot">&lt;-</span> <span class="fu">nested_4_3</span>()</span>
 <span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;4 nested loops of 3 iterations:&quot;</span>, result2, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
@@ -783,7 +783,7 @@ Codetools-Inspired AST Walking Pattern</h2>
 <span id="cb3-32"><a href="#cb3-32" tabindex="-1"></a><span class="co">#&gt;     for (i2 in 1:10) for (i1 in 1:10) counter &lt;- counter + 1</span></span>
 <span id="cb3-33"><a href="#cb3-33" tabindex="-1"></a><span class="co">#&gt;     return(counter)</span></span>
 <span id="cb3-34"><a href="#cb3-34" tabindex="-1"></a><span class="co">#&gt; }</span></span>
-<span id="cb3-35"><a href="#cb3-35" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x634b47699220&gt;</span></span>
+<span id="cb3-35"><a href="#cb3-35" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x556bd9e49220&gt;</span></span>
 <span id="cb3-36"><a href="#cb3-36" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb3-37"><a href="#cb3-37" tabindex="-1"></a>result3 <span class="ot">&lt;-</span> <span class="fu">nested_2_10</span>()</span>
 <span id="cb3-38"><a href="#cb3-38" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;2 nested loops of 10 iterations:&quot;</span>, result3, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
@@ -821,7 +821,7 @@ Codetools-Inspired AST Walking Pattern</h2>
 <span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a><span class="co">#&gt;         1</span></span>
 <span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a><span class="co">#&gt;     return(counter)</span></span>
 <span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a><span class="co">#&gt; }</span></span>
-<span id="cb4-30"><a href="#cb4-30" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x634b450407d8&gt;</span></span>
+<span id="cb4-30"><a href="#cb4-30" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x556bd77f07d8&gt;</span></span>
 <span id="cb4-31"><a href="#cb4-31" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb4-32"><a href="#cb4-32" tabindex="-1"></a>result_mapreduce <span class="ot">&lt;-</span> <span class="fu">nested_mapreduce</span>()</span>
 <span id="cb4-33"><a href="#cb4-33" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Map-Reduce pattern - 3 nested loops of 4 iterations:&quot;</span>, result_mapreduce, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
@@ -863,7 +863,7 @@ Point-Free Functional Style (Ultimate Conciseness)</h2>
 <span id="cb5-31"><a href="#cb5-31" tabindex="-1"></a><span class="co">#&gt;     for (i1 in 1:5) for (i2 in 1:5) counter &lt;- counter + 1</span></span>
 <span id="cb5-32"><a href="#cb5-32" tabindex="-1"></a><span class="co">#&gt;     return(counter)</span></span>
 <span id="cb5-33"><a href="#cb5-33" tabindex="-1"></a><span class="co">#&gt; }</span></span>
-<span id="cb5-34"><a href="#cb5-34" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x634b475c75f0&gt;</span></span>
+<span id="cb5-34"><a href="#cb5-34" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x556bd9d775f0&gt;</span></span>
 <span id="cb5-35"><a href="#cb5-35" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb5-36"><a href="#cb5-36" tabindex="-1"></a>result_pointfree <span class="ot">&lt;-</span> <span class="fu">nested_pointfree</span>()</span>
 <span id="cb5-37"><a href="#cb5-37" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Point-free style - 2 nested loops of 5 iterations:&quot;</span>, result_pointfree, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
@@ -919,7 +919,7 @@ Codetools-Inspired Walker Pattern (Zero Loops!)</h2>
 <span id="cb6-34"><a href="#cb6-34" tabindex="-1"></a><span class="co">#&gt;         1</span></span>
 <span id="cb6-35"><a href="#cb6-35" tabindex="-1"></a><span class="co">#&gt;     return(counter)</span></span>
 <span id="cb6-36"><a href="#cb6-36" tabindex="-1"></a><span class="co">#&gt; }</span></span>
-<span id="cb6-37"><a href="#cb6-37" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x634b49001f40&gt;</span></span>
+<span id="cb6-37"><a href="#cb6-37" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x556bdb7b1f40&gt;</span></span>
 <span id="cb6-38"><a href="#cb6-38" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb6-39"><a href="#cb6-39" tabindex="-1"></a>result_walker <span class="ot">&lt;-</span> <span class="fu">nested_walker</span>()</span>
 <span id="cb6-40"><a href="#cb6-40" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Walker pattern - 5 nested loops of 2 iterations:&quot;</span>, result_walker, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
@@ -1010,14 +1010,14 @@ Comparison: Functional vs Traditional Approaches</h2>
 <span id="cb7-67"><a href="#cb7-67" tabindex="-1"></a>}</span>
 <span id="cb7-68"><a href="#cb7-68" tabindex="-1"></a><span class="co">#&gt; Unit: milliseconds</span></span>
 <span id="cb7-69"><a href="#cb7-69" tabindex="-1"></a><span class="co">#&gt;              expr       min        lq      mean    median        uq       max</span></span>
-<span id="cb7-70"><a href="#cb7-70" tabindex="-1"></a><span class="co">#&gt;            static  3.490528  4.381144  5.246997  4.935090  5.573997  15.67972</span></span>
-<span id="cb7-71"><a href="#cb7-71" tabindex="-1"></a><span class="co">#&gt;     functional_v1 27.742353 31.725820 34.421562 33.573541 36.160218  56.35542</span></span>
-<span id="cb7-72"><a href="#cb7-72" tabindex="-1"></a><span class="co">#&gt;  ultra_concise_v2  3.679099  4.407893  5.481982  4.887562  5.658470  30.26837</span></span>
-<span id="cb7-73"><a href="#cb7-73" tabindex="-1"></a><span class="co">#&gt;       tailcall_v3  3.650883  4.244185  5.457232  4.951956  5.572636  31.34847</span></span>
-<span id="cb7-74"><a href="#cb7-74" tabindex="-1"></a><span class="co">#&gt;      mapreduce_v4 27.873165 30.672788 34.249480 33.538201 35.727795  53.26110</span></span>
-<span id="cb7-75"><a href="#cb7-75" tabindex="-1"></a><span class="co">#&gt;      pointfree_v5  3.552407  4.225607  5.355192  4.906524  5.384099  36.08552</span></span>
-<span id="cb7-76"><a href="#cb7-76" tabindex="-1"></a><span class="co">#&gt;         walker_v6 27.071807 30.416471 34.373499 33.045401 35.571525 124.63002</span></span>
-<span id="cb7-77"><a href="#cb7-77" tabindex="-1"></a><span class="co">#&gt;          oneliner  3.408744  4.624122  5.753809  5.056719  5.781846  47.07561</span></span>
+<span id="cb7-70"><a href="#cb7-70" tabindex="-1"></a><span class="co">#&gt;            static  3.788610  4.353486  5.375706  5.013801  5.611292  14.30943</span></span>
+<span id="cb7-71"><a href="#cb7-71" tabindex="-1"></a><span class="co">#&gt;     functional_v1 26.548626 30.335455 34.446255 32.102614 35.947726 136.73651</span></span>
+<span id="cb7-72"><a href="#cb7-72" tabindex="-1"></a><span class="co">#&gt;  ultra_concise_v2  3.760324  4.282493  5.437483  4.932016  5.414620  38.40621</span></span>
+<span id="cb7-73"><a href="#cb7-73" tabindex="-1"></a><span class="co">#&gt;       tailcall_v3  3.781695  4.280118  5.442646  4.911344  5.330984  35.16439</span></span>
+<span id="cb7-74"><a href="#cb7-74" tabindex="-1"></a><span class="co">#&gt;      mapreduce_v4  3.803557  4.438762  5.513396  4.948989  5.583286  39.01306</span></span>
+<span id="cb7-75"><a href="#cb7-75" tabindex="-1"></a><span class="co">#&gt;      pointfree_v5 26.449660 30.486591 33.879743 32.504026 35.400694  57.30302</span></span>
+<span id="cb7-76"><a href="#cb7-76" tabindex="-1"></a><span class="co">#&gt;         walker_v6 27.215261 30.777969 34.053825 33.283769 36.028497  50.19702</span></span>
+<span id="cb7-77"><a href="#cb7-77" tabindex="-1"></a><span class="co">#&gt;          oneliner  3.943309  4.502388  5.570772  5.079522  5.743398  31.27108</span></span>
 <span id="cb7-78"><a href="#cb7-78" tabindex="-1"></a><span class="co">#&gt;  neval</span></span>
 <span id="cb7-79"><a href="#cb7-79" tabindex="-1"></a><span class="co">#&gt;    100</span></span>
 <span id="cb7-80"><a href="#cb7-80" tabindex="-1"></a><span class="co">#&gt;    100</span></span>
@@ -1078,7 +1078,7 @@ Matrix Builder with Zero-Loop Construction</h2>
 <span id="cb8-33"><a href="#cb8-33" tabindex="-1"></a><span class="co">#&gt;     for (i1 in 1:4) for (i2 in 1:5) result[i1, i2] &lt;- i1 * i2</span></span>
 <span id="cb8-34"><a href="#cb8-34" tabindex="-1"></a><span class="co">#&gt;     return(result)</span></span>
 <span id="cb8-35"><a href="#cb8-35" tabindex="-1"></a><span class="co">#&gt; }</span></span>
-<span id="cb8-36"><a href="#cb8-36" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x634b4aeaf588&gt;</span></span>
+<span id="cb8-36"><a href="#cb8-36" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x556bdd5dcb40&gt;</span></span>
 <span id="cb8-37"><a href="#cb8-37" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb8-38"><a href="#cb8-38" tabindex="-1"></a>my_matrix <span class="ot">&lt;-</span> <span class="fu">matrix_builder</span>()</span>
 <span id="cb8-39"><a href="#cb8-39" tabindex="-1"></a><span class="fu">print</span>(my_matrix)</span>
@@ -1256,7 +1256,7 @@ Construction!)</h2>
 <span id="cb11-58"><a href="#cb11-58" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Expected result:&quot;</span>, <span class="dv">1</span><span class="sc">^</span><span class="dv">1000</span>, <span class="st">&quot;(each loop runs once)</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb11-59"><a href="#cb11-59" tabindex="-1"></a><span class="co">#&gt; - Expected result: 1 (each loop runs once)</span></span>
 <span id="cb11-60"><a href="#cb11-60" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Execution time:&quot;</span>, execution_time, <span class="st">&quot;milliseconds</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb11-61"><a href="#cb11-61" tabindex="-1"></a><span class="co">#&gt; - Execution time: 5.49 milliseconds</span></span>
+<span id="cb11-61"><a href="#cb11-61" tabindex="-1"></a><span class="co">#&gt; - Execution time: 5.52 milliseconds</span></span>
 <span id="cb11-62"><a href="#cb11-62" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Call stack depth: 1000 levels</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span>
 <span id="cb11-63"><a href="#cb11-63" tabindex="-1"></a><span class="co">#&gt; - Call stack depth: 1000 levels</span></span>
 <span id="cb11-64"><a href="#cb11-64" tabindex="-1"></a></span>
