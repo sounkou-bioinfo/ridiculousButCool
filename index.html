@@ -47,46 +47,15 @@
     <table>
         <tr>
             <th>Name</th>
-            <th>Last modified</th>
-            <th>Size</th>
         </tr>
         <tr>
             <td><a href="../">../</a></td>
-            <td class="date">-</td>
-            <td class="size">-</td>
         </tr>
         <tbody id="fileList">
         </tbody>
     </table>
 
     <script>
-        function formatFileSize(bytes) {
-            if (bytes === 0) return '0 B';
-            if (bytes < 1024) return bytes + ' B';
-            if (bytes < 1048576) return Math.round(bytes / 1024) + ' K';
-            return Math.round(bytes / 1048576) + ' M';
-        }
-
-        function formatDate(date) {
-            return date.toISOString().slice(0, 16).replace('T', ' ');
-        }
-
-        function addFileRow(name, size, date) {
-            let tbody = document.getElementById('fileList');
-            let row = tbody.insertRow();
-            
-            let nameCell = row.insertCell(0);
-            nameCell.innerHTML = `<a href="${name}">${name}</a>`;
-            
-            let dateCell = row.insertCell(1);
-            dateCell.className = 'date';
-            dateCell.textContent = date || '-';
-            
-            let sizeCell = row.insertCell(2);
-            sizeCell.className = 'size';
-            sizeCell.textContent = size || '-';
-        }
-
         // Static file listing (must be manually maintained)
         function loadFiles() {
             // Files in this directory - update manually when you add/remove files
@@ -97,8 +66,16 @@
             ];
             
             files.forEach(file => {
-                addFileRow(file, '-', '-');
+                addFileRow(file);
             });
+        }
+
+        function addFileRow(name) {
+            let tbody = document.getElementById('fileList');
+            let row = tbody.insertRow();
+            
+            let nameCell = row.insertCell(0);
+            nameCell.innerHTML = `<a href="${name}">${name}</a>`;
         }
 
         // Load files when page loads

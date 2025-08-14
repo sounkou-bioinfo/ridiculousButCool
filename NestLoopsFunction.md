@@ -24,6 +24,8 @@ AST Manipulation Master
 - [The Ultimate Test: Generating the 1 Billion Iteration
   Function](#the-ultimate-test-generating-the-1-billion-iteration-function)
 - [Conclusion](#conclusion)
+- [More Ridiculous Test: 1000 NESTED LOOPS
+  Function](#more-ridiculous-test-1000-nested-loops-function)
 
 ## Creating Functions with N Nested Loops of K Iterations
 
@@ -83,9 +85,10 @@ cat("Generated function body:\n")
     ## Generated function body:
 
 ``` r
-print(body(nested_3_5))
+print(nested_3_5)
 ```
 
+    ## function () 
     ## {
     ##     counter <- 0
     ##     for (i1 in 1:5) {
@@ -97,6 +100,7 @@ print(body(nested_3_5))
     ##     }
     ##     return(counter)
     ## }
+    ## <environment: 0x5c769555f270>
 
 ``` r
 cat("\n")
@@ -154,15 +158,17 @@ cat("Generated function body (call objects):\n")
     ## Generated function body (call objects):
 
 ``` r
-print(body(nested_4_3))
+print(nested_4_3)
 ```
 
+    ## function () 
     ## {
     ##     counter <- 0
     ##     for (i1 in 1:3) for (i2 in 1:3) for (i3 in 1:3) for (i4 in 1:3) counter <- counter + 
     ##         1
     ##     return(counter)
     ## }
+    ## <environment: 0x5c7692f71b40>
 
 ``` r
 cat("\n")
@@ -236,7 +242,7 @@ print(nested_2_10)
     ##     }
     ##     return(counter)
     ## }
-    ## <environment: 0x6335e6c454c8>
+    ## <environment: 0x5c7695e53270>
 
 ``` r
 cat("\n")
@@ -310,9 +316,10 @@ cat("Generated function body (Tailcall method):\n")
     ## Generated function body (Tailcall method):
 
 ``` r
-print(body(nested_tailcall))
+print(nested_tailcall)
 ```
 
+    ## function () 
     ## {
     ##     counter <- 0
     ##     for (i3 in 1:4) {
@@ -324,6 +331,7 @@ print(body(nested_tailcall))
     ##     }
     ##     return(counter)
     ## }
+    ## <environment: 0x5c7696d946a0>
 
 ``` r
 cat("\n")
@@ -405,9 +413,10 @@ cat("Generated function body (Exec method):\n")
     ## Generated function body (Exec method):
 
 ``` r
-print(body(nested_exec))
+print(nested_exec)
 ```
 
+    ## function () 
     ## {
     ##     expr_to_exec <- substitute({
     ##         counter <- 0
@@ -416,6 +425,8 @@ print(body(nested_exec))
     ##     }, list(LOOPS = body_expr))
     ##     Exec(expr_to_exec, environment())
     ## }
+    ## <bytecode: 0x5c7697dde3c8>
+    ## <environment: 0x5c7697af4f68>
 
 ``` r
 cat("\n")
@@ -545,7 +556,7 @@ print(nested_5_2)
     ##     }
     ##     return(list(count = counter, vars = c(i1, i2, i3, i4, i5)))
     ## }
-    ## <environment: 0x6335e93cb918>
+    ## <environment: 0x5c76985cdbf0>
 
 ``` r
 cat("\n")
@@ -638,19 +649,19 @@ if (requireNamespace("microbenchmark", quietly = TRUE)) {
 
     ## Unit: milliseconds
     ##                   expr       min        lq      mean    median        uq
-    ##                 static  3.238192  3.696385  4.345908  4.262763  4.761919
-    ##  dynamic_v1_substitute  3.361532  3.942646  4.854054  4.484475  4.963586
-    ##        dynamic_v2_call  3.314598  3.690345  4.598120  4.219078  4.704999
-    ##      dynamic_v3_string 33.560552 36.579476 39.279383 38.613184 40.763283
-    ##    dynamic_v4_tailcall  3.326891  3.759975  4.704157  4.342941  4.675909
-    ##        dynamic_v5_exec 33.488126 35.736177 39.322758 37.563924 39.985076
-    ##         max neval
-    ##    9.862218   100
-    ##   35.179752   100
-    ##   25.577483   100
-    ##   63.341920   100
-    ##   40.561371   100
-    ##  117.122149   100
+    ##                 static  3.301676  3.964191  4.966958  4.627334  5.221474
+    ##  dynamic_v1_substitute  3.416146  4.011893  5.325392  4.586756  5.151597
+    ##        dynamic_v2_call  3.385975  4.124058  5.121859  4.618359  5.405191
+    ##      dynamic_v3_string  3.401898  4.154928  5.141246  4.669763  5.278918
+    ##    dynamic_v4_tailcall  3.213188  3.807537  5.174589  4.496591  4.955309
+    ##        dynamic_v5_exec 33.557897 38.565517 43.665580 41.234500 45.366450
+    ##       max neval
+    ##  26.33868   100
+    ##  56.54084   100
+    ##  36.23631   100
+    ##  34.57653   100
+    ##  53.90769   100
+    ##  77.79019   100
 
 ## Advanced: Custom Actions in Nested Loops
 
@@ -689,14 +700,16 @@ cat("Generated matrix builder function body:\n")
     ## Generated matrix builder function body:
 
 ``` r
-print(body(matrix_builder))
+print(matrix_builder)
 ```
 
+    ## function () 
     ## {
     ##     result <- matrix(0, nrow = 4, ncol = 5)
     ##     for (i1 in 1:4) for (i2 in 1:5) result[i1, i2] <- i1 * i2
     ##     return(result)
     ## }
+    ## <environment: 0x5c7695f10430>
 
 ``` r
 cat("\n")
@@ -801,15 +814,17 @@ cat("Final generated function body:\n")
     ## Final generated function body:
 
 ``` r
-print(body(final_func))
+print(final_func)
 ```
 
+    ## function () 
     ## {
     ##     counter <- 0
     ##     for (i1 in 1:3) for (i2 in 1:3) for (i3 in 1:3) for (i4 in 1:3) for (i5 in 1:3) for (i6 in 1:3) counter <- counter + 
     ##         1
     ##     return(counter)
     ## }
+    ## <environment: 0x5c7697701fc8>
 
 ``` r
 cat("\n")
@@ -833,3 +848,128 @@ cat("Math checks out! ✓\n")
 ```
 
     ## Math checks out! ✓
+
+## More Ridiculous Test: 1000 NESTED LOOPS Function
+
+``` r
+# The TRULY ridiculous test - let's create a function with 1000 NESTED LOOPS!
+# Each loop will only do 1 iteration, but we'll have 1000 levels of nesting!
+
+cat("=== Creating an absolutely ridiculous 1000 NESTED LOOPS function ===\n")
+```
+
+    ## === Creating an absolutely ridiculous 1000 NESTED LOOPS function ===
+
+``` r
+cat("WARNING: This will create a function with 1000 levels of nested for loops!\n")
+```
+
+    ## WARNING: This will create a function with 1000 levels of nested for loops!
+
+``` r
+cat("Each loop runs only 1 iteration, but the nesting depth is INSANE!\n\n")
+```
+
+    ## Each loop runs only 1 iteration, but the nesting depth is INSANE!
+
+``` r
+# Create the monster
+thousand_loops_func <- create_nested_loops_v2(1000, 1)
+cat("Generated function body (first few lines only - too big to print fully):\n")
+```
+
+    ## Generated function body (first few lines only - too big to print fully):
+
+``` r
+# Print just the structure, not the full body (it would be enormous!)
+func_str <- deparse(body(thousand_loops_func))
+cat("Function has", length(func_str), "lines of generated code!\n")
+```
+
+    ## Function has 6 lines of generated code!
+
+``` r
+cat("First 5 lines:\n")
+```
+
+    ## First 5 lines:
+
+``` r
+cat(paste(func_str[1:5], collapse = "\n"), "\n")
+```
+
+    ## {
+    ##     counter <- 0
+    ##     for (i1 in 1:1) for (i2 in 1:1) for (i3 in 1:1) for (i4 in 1:1) for (i5 in 1:1) for (i6 in 1:1) for (i7 in 1:1) for (i8 in 1:1) for (i9 in 1:1) for (i10 in 1:1) for (i11 in 1:1) for (i12 in 1:1) for (i13 in 1:1) for (i14 in 1:1) for (i15 in 1:1) for (i16 in 1:1) for (i17 in 1:1) for (i18 in 1:1) for (i19 in 1:1) for (i20 in 1:1) for (i21 in 1:1) for (i22 in 1:1) for (i23 in 1:1) for (i24 in 1:1) for (i25 in 1:1) for (i26 in 1:1) for (i27 in 1:1) for (i28 in 1:1) for (i29 in 1:1) for (i30 in 1:1) for (i31 in 1:1) for (i32 in 1:1) for (i33 in 1:1) for (i34 in 1:1) for (i35 in 1:1) for (i36 in 1:1) for (i37 in 1:1) for (i38 in 1:1) for (i39 in 1:1) for (i40 in 1:1) for (i41 in 1:1) for (i42 in 1:1) for (i43 in 1:1) for (i44 in 1:1) for (i45 in 1:1) for (i46 in 1:1) for (i47 in 1:1) for (i48 in 1:1) for (i49 in 1:1) for (i50 in 1:1) for (i51 in 1:1) for (i52 in 1:1) for (i53 in 1:1) for (i54 in 1:1) for (i55 in 1:1) for (i56 in 1:1) for (i57 in 1:1) for (i58 in 1:1) for (i59 in 1:1) for (i60 in 1:1) for (i61 in 1:1) for (i62 in 1:1) for (i63 in 1:1) for (i64 in 1:1) for (i65 in 1:1) for (i66 in 1:1) for (i67 in 1:1) for (i68 in 1:1) for (i69 in 1:1) for (i70 in 1:1) for (i71 in 1:1) for (i72 in 1:1) for (i73 in 1:1) for (i74 in 1:1) for (i75 in 1:1) for (i76 in 1:1) for (i77 in 1:1) for (i78 in 1:1) for (i79 in 1:1) for (i80 in 1:1) for (i81 in 1:1) for (i82 in 1:1) for (i83 in 1:1) for (i84 in 1:1) for (i85 in 1:1) for (i86 in 1:1) for (i87 in 1:1) for (i88 in 1:1) for (i89 in 1:1) for (i90 in 1:1) for (i91 in 1:1) for (i92 in 1:1) for (i93 in 1:1) for (i94 in 1:1) for (i95 in 1:1) for (i96 in 1:1) for (i97 in 1:1) for (i98 in 1:1) for (i99 in 1:1) for (i100 in 1:1) for (i101 in 1:1) for (i102 in 1:1) for (i103 in 1:1) for (i104 in 1:1) for (i105 in 1:1) for (i106 in 1:1) for (i107 in 1:1) for (i108 in 1:1) for (i109 in 1:1) for (i110 in 1:1) for (i111 in 1:1) for (i112 in 1:1) for (i113 in 1:1) for (i114 in 1:1) for (i115 in 1:1) for (i116 in 1:1) for (i117 in 1:1) for (i118 in 1:1) for (i119 in 1:1) for (i120 in 1:1) for (i121 in 1:1) for (i122 in 1:1) for (i123 in 1:1) for (i124 in 1:1) for (i125 in 1:1) for (i126 in 1:1) for (i127 in 1:1) for (i128 in 1:1) for (i129 in 1:1) for (i130 in 1:1) for (i131 in 1:1) for (i132 in 1:1) for (i133 in 1:1) for (i134 in 1:1) for (i135 in 1:1) for (i136 in 1:1) for (i137 in 1:1) for (i138 in 1:1) for (i139 in 1:1) for (i140 in 1:1) for (i141 in 1:1) for (i142 in 1:1) for (i143 in 1:1) for (i144 in 1:1) for (i145 in 1:1) for (i146 in 1:1) for (i147 in 1:1) for (i148 in 1:1) for (i149 in 1:1) for (i150 in 1:1) for (i151 in 1:1) for (i152 in 1:1) for (i153 in 1:1) for (i154 in 1:1) for (i155 in 1:1) for (i156 in 1:1) for (i157 in 1:1) for (i158 in 1:1) for (i159 in 1:1) for (i160 in 1:1) for (i161 in 1:1) for (i162 in 1:1) for (i163 in 1:1) for (i164 in 1:1) for (i165 in 1:1) for (i166 in 1:1) for (i167 in 1:1) for (i168 in 1:1) for (i169 in 1:1) for (i170 in 1:1) for (i171 in 1:1) for (i172 in 1:1) for (i173 in 1:1) for (i174 in 1:1) for (i175 in 1:1) for (i176 in 1:1) for (i177 in 1:1) for (i178 in 1:1) for (i179 in 1:1) for (i180 in 1:1) for (i181 in 1:1) for (i182 in 1:1) for (i183 in 1:1) for (i184 in 1:1) for (i185 in 1:1) for (i186 in 1:1) for (i187 in 1:1) for (i188 in 1:1) for (i189 in 1:1) for (i190 in 1:1) for (i191 in 1:1) for (i192 in 1:1) for (i193 in 1:1) for (i194 in 1:1) for (i195 in 1:1) for (i196 in 1:1) for (i197 in 1:1) for (i198 in 1:1) for (i199 in 1:1) for (i200 in 1:1) for (i201 in 1:1) for (i202 in 1:1) for (i203 in 1:1) for (i204 in 1:1) for (i205 in 1:1) for (i206 in 1:1) for (i207 in 1:1) for (i208 in 1:1) for (i209 in 1:1) for (i210 in 1:1) for (i211 in 1:1) for (i212 in 1:1) for (i213 in 1:1) for (i214 in 1:1) for (i215 in 1:1) for (i216 in 1:1) for (i217 in 1:1) for (i218 in 1:1) for (i219 in 1:1) for (i220 in 1:1) for (i221 in 1:1) for (i222 in 1:1) for (i223 in 1:1) for (i224 in 1:1) for (i225 in 1:1) for (i226 in 1:1) for (i227 in 1:1) for (i228 in 1:1) for (i229 in 1:1) for (i230 in 1:1) for (i231 in 1:1) for (i232 in 1:1) for (i233 in 1:1) for (i234 in 1:1) for (i235 in 1:1) for (i236 in 1:1) for (i237 in 1:1) for (i238 in 1:1) for (i239 in 1:1) for (i240 in 1:1) for (i241 in 1:1) for (i242 in 1:1) for (i243 in 1:1) for (i244 in 1:1) for (i245 in 1:1) for (i246 in 1:1) for (i247 in 1:1) for (i248 in 1:1) for (i249 in 1:1) for (i250 in 1:1) for (i251 in 1:1) for (i252 in 1:1) for (i253 in 1:1) for (i254 in 1:1) for (i255 in 1:1) for (i256 in 1:1) for (i257 in 1:1) for (i258 in 1:1) for (i259 in 1:1) for (i260 in 1:1) for (i261 in 1:1) for (i262 in 1:1) for (i263 in 1:1) for (i264 in 1:1) for (i265 in 1:1) for (i266 in 1:1) for (i267 in 1:1) for (i268 in 1:1) for (i269 in 1:1) for (i270 in 1:1) for (i271 in 1:1) for (i272 in 1:1) for (i273 in 1:1) for (i274 in 1:1) for (i275 in 1:1) for (i276 in 1:1) for (i277 in 1:1) for (i278 in 1:1) for (i279 in 1:1) for (i280 in 1:1) for (i281 in 1:1) for (i282 in 1:1) for (i283 in 1:1) for (i284 in 1:1) for (i285 in 1:1) for (i286 in 1:1) for (i287 in 1:1) for (i288 in 1:1) for (i289 in 1:1) for (i290 in 1:1) for (i291 in 1:1) for (i292 in 1:1) for (i293 in 1:1) for (i294 in 1:1) for (i295 in 1:1) for (i296 in 1:1) for (i297 in 1:1) for (i298 in 1:1) for (i299 in 1:1) for (i300 in 1:1) for (i301 in 1:1) for (i302 in 1:1) for (i303 in 1:1) for (i304 in 1:1) for (i305 in 1:1) for (i306 in 1:1) for (i307 in 1:1) for (i308 in 1:1) for (i309 in 1:1) for (i310 in 1:1) for (i311 in 1:1) for (i312 in 1:1) for (i313 in 1:1) for (i314 in 1:1) for (i315 in 1:1) for (i316 in 1:1) for (i317 in 1:1) for (i318 in 1:1) for (i319 in 1:1) for (i320 in 1:1) for (i321 in 1:1) for (i322 in 1:1) for (i323 in 1:1) for (i324 in 1:1) for (i325 in 1:1) for (i326 in 1:1) for (i327 in 1:1) for (i328 in 1:1) for (i329 in 1:1) for (i330 in 1:1) for (i331 in 1:1) for (i332 in 1:1) for (i333 in 1:1) for (i334 in 1:1) for (i335 in 1:1) for (i336 in 1:1) for (i337 in 1:1) for (i338 in 1:1) for (i339 in 1:1) for (i340 in 1:1) for (i341 in 1:1) for (i342 in 1:1) for (i343 in 1:1) for (i344 in 1:1) for (i345 in 1:1) for (i346 in 1:1) for (i347 in 1:1) for (i348 in 1:1) for (i349 in 1:1) for (i350 in 1:1) for (i351 in 1:1) for (i352 in 1:1) for (i353 in 1:1) for (i354 in 1:1) for (i355 in 1:1) for (i356 in 1:1) for (i357 in 1:1) for (i358 in 1:1) for (i359 in 1:1) for (i360 in 1:1) for (i361 in 1:1) for (i362 in 1:1) for (i363 in 1:1) for (i364 in 1:1) for (i365 in 1:1) for (i366 in 1:1) for (i367 in 1:1) for (i368 in 1:1) for (i369 in 1:1) for (i370 in 1:1) for (i371 in 1:1) for (i372 in 1:1) for (i373 in 1:1) for (i374 in 1:1) for (i375 in 1:1) for (i376 in 1:1) for (i377 in 1:1) for (i378 in 1:1) for (i379 in 1:1) for (i380 in 1:1) for (i381 in 1:1) for (i382 in 1:1) for (i383 in 1:1) for (i384 in 1:1) for (i385 in 1:1) for (i386 in 1:1) for (i387 in 1:1) for (i388 in 1:1) for (i389 in 1:1) for (i390 in 1:1) for (i391 in 1:1) for (i392 in 1:1) for (i393 in 1:1) for (i394 in 1:1) for (i395 in 1:1) for (i396 in 1:1) for (i397 in 1:1) for (i398 in 1:1) for (i399 in 1:1) for (i400 in 1:1) for (i401 in 1:1) for (i402 in 1:1) for (i403 in 1:1) for (i404 in 1:1) for (i405 in 1:1) for (i406 in 1:1) for (i407 in 1:1) for (i408 in 1:1) for (i409 in 1:1) for (i410 in 1:1) for (i411 in 1:1) for (i412 in 1:1) for (i413 in 1:1) for (i414 in 1:1) for (i415 in 1:1) for (i416 in 1:1) for (i417 in 1:1) for (i418 in 1:1) for (i419 in 1:1) for (i420 in 1:1) for (i421 in 1:1) for (i422 in 1:1) for (i423 in 1:1) for (i424 in 1:1) for (i425 in 1:1) for (i426 in 1:1) for (i427 in 1:1) for (i428 in 1:1) for (i429 in 1:1) for (i430 in 1:1) for (i431 in 1:1) for (i432 in 1:1) for (i433 in 1:1) for (i434 in 1:1) for (i435 in 1:1) for (i436 in 1:1) for (i437 in 1:1) for (i438 in 1:1) for (i439 in 1:1) for (i440 in 1:1) for (i441 in 1:1) for (i442 in 1:1) for (i443 in 1:1) for (i444 in 1:1) for (i445 in 1:1) for (i446 in 1:1) for (i447 in 1:1) for (i448 in 1:1) for (i449 in 1:1) for (i450 in 1:1) for (i451 in 1:1) for (i452 in 1:1) for (i453 in 1:1) for (i454 in 1:1) for (i455 in 1:1) for (i456 in 1:1) for (i457 in 1:1) for (i458 in 1:1) for (i459 in 1:1) for (i460 in 1:1) for (i461 in 1:1) for (i462 in 1:1) for (i463 in 1:1) for (i464 in 1:1) for (i465 in 1:1) for (i466 in 1:1) for (i467 in 1:1) for (i468 in 1:1) for (i469 in 1:1) for (i470 in 1:1) for (i471 in 1:1) for (i472 in 1:1) for (i473 in 1:1) for (i474 in 1:1) for (i475 in 1:1) for (i476 in 1:1) for (i477 in 1:1) for (i478 in 1:1) for (i479 in 1:1) for (i480 in 1:1) for (i481 in 1:1) for (i482 in 1:1) for (i483 in 1:1) for (i484 in 1:1) for (i485 in 1:1) for (i486 in 1:1) for (i487 in 1:1) for (i488 in 1:1) for (i489 in 1:1) for (i490 in 1:1) for (i491 in 1:1) for (i492 in 1:1) for (i493 in 1:1) for (i494 in 1:1) for (i495 in 1:1) for (i496 in 1:1) for (i497 in 1:1) for (i498 in 1:1) for (i499 in 1:1) for (i500 in 1:1) for (i501 in 1:1) for (i502 in 1:1) for (i503 in 1:1) for (i504 in 1:1) for (i505 in 1:1) for (i506 in 1:1) for (i507 in 1:1) for (i508 in 1:1) for (i509 in 1:1) for (i510 in 1:1) for (i511 in 1:1) for (i512 in 1:1) for (i513 in 1:1) for (i514 in 1:1) for (i515 in 1:1) for (i516 in 1:1) for (i517 in 1:1) for (i518 in 1:1) for (i519 in 1:1) for (i520 in 1:1) for (i521 in 1:1) for (i522 in 1:1) for (i523 in 1:1) for (i524 in 1:1) for (i525 in 1:1) for (i526 in 1:1) for (i527 in 1:1) for (i528 in 1:1) for (i529 in 1:1) for (i530 in 1:1) for (i531 in 1:1) for (i532 in 1:1) for (i533 in 1:1) for (i534 in 1:1) for (i535 in 1:1) for (i536 in 1:1) for (i537 in 1:1) for (i538 in 1:1) for (i539 in 1:1) for (i540 in 1:1) for (i541 in 1:1) for (i542 in 1:1) for (i543 in 1:1) for (i544 in 1:1) for (i545 in 1:1) for (i546 in 1:1) for (i547 in 1:1) for (i548 in 1:1) for (i549 in 1:1) for (i550 in 1:1) for (i551 in 1:1) for (i552 in 1:1) for (i553 in 1:1) for (i554 in 1:1) for (i555 in 1:1) for (i556 in 1:1) for (i557 in 1:1) for (i558 in 1:1) for (i559 in 1:1) for (i560 in 1:1) for (i561 in 1:1) for (i562 in 1:1) for (i563 in 1:1) for (i564 in 1:1) for (i565 in 1:1) for (i566 in 1:1) for (i567 in 1:1) for (i568 in 1:1) for (i569 in 1:1) for (i570 in 1:1) for (i571 in 1:1) for (i572 in 1:1) for (i573 in 1:1) for (i574 in 1:1) for (i575 in 1:1) for (i576 in 1:1) for (i577 in 1:1) for (i578 in 1:1) for (i579 in 1:1) for (i580 in 1:1) for (i581 in 1:1) for (i582 in 1:1) for (i583 in 1:1) for (i584 in 1:1) for (i585 in 1:1) for (i586 in 1:1) for (i587 in 1:1) for (i588 in 1:1) for (i589 in 1:1) for (i590 in 1:1) for (i591 in 1:1) for (i592 in 1:1) for (i593 in 1:1) for (i594 in 1:1) for (i595 in 1:1) for (i596 in 1:1) for (i597 in 1:1) for (i598 in 1:1) for (i599 in 1:1) for (i600 in 1:1) for (i601 in 1:1) for (i602 in 1:1) for (i603 in 1:1) for (i604 in 1:1) for (i605 in 1:1) for (i606 in 1:1) for (i607 in 1:1) for (i608 in 1:1) for (i609 in 1:1) for (i610 in 1:1) for (i611 in 1:1) for (i612 in 1:1) for (i613 in 1:1) for (i614 in 1:1) for (i615 in 1:1) for (i616 in 1:1) for (i617 in 1:1) for (i618 in 1:1) for (i619 in 1:1) for (i620 in 1:1) for (i621 in 1:1) for (i622 in 1:1) for (i623 in 1:1) for (i624 in 1:1) for (i625 in 1:1) for (i626 in 1:1) for (i627 in 1:1) for (i628 in 1:1) for (i629 in 1:1) for (i630 in 1:1) for (i631 in 1:1) for (i632 in 1:1) for (i633 in 1:1) for (i634 in 1:1) for (i635 in 1:1) for (i636 in 1:1) for (i637 in 1:1) for (i638 in 1:1) for (i639 in 1:1) for (i640 in 1:1) for (i641 in 1:1) for (i642 in 1:1) for (i643 in 1:1) for (i644 in 1:1) for (i645 in 1:1) for (i646 in 1:1) for (i647 in 1:1) for (i648 in 1:1) for (i649 in 1:1) for (i650 in 1:1) for (i651 in 1:1) for (i652 in 1:1) for (i653 in 1:1) for (i654 in 1:1) for (i655 in 1:1) for (i656 in 1:1) for (i657 in 1:1) for (i658 in 1:1) for (i659 in 1:1) for (i660 in 1:1) for (i661 in 1:1) for (i662 in 1:1) for (i663 in 1:1) for (i664 in 1:1) for (i665 in 1:1) for (i666 in 1:1) for (i667 in 1:1) for (i668 in 1:1) for (i669 in 1:1) for (i670 in 1:1) for (i671 in 1:1) for (i672 in 1:1) for (i673 in 1:1) for (i674 in 1:1) for (i675 in 1:1) for (i676 in 1:1) for (i677 in 1:1) for (i678 in 1:1) for (i679 in 1:1) for (i680 in 1:1) for (i681 in 1:1) for (i682 in 1:1) for (i683 in 1:1) for (i684 in 1:1) for (i685 in 1:1) for (i686 in 1:1) for (i687 in 1:1) for (i688 in 1:1) for (i689 in 1:1) for (i690 in 1:1) for (i691 in 1:1) for (i692 in 1:1) for (i693 in 1:1) for (i694 in 1:1) for (i695 in 1:1) for (i696 in 1:1) for (i697 in 1:1) for (i698 in 1:1) for (i699 in 1:1) for (i700 in 1:1) for (i701 in 1:1) for (i702 in 1:1) for (i703 in 1:1) for (i704 in 1:1) for (i705 in 1:1) for (i706 in 1:1) for (i707 in 1:1) for (i708 in 1:1) for (i709 in 1:1) for (i710 in 1:1) for (i711 in 1:1) for (i712 in 1:1) for (i713 in 1:1) for (i714 in 1:1) for (i715 in 1:1) for (i716 in 1:1) for (i717 in 1:1) for (i718 in 1:1) for (i719 in 1:1) for (i720 in 1:1) for (i721 in 1:1) for (i722 in 1:1) for (i723 in 1:1) for (i724 in 1:1) for (i725 in 1:1) for (i726 in 1:1) for (i727 in 1:1) for (i728 in 1:1) for (i729 in 1:1) for (i730 in 1:1) for (i731 in 1:1) for (i732 in 1:1) for (i733 in 1:1) for (i734 in 1:1) for (i735 in 1:1) for (i736 in 1:1) for (i737 in 1:1) for (i738 in 1:1) for (i739 in 1:1) for (i740 in 1:1) for (i741 in 1:1) for (i742 in 1:1) for (i743 in 1:1) for (i744 in 1:1) for (i745 in 1:1) for (i746 in 1:1) for (i747 in 1:1) for (i748 in 1:1) for (i749 in 1:1) for (i750 in 1:1) for (i751 in 1:1) for (i752 in 1:1) for (i753 in 1:1) for (i754 in 1:1) for (i755 in 1:1) for (i756 in 1:1) for (i757 in 1:1) for (i758 in 1:1) for (i759 in 1:1) for (i760 in 1:1) for (i761 in 1:1) for (i762 in 1:1) for (i763 in 1:1) for (i764 in 1:1) for (i765 in 1:1) for (i766 in 1:1) for (i767 in 1:1) for (i768 in 1:1) for (i769 in 1:1) for (i770 in 1:1) for (i771 in 1:1) for (i772 in 1:1) for (i773 in 1:1) for (i774 in 1:1) for (i775 in 1:1) for (i776 in 1:1) for (i777 in 1:1) for (i778 in 1:1) for (i779 in 1:1) for (i780 in 1:1) for (i781 in 1:1) for (i782 in 1:1) for (i783 in 1:1) for (i784 in 1:1) for (i785 in 1:1) for (i786 in 1:1) for (i787 in 1:1) for (i788 in 1:1) for (i789 in 1:1) for (i790 in 1:1) for (i791 in 1:1) for (i792 in 1:1) for (i793 in 1:1) for (i794 in 1:1) for (i795 in 1:1) for (i796 in 1:1) for (i797 in 1:1) for (i798 in 1:1) for (i799 in 1:1) for (i800 in 1:1) for (i801 in 1:1) for (i802 in 1:1) for (i803 in 1:1) for (i804 in 1:1) for (i805 in 1:1) for (i806 in 1:1) for (i807 in 1:1) for (i808 in 1:1) for (i809 in 1:1) for (i810 in 1:1) for (i811 in 1:1) for (i812 in 1:1) for (i813 in 1:1) for (i814 in 1:1) for (i815 in 1:1) for (i816 in 1:1) for (i817 in 1:1) for (i818 in 1:1) for (i819 in 1:1) for (i820 in 1:1) for (i821 in 1:1) for (i822 in 1:1) for (i823 in 1:1) for (i824 in 1:1) for (i825 in 1:1) for (i826 in 1:1) for (i827 in 1:1) for (i828 in 1:1) for (i829 in 1:1) for (i830 in 1:1) for (i831 in 1:1) for (i832 in 1:1) for (i833 in 1:1) for (i834 in 1:1) for (i835 in 1:1) for (i836 in 1:1) for (i837 in 1:1) for (i838 in 1:1) for (i839 in 1:1) for (i840 in 1:1) for (i841 in 1:1) for (i842 in 1:1) for (i843 in 1:1) for (i844 in 1:1) for (i845 in 1:1) for (i846 in 1:1) for (i847 in 1:1) for (i848 in 1:1) for (i849 in 1:1) for (i850 in 1:1) for (i851 in 1:1) for (i852 in 1:1) for (i853 in 1:1) for (i854 in 1:1) for (i855 in 1:1) for (i856 in 1:1) for (i857 in 1:1) for (i858 in 1:1) for (i859 in 1:1) for (i860 in 1:1) for (i861 in 1:1) for (i862 in 1:1) for (i863 in 1:1) for (i864 in 1:1) for (i865 in 1:1) for (i866 in 1:1) for (i867 in 1:1) for (i868 in 1:1) for (i869 in 1:1) for (i870 in 1:1) for (i871 in 1:1) for (i872 in 1:1) for (i873 in 1:1) for (i874 in 1:1) for (i875 in 1:1) for (i876 in 1:1) for (i877 in 1:1) for (i878 in 1:1) for (i879 in 1:1) for (i880 in 1:1) for (i881 in 1:1) for (i882 in 1:1) for (i883 in 1:1) for (i884 in 1:1) for (i885 in 1:1) for (i886 in 1:1) for (i887 in 1:1) for (i888 in 1:1) for (i889 in 1:1) for (i890 in 1:1) for (i891 in 1:1) for (i892 in 1:1) for (i893 in 1:1) for (i894 in 1:1) for (i895 in 1:1) for (i896 in 1:1) for (i897 in 1:1) for (i898 in 1:1) for (i899 in 1:1) for (i900 in 1:1) for (i901 in 1:1) for (i902 in 1:1) for (i903 in 1:1) for (i904 in 1:1) for (i905 in 1:1) for (i906 in 1:1) for (i907 in 1:1) for (i908 in 1:1) for (i909 in 1:1) for (i910 in 1:1) for (i911 in 1:1) for (i912 in 1:1) for (i913 in 1:1) for (i914 in 1:1) for (i915 in 1:1) for (i916 in 1:1) for (i917 in 1:1) for (i918 in 1:1) for (i919 in 1:1) for (i920 in 1:1) for (i921 in 1:1) for (i922 in 1:1) for (i923 in 1:1) for (i924 in 1:1) for (i925 in 1:1) for (i926 in 1:1) for (i927 in 1:1) for (i928 in 1:1) for (i929 in 1:1) for (i930 in 1:1) for (i931 in 1:1) for (i932 in 1:1) for (i933 in 1:1) for (i934 in 1:1) for (i935 in 1:1) for (i936 in 1:1) for (i937 in 1:1) for (i938 in 1:1) for (i939 in 1:1) for (i940 in 1:1) for (i941 in 1:1) for (i942 in 1:1) for (i943 in 1:1) for (i944 in 1:1) for (i945 in 1:1) for (i946 in 1:1) for (i947 in 1:1) for (i948 in 1:1) for (i949 in 1:1) for (i950 in 1:1) for (i951 in 1:1) for (i952 in 1:1) for (i953 in 1:1) for (i954 in 1:1) for (i955 in 1:1) for (i956 in 1:1) for (i957 in 1:1) for (i958 in 1:1) for (i959 in 1:1) for (i960 in 1:1) for (i961 in 1:1) for (i962 in 1:1) for (i963 in 1:1) for (i964 in 1:1) for (i965 in 1:1) for (i966 in 1:1) for (i967 in 1:1) for (i968 in 1:1) for (i969 in 1:1) for (i970 in 1:1) for (i971 in 1:1) for (i972 in 1:1) for (i973 in 1:1) for (i974 in 1:1) for (i975 in 1:1) for (i976 in 1:1) for (i977 in 1:1) for (i978 in 1:1) for (i979 in 1:1) for (i980 in 1:1) for (i981 in 1:1) for (i982 in 1:1) for (i983 in 1:1) for (i984 in 1:1) for (i985 in 1:1) for (i986 in 1:1) for (i987 in 1:1) for (i988 in 1:1) for (i989 in 1:1) for (i990 in 1:1) for (i991 in 1:1) for (i992 in 1:1) for (i993 in 1:1) for (i994 in 1:1) for (i995 in 1:1) for (i996 in 1:1) for (i997 in 1:1) for (i998 in 1:1) for (i999 in 1:1) for (i1000 in 1:1) counter <- counter + 
+    ##         1
+    ##     return(counter)
+
+``` r
+cat("...\n")
+```
+
+    ## ...
+
+``` r
+cat("Last 5 lines:\n")
+```
+
+    ## Last 5 lines:
+
+``` r
+cat(paste(func_str[(length(func_str)-4):length(func_str)], collapse = "\n"), "\n\n")
+```
+
+    ##     counter <- 0
+    ##     for (i1 in 1:1) for (i2 in 1:1) for (i3 in 1:1) for (i4 in 1:1) for (i5 in 1:1) for (i6 in 1:1) for (i7 in 1:1) for (i8 in 1:1) for (i9 in 1:1) for (i10 in 1:1) for (i11 in 1:1) for (i12 in 1:1) for (i13 in 1:1) for (i14 in 1:1) for (i15 in 1:1) for (i16 in 1:1) for (i17 in 1:1) for (i18 in 1:1) for (i19 in 1:1) for (i20 in 1:1) for (i21 in 1:1) for (i22 in 1:1) for (i23 in 1:1) for (i24 in 1:1) for (i25 in 1:1) for (i26 in 1:1) for (i27 in 1:1) for (i28 in 1:1) for (i29 in 1:1) for (i30 in 1:1) for (i31 in 1:1) for (i32 in 1:1) for (i33 in 1:1) for (i34 in 1:1) for (i35 in 1:1) for (i36 in 1:1) for (i37 in 1:1) for (i38 in 1:1) for (i39 in 1:1) for (i40 in 1:1) for (i41 in 1:1) for (i42 in 1:1) for (i43 in 1:1) for (i44 in 1:1) for (i45 in 1:1) for (i46 in 1:1) for (i47 in 1:1) for (i48 in 1:1) for (i49 in 1:1) for (i50 in 1:1) for (i51 in 1:1) for (i52 in 1:1) for (i53 in 1:1) for (i54 in 1:1) for (i55 in 1:1) for (i56 in 1:1) for (i57 in 1:1) for (i58 in 1:1) for (i59 in 1:1) for (i60 in 1:1) for (i61 in 1:1) for (i62 in 1:1) for (i63 in 1:1) for (i64 in 1:1) for (i65 in 1:1) for (i66 in 1:1) for (i67 in 1:1) for (i68 in 1:1) for (i69 in 1:1) for (i70 in 1:1) for (i71 in 1:1) for (i72 in 1:1) for (i73 in 1:1) for (i74 in 1:1) for (i75 in 1:1) for (i76 in 1:1) for (i77 in 1:1) for (i78 in 1:1) for (i79 in 1:1) for (i80 in 1:1) for (i81 in 1:1) for (i82 in 1:1) for (i83 in 1:1) for (i84 in 1:1) for (i85 in 1:1) for (i86 in 1:1) for (i87 in 1:1) for (i88 in 1:1) for (i89 in 1:1) for (i90 in 1:1) for (i91 in 1:1) for (i92 in 1:1) for (i93 in 1:1) for (i94 in 1:1) for (i95 in 1:1) for (i96 in 1:1) for (i97 in 1:1) for (i98 in 1:1) for (i99 in 1:1) for (i100 in 1:1) for (i101 in 1:1) for (i102 in 1:1) for (i103 in 1:1) for (i104 in 1:1) for (i105 in 1:1) for (i106 in 1:1) for (i107 in 1:1) for (i108 in 1:1) for (i109 in 1:1) for (i110 in 1:1) for (i111 in 1:1) for (i112 in 1:1) for (i113 in 1:1) for (i114 in 1:1) for (i115 in 1:1) for (i116 in 1:1) for (i117 in 1:1) for (i118 in 1:1) for (i119 in 1:1) for (i120 in 1:1) for (i121 in 1:1) for (i122 in 1:1) for (i123 in 1:1) for (i124 in 1:1) for (i125 in 1:1) for (i126 in 1:1) for (i127 in 1:1) for (i128 in 1:1) for (i129 in 1:1) for (i130 in 1:1) for (i131 in 1:1) for (i132 in 1:1) for (i133 in 1:1) for (i134 in 1:1) for (i135 in 1:1) for (i136 in 1:1) for (i137 in 1:1) for (i138 in 1:1) for (i139 in 1:1) for (i140 in 1:1) for (i141 in 1:1) for (i142 in 1:1) for (i143 in 1:1) for (i144 in 1:1) for (i145 in 1:1) for (i146 in 1:1) for (i147 in 1:1) for (i148 in 1:1) for (i149 in 1:1) for (i150 in 1:1) for (i151 in 1:1) for (i152 in 1:1) for (i153 in 1:1) for (i154 in 1:1) for (i155 in 1:1) for (i156 in 1:1) for (i157 in 1:1) for (i158 in 1:1) for (i159 in 1:1) for (i160 in 1:1) for (i161 in 1:1) for (i162 in 1:1) for (i163 in 1:1) for (i164 in 1:1) for (i165 in 1:1) for (i166 in 1:1) for (i167 in 1:1) for (i168 in 1:1) for (i169 in 1:1) for (i170 in 1:1) for (i171 in 1:1) for (i172 in 1:1) for (i173 in 1:1) for (i174 in 1:1) for (i175 in 1:1) for (i176 in 1:1) for (i177 in 1:1) for (i178 in 1:1) for (i179 in 1:1) for (i180 in 1:1) for (i181 in 1:1) for (i182 in 1:1) for (i183 in 1:1) for (i184 in 1:1) for (i185 in 1:1) for (i186 in 1:1) for (i187 in 1:1) for (i188 in 1:1) for (i189 in 1:1) for (i190 in 1:1) for (i191 in 1:1) for (i192 in 1:1) for (i193 in 1:1) for (i194 in 1:1) for (i195 in 1:1) for (i196 in 1:1) for (i197 in 1:1) for (i198 in 1:1) for (i199 in 1:1) for (i200 in 1:1) for (i201 in 1:1) for (i202 in 1:1) for (i203 in 1:1) for (i204 in 1:1) for (i205 in 1:1) for (i206 in 1:1) for (i207 in 1:1) for (i208 in 1:1) for (i209 in 1:1) for (i210 in 1:1) for (i211 in 1:1) for (i212 in 1:1) for (i213 in 1:1) for (i214 in 1:1) for (i215 in 1:1) for (i216 in 1:1) for (i217 in 1:1) for (i218 in 1:1) for (i219 in 1:1) for (i220 in 1:1) for (i221 in 1:1) for (i222 in 1:1) for (i223 in 1:1) for (i224 in 1:1) for (i225 in 1:1) for (i226 in 1:1) for (i227 in 1:1) for (i228 in 1:1) for (i229 in 1:1) for (i230 in 1:1) for (i231 in 1:1) for (i232 in 1:1) for (i233 in 1:1) for (i234 in 1:1) for (i235 in 1:1) for (i236 in 1:1) for (i237 in 1:1) for (i238 in 1:1) for (i239 in 1:1) for (i240 in 1:1) for (i241 in 1:1) for (i242 in 1:1) for (i243 in 1:1) for (i244 in 1:1) for (i245 in 1:1) for (i246 in 1:1) for (i247 in 1:1) for (i248 in 1:1) for (i249 in 1:1) for (i250 in 1:1) for (i251 in 1:1) for (i252 in 1:1) for (i253 in 1:1) for (i254 in 1:1) for (i255 in 1:1) for (i256 in 1:1) for (i257 in 1:1) for (i258 in 1:1) for (i259 in 1:1) for (i260 in 1:1) for (i261 in 1:1) for (i262 in 1:1) for (i263 in 1:1) for (i264 in 1:1) for (i265 in 1:1) for (i266 in 1:1) for (i267 in 1:1) for (i268 in 1:1) for (i269 in 1:1) for (i270 in 1:1) for (i271 in 1:1) for (i272 in 1:1) for (i273 in 1:1) for (i274 in 1:1) for (i275 in 1:1) for (i276 in 1:1) for (i277 in 1:1) for (i278 in 1:1) for (i279 in 1:1) for (i280 in 1:1) for (i281 in 1:1) for (i282 in 1:1) for (i283 in 1:1) for (i284 in 1:1) for (i285 in 1:1) for (i286 in 1:1) for (i287 in 1:1) for (i288 in 1:1) for (i289 in 1:1) for (i290 in 1:1) for (i291 in 1:1) for (i292 in 1:1) for (i293 in 1:1) for (i294 in 1:1) for (i295 in 1:1) for (i296 in 1:1) for (i297 in 1:1) for (i298 in 1:1) for (i299 in 1:1) for (i300 in 1:1) for (i301 in 1:1) for (i302 in 1:1) for (i303 in 1:1) for (i304 in 1:1) for (i305 in 1:1) for (i306 in 1:1) for (i307 in 1:1) for (i308 in 1:1) for (i309 in 1:1) for (i310 in 1:1) for (i311 in 1:1) for (i312 in 1:1) for (i313 in 1:1) for (i314 in 1:1) for (i315 in 1:1) for (i316 in 1:1) for (i317 in 1:1) for (i318 in 1:1) for (i319 in 1:1) for (i320 in 1:1) for (i321 in 1:1) for (i322 in 1:1) for (i323 in 1:1) for (i324 in 1:1) for (i325 in 1:1) for (i326 in 1:1) for (i327 in 1:1) for (i328 in 1:1) for (i329 in 1:1) for (i330 in 1:1) for (i331 in 1:1) for (i332 in 1:1) for (i333 in 1:1) for (i334 in 1:1) for (i335 in 1:1) for (i336 in 1:1) for (i337 in 1:1) for (i338 in 1:1) for (i339 in 1:1) for (i340 in 1:1) for (i341 in 1:1) for (i342 in 1:1) for (i343 in 1:1) for (i344 in 1:1) for (i345 in 1:1) for (i346 in 1:1) for (i347 in 1:1) for (i348 in 1:1) for (i349 in 1:1) for (i350 in 1:1) for (i351 in 1:1) for (i352 in 1:1) for (i353 in 1:1) for (i354 in 1:1) for (i355 in 1:1) for (i356 in 1:1) for (i357 in 1:1) for (i358 in 1:1) for (i359 in 1:1) for (i360 in 1:1) for (i361 in 1:1) for (i362 in 1:1) for (i363 in 1:1) for (i364 in 1:1) for (i365 in 1:1) for (i366 in 1:1) for (i367 in 1:1) for (i368 in 1:1) for (i369 in 1:1) for (i370 in 1:1) for (i371 in 1:1) for (i372 in 1:1) for (i373 in 1:1) for (i374 in 1:1) for (i375 in 1:1) for (i376 in 1:1) for (i377 in 1:1) for (i378 in 1:1) for (i379 in 1:1) for (i380 in 1:1) for (i381 in 1:1) for (i382 in 1:1) for (i383 in 1:1) for (i384 in 1:1) for (i385 in 1:1) for (i386 in 1:1) for (i387 in 1:1) for (i388 in 1:1) for (i389 in 1:1) for (i390 in 1:1) for (i391 in 1:1) for (i392 in 1:1) for (i393 in 1:1) for (i394 in 1:1) for (i395 in 1:1) for (i396 in 1:1) for (i397 in 1:1) for (i398 in 1:1) for (i399 in 1:1) for (i400 in 1:1) for (i401 in 1:1) for (i402 in 1:1) for (i403 in 1:1) for (i404 in 1:1) for (i405 in 1:1) for (i406 in 1:1) for (i407 in 1:1) for (i408 in 1:1) for (i409 in 1:1) for (i410 in 1:1) for (i411 in 1:1) for (i412 in 1:1) for (i413 in 1:1) for (i414 in 1:1) for (i415 in 1:1) for (i416 in 1:1) for (i417 in 1:1) for (i418 in 1:1) for (i419 in 1:1) for (i420 in 1:1) for (i421 in 1:1) for (i422 in 1:1) for (i423 in 1:1) for (i424 in 1:1) for (i425 in 1:1) for (i426 in 1:1) for (i427 in 1:1) for (i428 in 1:1) for (i429 in 1:1) for (i430 in 1:1) for (i431 in 1:1) for (i432 in 1:1) for (i433 in 1:1) for (i434 in 1:1) for (i435 in 1:1) for (i436 in 1:1) for (i437 in 1:1) for (i438 in 1:1) for (i439 in 1:1) for (i440 in 1:1) for (i441 in 1:1) for (i442 in 1:1) for (i443 in 1:1) for (i444 in 1:1) for (i445 in 1:1) for (i446 in 1:1) for (i447 in 1:1) for (i448 in 1:1) for (i449 in 1:1) for (i450 in 1:1) for (i451 in 1:1) for (i452 in 1:1) for (i453 in 1:1) for (i454 in 1:1) for (i455 in 1:1) for (i456 in 1:1) for (i457 in 1:1) for (i458 in 1:1) for (i459 in 1:1) for (i460 in 1:1) for (i461 in 1:1) for (i462 in 1:1) for (i463 in 1:1) for (i464 in 1:1) for (i465 in 1:1) for (i466 in 1:1) for (i467 in 1:1) for (i468 in 1:1) for (i469 in 1:1) for (i470 in 1:1) for (i471 in 1:1) for (i472 in 1:1) for (i473 in 1:1) for (i474 in 1:1) for (i475 in 1:1) for (i476 in 1:1) for (i477 in 1:1) for (i478 in 1:1) for (i479 in 1:1) for (i480 in 1:1) for (i481 in 1:1) for (i482 in 1:1) for (i483 in 1:1) for (i484 in 1:1) for (i485 in 1:1) for (i486 in 1:1) for (i487 in 1:1) for (i488 in 1:1) for (i489 in 1:1) for (i490 in 1:1) for (i491 in 1:1) for (i492 in 1:1) for (i493 in 1:1) for (i494 in 1:1) for (i495 in 1:1) for (i496 in 1:1) for (i497 in 1:1) for (i498 in 1:1) for (i499 in 1:1) for (i500 in 1:1) for (i501 in 1:1) for (i502 in 1:1) for (i503 in 1:1) for (i504 in 1:1) for (i505 in 1:1) for (i506 in 1:1) for (i507 in 1:1) for (i508 in 1:1) for (i509 in 1:1) for (i510 in 1:1) for (i511 in 1:1) for (i512 in 1:1) for (i513 in 1:1) for (i514 in 1:1) for (i515 in 1:1) for (i516 in 1:1) for (i517 in 1:1) for (i518 in 1:1) for (i519 in 1:1) for (i520 in 1:1) for (i521 in 1:1) for (i522 in 1:1) for (i523 in 1:1) for (i524 in 1:1) for (i525 in 1:1) for (i526 in 1:1) for (i527 in 1:1) for (i528 in 1:1) for (i529 in 1:1) for (i530 in 1:1) for (i531 in 1:1) for (i532 in 1:1) for (i533 in 1:1) for (i534 in 1:1) for (i535 in 1:1) for (i536 in 1:1) for (i537 in 1:1) for (i538 in 1:1) for (i539 in 1:1) for (i540 in 1:1) for (i541 in 1:1) for (i542 in 1:1) for (i543 in 1:1) for (i544 in 1:1) for (i545 in 1:1) for (i546 in 1:1) for (i547 in 1:1) for (i548 in 1:1) for (i549 in 1:1) for (i550 in 1:1) for (i551 in 1:1) for (i552 in 1:1) for (i553 in 1:1) for (i554 in 1:1) for (i555 in 1:1) for (i556 in 1:1) for (i557 in 1:1) for (i558 in 1:1) for (i559 in 1:1) for (i560 in 1:1) for (i561 in 1:1) for (i562 in 1:1) for (i563 in 1:1) for (i564 in 1:1) for (i565 in 1:1) for (i566 in 1:1) for (i567 in 1:1) for (i568 in 1:1) for (i569 in 1:1) for (i570 in 1:1) for (i571 in 1:1) for (i572 in 1:1) for (i573 in 1:1) for (i574 in 1:1) for (i575 in 1:1) for (i576 in 1:1) for (i577 in 1:1) for (i578 in 1:1) for (i579 in 1:1) for (i580 in 1:1) for (i581 in 1:1) for (i582 in 1:1) for (i583 in 1:1) for (i584 in 1:1) for (i585 in 1:1) for (i586 in 1:1) for (i587 in 1:1) for (i588 in 1:1) for (i589 in 1:1) for (i590 in 1:1) for (i591 in 1:1) for (i592 in 1:1) for (i593 in 1:1) for (i594 in 1:1) for (i595 in 1:1) for (i596 in 1:1) for (i597 in 1:1) for (i598 in 1:1) for (i599 in 1:1) for (i600 in 1:1) for (i601 in 1:1) for (i602 in 1:1) for (i603 in 1:1) for (i604 in 1:1) for (i605 in 1:1) for (i606 in 1:1) for (i607 in 1:1) for (i608 in 1:1) for (i609 in 1:1) for (i610 in 1:1) for (i611 in 1:1) for (i612 in 1:1) for (i613 in 1:1) for (i614 in 1:1) for (i615 in 1:1) for (i616 in 1:1) for (i617 in 1:1) for (i618 in 1:1) for (i619 in 1:1) for (i620 in 1:1) for (i621 in 1:1) for (i622 in 1:1) for (i623 in 1:1) for (i624 in 1:1) for (i625 in 1:1) for (i626 in 1:1) for (i627 in 1:1) for (i628 in 1:1) for (i629 in 1:1) for (i630 in 1:1) for (i631 in 1:1) for (i632 in 1:1) for (i633 in 1:1) for (i634 in 1:1) for (i635 in 1:1) for (i636 in 1:1) for (i637 in 1:1) for (i638 in 1:1) for (i639 in 1:1) for (i640 in 1:1) for (i641 in 1:1) for (i642 in 1:1) for (i643 in 1:1) for (i644 in 1:1) for (i645 in 1:1) for (i646 in 1:1) for (i647 in 1:1) for (i648 in 1:1) for (i649 in 1:1) for (i650 in 1:1) for (i651 in 1:1) for (i652 in 1:1) for (i653 in 1:1) for (i654 in 1:1) for (i655 in 1:1) for (i656 in 1:1) for (i657 in 1:1) for (i658 in 1:1) for (i659 in 1:1) for (i660 in 1:1) for (i661 in 1:1) for (i662 in 1:1) for (i663 in 1:1) for (i664 in 1:1) for (i665 in 1:1) for (i666 in 1:1) for (i667 in 1:1) for (i668 in 1:1) for (i669 in 1:1) for (i670 in 1:1) for (i671 in 1:1) for (i672 in 1:1) for (i673 in 1:1) for (i674 in 1:1) for (i675 in 1:1) for (i676 in 1:1) for (i677 in 1:1) for (i678 in 1:1) for (i679 in 1:1) for (i680 in 1:1) for (i681 in 1:1) for (i682 in 1:1) for (i683 in 1:1) for (i684 in 1:1) for (i685 in 1:1) for (i686 in 1:1) for (i687 in 1:1) for (i688 in 1:1) for (i689 in 1:1) for (i690 in 1:1) for (i691 in 1:1) for (i692 in 1:1) for (i693 in 1:1) for (i694 in 1:1) for (i695 in 1:1) for (i696 in 1:1) for (i697 in 1:1) for (i698 in 1:1) for (i699 in 1:1) for (i700 in 1:1) for (i701 in 1:1) for (i702 in 1:1) for (i703 in 1:1) for (i704 in 1:1) for (i705 in 1:1) for (i706 in 1:1) for (i707 in 1:1) for (i708 in 1:1) for (i709 in 1:1) for (i710 in 1:1) for (i711 in 1:1) for (i712 in 1:1) for (i713 in 1:1) for (i714 in 1:1) for (i715 in 1:1) for (i716 in 1:1) for (i717 in 1:1) for (i718 in 1:1) for (i719 in 1:1) for (i720 in 1:1) for (i721 in 1:1) for (i722 in 1:1) for (i723 in 1:1) for (i724 in 1:1) for (i725 in 1:1) for (i726 in 1:1) for (i727 in 1:1) for (i728 in 1:1) for (i729 in 1:1) for (i730 in 1:1) for (i731 in 1:1) for (i732 in 1:1) for (i733 in 1:1) for (i734 in 1:1) for (i735 in 1:1) for (i736 in 1:1) for (i737 in 1:1) for (i738 in 1:1) for (i739 in 1:1) for (i740 in 1:1) for (i741 in 1:1) for (i742 in 1:1) for (i743 in 1:1) for (i744 in 1:1) for (i745 in 1:1) for (i746 in 1:1) for (i747 in 1:1) for (i748 in 1:1) for (i749 in 1:1) for (i750 in 1:1) for (i751 in 1:1) for (i752 in 1:1) for (i753 in 1:1) for (i754 in 1:1) for (i755 in 1:1) for (i756 in 1:1) for (i757 in 1:1) for (i758 in 1:1) for (i759 in 1:1) for (i760 in 1:1) for (i761 in 1:1) for (i762 in 1:1) for (i763 in 1:1) for (i764 in 1:1) for (i765 in 1:1) for (i766 in 1:1) for (i767 in 1:1) for (i768 in 1:1) for (i769 in 1:1) for (i770 in 1:1) for (i771 in 1:1) for (i772 in 1:1) for (i773 in 1:1) for (i774 in 1:1) for (i775 in 1:1) for (i776 in 1:1) for (i777 in 1:1) for (i778 in 1:1) for (i779 in 1:1) for (i780 in 1:1) for (i781 in 1:1) for (i782 in 1:1) for (i783 in 1:1) for (i784 in 1:1) for (i785 in 1:1) for (i786 in 1:1) for (i787 in 1:1) for (i788 in 1:1) for (i789 in 1:1) for (i790 in 1:1) for (i791 in 1:1) for (i792 in 1:1) for (i793 in 1:1) for (i794 in 1:1) for (i795 in 1:1) for (i796 in 1:1) for (i797 in 1:1) for (i798 in 1:1) for (i799 in 1:1) for (i800 in 1:1) for (i801 in 1:1) for (i802 in 1:1) for (i803 in 1:1) for (i804 in 1:1) for (i805 in 1:1) for (i806 in 1:1) for (i807 in 1:1) for (i808 in 1:1) for (i809 in 1:1) for (i810 in 1:1) for (i811 in 1:1) for (i812 in 1:1) for (i813 in 1:1) for (i814 in 1:1) for (i815 in 1:1) for (i816 in 1:1) for (i817 in 1:1) for (i818 in 1:1) for (i819 in 1:1) for (i820 in 1:1) for (i821 in 1:1) for (i822 in 1:1) for (i823 in 1:1) for (i824 in 1:1) for (i825 in 1:1) for (i826 in 1:1) for (i827 in 1:1) for (i828 in 1:1) for (i829 in 1:1) for (i830 in 1:1) for (i831 in 1:1) for (i832 in 1:1) for (i833 in 1:1) for (i834 in 1:1) for (i835 in 1:1) for (i836 in 1:1) for (i837 in 1:1) for (i838 in 1:1) for (i839 in 1:1) for (i840 in 1:1) for (i841 in 1:1) for (i842 in 1:1) for (i843 in 1:1) for (i844 in 1:1) for (i845 in 1:1) for (i846 in 1:1) for (i847 in 1:1) for (i848 in 1:1) for (i849 in 1:1) for (i850 in 1:1) for (i851 in 1:1) for (i852 in 1:1) for (i853 in 1:1) for (i854 in 1:1) for (i855 in 1:1) for (i856 in 1:1) for (i857 in 1:1) for (i858 in 1:1) for (i859 in 1:1) for (i860 in 1:1) for (i861 in 1:1) for (i862 in 1:1) for (i863 in 1:1) for (i864 in 1:1) for (i865 in 1:1) for (i866 in 1:1) for (i867 in 1:1) for (i868 in 1:1) for (i869 in 1:1) for (i870 in 1:1) for (i871 in 1:1) for (i872 in 1:1) for (i873 in 1:1) for (i874 in 1:1) for (i875 in 1:1) for (i876 in 1:1) for (i877 in 1:1) for (i878 in 1:1) for (i879 in 1:1) for (i880 in 1:1) for (i881 in 1:1) for (i882 in 1:1) for (i883 in 1:1) for (i884 in 1:1) for (i885 in 1:1) for (i886 in 1:1) for (i887 in 1:1) for (i888 in 1:1) for (i889 in 1:1) for (i890 in 1:1) for (i891 in 1:1) for (i892 in 1:1) for (i893 in 1:1) for (i894 in 1:1) for (i895 in 1:1) for (i896 in 1:1) for (i897 in 1:1) for (i898 in 1:1) for (i899 in 1:1) for (i900 in 1:1) for (i901 in 1:1) for (i902 in 1:1) for (i903 in 1:1) for (i904 in 1:1) for (i905 in 1:1) for (i906 in 1:1) for (i907 in 1:1) for (i908 in 1:1) for (i909 in 1:1) for (i910 in 1:1) for (i911 in 1:1) for (i912 in 1:1) for (i913 in 1:1) for (i914 in 1:1) for (i915 in 1:1) for (i916 in 1:1) for (i917 in 1:1) for (i918 in 1:1) for (i919 in 1:1) for (i920 in 1:1) for (i921 in 1:1) for (i922 in 1:1) for (i923 in 1:1) for (i924 in 1:1) for (i925 in 1:1) for (i926 in 1:1) for (i927 in 1:1) for (i928 in 1:1) for (i929 in 1:1) for (i930 in 1:1) for (i931 in 1:1) for (i932 in 1:1) for (i933 in 1:1) for (i934 in 1:1) for (i935 in 1:1) for (i936 in 1:1) for (i937 in 1:1) for (i938 in 1:1) for (i939 in 1:1) for (i940 in 1:1) for (i941 in 1:1) for (i942 in 1:1) for (i943 in 1:1) for (i944 in 1:1) for (i945 in 1:1) for (i946 in 1:1) for (i947 in 1:1) for (i948 in 1:1) for (i949 in 1:1) for (i950 in 1:1) for (i951 in 1:1) for (i952 in 1:1) for (i953 in 1:1) for (i954 in 1:1) for (i955 in 1:1) for (i956 in 1:1) for (i957 in 1:1) for (i958 in 1:1) for (i959 in 1:1) for (i960 in 1:1) for (i961 in 1:1) for (i962 in 1:1) for (i963 in 1:1) for (i964 in 1:1) for (i965 in 1:1) for (i966 in 1:1) for (i967 in 1:1) for (i968 in 1:1) for (i969 in 1:1) for (i970 in 1:1) for (i971 in 1:1) for (i972 in 1:1) for (i973 in 1:1) for (i974 in 1:1) for (i975 in 1:1) for (i976 in 1:1) for (i977 in 1:1) for (i978 in 1:1) for (i979 in 1:1) for (i980 in 1:1) for (i981 in 1:1) for (i982 in 1:1) for (i983 in 1:1) for (i984 in 1:1) for (i985 in 1:1) for (i986 in 1:1) for (i987 in 1:1) for (i988 in 1:1) for (i989 in 1:1) for (i990 in 1:1) for (i991 in 1:1) for (i992 in 1:1) for (i993 in 1:1) for (i994 in 1:1) for (i995 in 1:1) for (i996 in 1:1) for (i997 in 1:1) for (i998 in 1:1) for (i999 in 1:1) for (i1000 in 1:1) counter <- counter + 
+    ##         1
+    ##     return(counter)
+    ## }
+
+``` r
+# Run it and time it
+cat("Now executing the 1000-nested-loops monster...\n")
+```
+
+    ## Now executing the 1000-nested-loops monster...
+
+``` r
+start_time <- Sys.time()
+thousand_loops_result <- thousand_loops_func()
+end_time <- Sys.time()
+
+cat("Result: ", thousand_loops_result, " iterations\n")
+```
+
+    ## Result:  1  iterations
+
+``` r
+cat("Expected: ", 1^1000, " iterations (since each loop runs once)\n")
+```
+
+    ## Expected:  1  iterations (since each loop runs once)
+
+``` r
+cat("Execution time: ", round(as.numeric(end_time - start_time, units = "secs") * 1000, 2), " milliseconds\n")
+```
+
+    ## Execution time:  5.92  milliseconds
+
+``` r
+cat("Function call stack depth: 1000 levels deep!\n")
+```
+
+    ## Function call stack depth: 1000 levels deep!
+
+``` r
+cat("\nSuccess! We just executed a function with 1000 nested for loops! 🤯\n")
+```
+
+    ## 
+    ## Success! We just executed a function with 1000 nested for loops! 🤯
+
+``` r
+cat("This is the most ridiculous thing R has ever computed! 🎉\n")
+```
+
+    ## This is the most ridiculous thing R has ever computed! 🎉
