@@ -696,416 +696,419 @@ Pure Functional AST Composition (No Loops!)</h2>
 <span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a></span>
 <span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a><span class="co"># Test with 3 nested loops of 5 iterations each</span></span>
 <span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a>nested_3_5 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v1</span>(<span class="dv">3</span>, <span class="dv">5</span>)</span>
-<span id="cb1-26"><a href="#cb1-26" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated function body:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Generated function body:</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">print</span>(nested_3_5)</span></code></pre></div>
-<pre><code>## function () 
-## {
-##     counter &lt;- 0
-##     for (i1 in 1:5) for (i2 in 1:5) for (i3 in 1:5) counter &lt;- counter + 
-##         1
-##     return(counter)
-## }
-## &lt;environment: 0x588bf72012f8&gt;</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>result1 <span class="ot">&lt;-</span> <span class="fu">nested_3_5</span>()</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;3 nested loops of 5 iterations:&quot;</span>, result1, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## 3 nested loops of 5 iterations: 125 total iterations</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">5</span><span class="sc">^</span><span class="dv">3</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Expected: 125</code></pre>
+<span id="cb1-26"><a href="#cb1-26" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated function body:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" tabindex="-1"></a><span class="co">#&gt; Generated function body:</span></span>
+<span id="cb1-28"><a href="#cb1-28" tabindex="-1"></a><span class="fu">print</span>(nested_3_5)</span>
+<span id="cb1-29"><a href="#cb1-29" tabindex="-1"></a><span class="co">#&gt; function () </span></span>
+<span id="cb1-30"><a href="#cb1-30" tabindex="-1"></a><span class="co">#&gt; {</span></span>
+<span id="cb1-31"><a href="#cb1-31" tabindex="-1"></a><span class="co">#&gt;     counter &lt;- 0</span></span>
+<span id="cb1-32"><a href="#cb1-32" tabindex="-1"></a><span class="co">#&gt;     for (i1 in 1:5) for (i2 in 1:5) for (i3 in 1:5) counter &lt;- counter + </span></span>
+<span id="cb1-33"><a href="#cb1-33" tabindex="-1"></a><span class="co">#&gt;         1</span></span>
+<span id="cb1-34"><a href="#cb1-34" tabindex="-1"></a><span class="co">#&gt;     return(counter)</span></span>
+<span id="cb1-35"><a href="#cb1-35" tabindex="-1"></a><span class="co">#&gt; }</span></span>
+<span id="cb1-36"><a href="#cb1-36" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x5ac893473e20&gt;</span></span>
+<span id="cb1-37"><a href="#cb1-37" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb1-38"><a href="#cb1-38" tabindex="-1"></a>result1 <span class="ot">&lt;-</span> <span class="fu">nested_3_5</span>()</span>
+<span id="cb1-39"><a href="#cb1-39" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;3 nested loops of 5 iterations:&quot;</span>, result1, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb1-40"><a href="#cb1-40" tabindex="-1"></a><span class="co">#&gt; 3 nested loops of 5 iterations: 125 total iterations</span></span>
+<span id="cb1-41"><a href="#cb1-41" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">5</span><span class="sc">^</span><span class="dv">3</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb1-42"><a href="#cb1-42" tabindex="-1"></a><span class="co">#&gt; Expected: 125</span></span></code></pre></div>
 <h2 id="method-2-ultra-concise-language-object-composition">Method 2:
 Ultra-Concise Language Object Composition</h2>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>create_nested_loops_v2 <span class="ot">&lt;-</span> <span class="cf">function</span>(n, k, <span class="at">action =</span> <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span>)) {</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>  <span class="cf">if</span> (n <span class="sc">&lt;=</span> <span class="dv">0</span>) <span class="fu">stop</span>(<span class="st">&quot;Number of loops must be positive&quot;</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>  </span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>  <span class="co"># Ultra-concise: single Reduce call with lambda syntax</span></span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="cf">function</span>() {}</span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>  <span class="fu">body</span>(f) <span class="ot">&lt;-</span> <span class="fu">call</span>(<span class="st">&quot;{&quot;</span>, </span>
-<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>         <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> <span class="dv">0</span>),</span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>         <span class="fu">Reduce</span>(<span class="cf">function</span>(body, i) <span class="fu">call</span>(<span class="st">&quot;for&quot;</span>, <span class="fu">as.name</span>(<span class="fu">paste0</span>(<span class="st">&quot;i&quot;</span>, i)), <span class="fu">call</span>(<span class="st">&quot;:&quot;</span>, <span class="dv">1</span>, k), body), </span>
-<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>                n<span class="sc">:</span><span class="dv">1</span>, action),</span>
-<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a>         <span class="fu">quote</span>(<span class="fu">return</span>(counter)))</span>
-<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a>  f</span>
-<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a>}</span>
-<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a></span>
-<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a><span class="co"># Test the base R version</span></span>
-<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a>nested_4_3 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v2</span>(<span class="dv">4</span>, <span class="dv">3</span>)</span>
-<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated function body (call objects):</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Generated function body (call objects):</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">print</span>(nested_4_3)</span></code></pre></div>
-<pre><code>## function () 
-## {
-##     counter &lt;- 0
-##     for (i1 in 1:3) for (i2 in 1:3) for (i3 in 1:3) for (i4 in 1:3) counter &lt;- counter + 
-##         1
-##     return(counter)
-## }
-## &lt;environment: 0x588bf5c5c790&gt;</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>result2 <span class="ot">&lt;-</span> <span class="fu">nested_4_3</span>()</span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;4 nested loops of 3 iterations:&quot;</span>, result2, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## 4 nested loops of 3 iterations: 81 total iterations</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">3</span><span class="sc">^</span><span class="dv">4</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Expected: 81</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>create_nested_loops_v2 <span class="ot">&lt;-</span> <span class="cf">function</span>(n, k, <span class="at">action =</span> <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span>)) {</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  <span class="cf">if</span> (n <span class="sc">&lt;=</span> <span class="dv">0</span>) <span class="fu">stop</span>(<span class="st">&quot;Number of loops must be positive&quot;</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>  </span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>  <span class="co"># Ultra-concise: single Reduce call with lambda syntax</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="cf">function</span>() {}</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>  <span class="fu">body</span>(f) <span class="ot">&lt;-</span> <span class="fu">call</span>(<span class="st">&quot;{&quot;</span>, </span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>         <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> <span class="dv">0</span>),</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>         <span class="fu">Reduce</span>(<span class="cf">function</span>(body, i) <span class="fu">call</span>(<span class="st">&quot;for&quot;</span>, <span class="fu">as.name</span>(<span class="fu">paste0</span>(<span class="st">&quot;i&quot;</span>, i)), <span class="fu">call</span>(<span class="st">&quot;:&quot;</span>, <span class="dv">1</span>, k), body), </span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>                n<span class="sc">:</span><span class="dv">1</span>, action),</span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>         <span class="fu">quote</span>(<span class="fu">return</span>(counter)))</span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>  f</span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>}</span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co"># Test the base R version</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a>nested_4_3 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v2</span>(<span class="dv">4</span>, <span class="dv">3</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated function body (call objects):</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="co">#&gt; Generated function body (call objects):</span></span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="fu">print</span>(nested_4_3)</span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="co">#&gt; function () </span></span>
+<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a><span class="co">#&gt; {</span></span>
+<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a><span class="co">#&gt;     counter &lt;- 0</span></span>
+<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a><span class="co">#&gt;     for (i1 in 1:3) for (i2 in 1:3) for (i3 in 1:3) for (i4 in 1:3) counter &lt;- counter + </span></span>
+<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a><span class="co">#&gt;         1</span></span>
+<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a><span class="co">#&gt;     return(counter)</span></span>
+<span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a><span class="co">#&gt; }</span></span>
+<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x5ac891ea53f0&gt;</span></span>
+<span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a>result2 <span class="ot">&lt;-</span> <span class="fu">nested_4_3</span>()</span>
+<span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;4 nested loops of 3 iterations:&quot;</span>, result2, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb2-30"><a href="#cb2-30" tabindex="-1"></a><span class="co">#&gt; 4 nested loops of 3 iterations: 81 total iterations</span></span>
+<span id="cb2-31"><a href="#cb2-31" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">3</span><span class="sc">^</span><span class="dv">4</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb2-32"><a href="#cb2-32" tabindex="-1"></a><span class="co">#&gt; Expected: 81</span></span></code></pre></div>
 <h2 id="method-3-codetools-inspired-ast-walking-pattern">Method 3:
 Codetools-Inspired AST Walking Pattern</h2>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>create_nested_loops_v3 <span class="ot">&lt;-</span> <span class="cf">function</span>(n, k, <span class="at">action =</span> <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span>)) {</span>
-<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>  <span class="cf">if</span> (n <span class="sc">&lt;=</span> <span class="dv">0</span>) <span class="fu">stop</span>(<span class="st">&quot;Number of loops must be positive&quot;</span>)</span>
-<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a>  </span>
-<span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a>  <span class="co"># Inspired by codetools&#39; makeCodeWalker pattern</span></span>
-<span id="cb19-5"><a href="#cb19-5" tabindex="-1"></a>  <span class="co"># Create a &quot;walker&quot; that builds nested structures</span></span>
-<span id="cb19-6"><a href="#cb19-6" tabindex="-1"></a>  makeLoopBuilder <span class="ot">&lt;-</span> <span class="cf">function</span>(depth, max_depth, body) {</span>
-<span id="cb19-7"><a href="#cb19-7" tabindex="-1"></a>    <span class="fu">force</span>(depth); <span class="fu">force</span>(max_depth); <span class="fu">force</span>(body)  <span class="co"># Avoid deferred evaluation</span></span>
-<span id="cb19-8"><a href="#cb19-8" tabindex="-1"></a>    <span class="cf">if</span> (depth <span class="sc">&gt;</span> max_depth) <span class="fu">return</span>(body)</span>
-<span id="cb19-9"><a href="#cb19-9" tabindex="-1"></a>    </span>
-<span id="cb19-10"><a href="#cb19-10" tabindex="-1"></a>    <span class="co"># Use Tailcall for stack efficiency like in codetools</span></span>
-<span id="cb19-11"><a href="#cb19-11" tabindex="-1"></a>    <span class="fu">Tailcall</span>(makeLoopBuilder, </span>
-<span id="cb19-12"><a href="#cb19-12" tabindex="-1"></a>             depth <span class="sc">+</span> <span class="dv">1</span>, </span>
-<span id="cb19-13"><a href="#cb19-13" tabindex="-1"></a>             max_depth, </span>
-<span id="cb19-14"><a href="#cb19-14" tabindex="-1"></a>             <span class="fu">call</span>(<span class="st">&quot;for&quot;</span>, <span class="fu">as.name</span>(<span class="fu">paste0</span>(<span class="st">&quot;i&quot;</span>, depth)), <span class="fu">call</span>(<span class="st">&quot;:&quot;</span>, <span class="dv">1</span>, k), body))</span>
-<span id="cb19-15"><a href="#cb19-15" tabindex="-1"></a>  }</span>
-<span id="cb19-16"><a href="#cb19-16" tabindex="-1"></a>  </span>
-<span id="cb19-17"><a href="#cb19-17" tabindex="-1"></a>  <span class="co"># Build using tail recursion</span></span>
-<span id="cb19-18"><a href="#cb19-18" tabindex="-1"></a>  body_expr <span class="ot">&lt;-</span> <span class="fu">makeLoopBuilder</span>(<span class="dv">1</span>, n, action)</span>
-<span id="cb19-19"><a href="#cb19-19" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="cf">function</span>() {}</span>
-<span id="cb19-20"><a href="#cb19-20" tabindex="-1"></a>  <span class="fu">body</span>(f) <span class="ot">&lt;-</span> <span class="fu">call</span>(<span class="st">&quot;{&quot;</span>, <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> <span class="dv">0</span>), body_expr, <span class="fu">quote</span>(<span class="fu">return</span>(counter)))</span>
-<span id="cb19-21"><a href="#cb19-21" tabindex="-1"></a>  f</span>
-<span id="cb19-22"><a href="#cb19-22" tabindex="-1"></a>}</span>
-<span id="cb19-23"><a href="#cb19-23" tabindex="-1"></a></span>
-<span id="cb19-24"><a href="#cb19-24" tabindex="-1"></a><span class="co"># Test recursive approach</span></span>
-<span id="cb19-25"><a href="#cb19-25" tabindex="-1"></a>nested_2_10 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v3</span>(<span class="dv">2</span>, <span class="dv">10</span>)</span>
-<span id="cb19-26"><a href="#cb19-26" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated function (string method):</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Generated function (string method):</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="fu">print</span>(nested_2_10)</span></code></pre></div>
-<pre><code>## function () 
-## {
-##     counter &lt;- 0
-##     for (i2 in 1:10) for (i1 in 1:10) counter &lt;- counter + 1
-##     return(counter)
-## }
-## &lt;environment: 0x588bf71cf388&gt;</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a>result3 <span class="ot">&lt;-</span> <span class="fu">nested_2_10</span>()</span>
-<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;2 nested loops of 10 iterations:&quot;</span>, result3, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## 2 nested loops of 10 iterations: 100 total iterations</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">10</span><span class="sc">^</span><span class="dv">2</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Expected: 100</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>create_nested_loops_v3 <span class="ot">&lt;-</span> <span class="cf">function</span>(n, k, <span class="at">action =</span> <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span>)) {</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  <span class="cf">if</span> (n <span class="sc">&lt;=</span> <span class="dv">0</span>) <span class="fu">stop</span>(<span class="st">&quot;Number of loops must be positive&quot;</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>  </span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>  <span class="co"># Inspired by codetools&#39; makeCodeWalker pattern</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>  <span class="co"># Create a &quot;walker&quot; that builds nested structures</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>  makeLoopBuilder <span class="ot">&lt;-</span> <span class="cf">function</span>(depth, max_depth, body) {</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>    <span class="fu">force</span>(depth); <span class="fu">force</span>(max_depth); <span class="fu">force</span>(body)  <span class="co"># Avoid deferred evaluation</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>    <span class="cf">if</span> (depth <span class="sc">&gt;</span> max_depth) <span class="fu">return</span>(body)</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>    </span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>    <span class="co"># Use Tailcall for stack efficiency like in codetools</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>    <span class="fu">Tailcall</span>(makeLoopBuilder, </span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>             depth <span class="sc">+</span> <span class="dv">1</span>, </span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>             max_depth, </span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a>             <span class="fu">call</span>(<span class="st">&quot;for&quot;</span>, <span class="fu">as.name</span>(<span class="fu">paste0</span>(<span class="st">&quot;i&quot;</span>, depth)), <span class="fu">call</span>(<span class="st">&quot;:&quot;</span>, <span class="dv">1</span>, k), body))</span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a>  }</span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a>  </span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a>  <span class="co"># Build using tail recursion</span></span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a>  body_expr <span class="ot">&lt;-</span> <span class="fu">makeLoopBuilder</span>(<span class="dv">1</span>, n, action)</span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="cf">function</span>() {}</span>
+<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a>  <span class="fu">body</span>(f) <span class="ot">&lt;-</span> <span class="fu">call</span>(<span class="st">&quot;{&quot;</span>, <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> <span class="dv">0</span>), body_expr, <span class="fu">quote</span>(<span class="fu">return</span>(counter)))</span>
+<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a>  f</span>
+<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a>}</span>
+<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a><span class="co"># Test recursive approach</span></span>
+<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a>nested_2_10 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v3</span>(<span class="dv">2</span>, <span class="dv">10</span>)</span>
+<span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated function (string method):</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a><span class="co">#&gt; Generated function (string method):</span></span>
+<span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a><span class="fu">print</span>(nested_2_10)</span>
+<span id="cb3-29"><a href="#cb3-29" tabindex="-1"></a><span class="co">#&gt; function () </span></span>
+<span id="cb3-30"><a href="#cb3-30" tabindex="-1"></a><span class="co">#&gt; {</span></span>
+<span id="cb3-31"><a href="#cb3-31" tabindex="-1"></a><span class="co">#&gt;     counter &lt;- 0</span></span>
+<span id="cb3-32"><a href="#cb3-32" tabindex="-1"></a><span class="co">#&gt;     for (i2 in 1:10) for (i1 in 1:10) counter &lt;- counter + 1</span></span>
+<span id="cb3-33"><a href="#cb3-33" tabindex="-1"></a><span class="co">#&gt;     return(counter)</span></span>
+<span id="cb3-34"><a href="#cb3-34" tabindex="-1"></a><span class="co">#&gt; }</span></span>
+<span id="cb3-35"><a href="#cb3-35" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x5ac893415a80&gt;</span></span>
+<span id="cb3-36"><a href="#cb3-36" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb3-37"><a href="#cb3-37" tabindex="-1"></a>result3 <span class="ot">&lt;-</span> <span class="fu">nested_2_10</span>()</span>
+<span id="cb3-38"><a href="#cb3-38" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;2 nested loops of 10 iterations:&quot;</span>, result3, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb3-39"><a href="#cb3-39" tabindex="-1"></a><span class="co">#&gt; 2 nested loops of 10 iterations: 100 total iterations</span></span>
+<span id="cb3-40"><a href="#cb3-40" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">10</span><span class="sc">^</span><span class="dv">2</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb3-41"><a href="#cb3-41" tabindex="-1"></a><span class="co">#&gt; Expected: 100</span></span></code></pre></div>
 <h2 id="method-4-functional-composition-with-map-reduce-pattern">Method
 4: Functional Composition with Map-Reduce Pattern</h2>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a>create_nested_loops_v4 <span class="ot">&lt;-</span> <span class="cf">function</span>(n, k, <span class="at">action =</span> <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span>)) {</span>
-<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a>  <span class="cf">if</span> (n <span class="sc">&lt;=</span> <span class="dv">0</span>) <span class="fu">stop</span>(<span class="st">&quot;Number of loops must be positive&quot;</span>)</span>
-<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a>  </span>
-<span id="cb28-4"><a href="#cb28-4" tabindex="-1"></a>  <span class="co"># Map-Reduce pattern: Map indices to loop constructors, then Reduce to compose</span></span>
-<span id="cb28-5"><a href="#cb28-5" tabindex="-1"></a>  loop_constructors <span class="ot">&lt;-</span> <span class="fu">Map</span>(</span>
-<span id="cb28-6"><a href="#cb28-6" tabindex="-1"></a>    <span class="cf">function</span>(i) <span class="cf">function</span>(body) <span class="fu">call</span>(<span class="st">&quot;for&quot;</span>, <span class="fu">as.name</span>(<span class="fu">paste0</span>(<span class="st">&quot;i&quot;</span>, i)), <span class="fu">call</span>(<span class="st">&quot;:&quot;</span>, <span class="dv">1</span>, k), body),</span>
-<span id="cb28-7"><a href="#cb28-7" tabindex="-1"></a>    n<span class="sc">:</span><span class="dv">1</span></span>
-<span id="cb28-8"><a href="#cb28-8" tabindex="-1"></a>  )</span>
-<span id="cb28-9"><a href="#cb28-9" tabindex="-1"></a>  </span>
-<span id="cb28-10"><a href="#cb28-10" tabindex="-1"></a>  <span class="co"># Reduce all constructors into final expression</span></span>
-<span id="cb28-11"><a href="#cb28-11" tabindex="-1"></a>  body_expr <span class="ot">&lt;-</span> <span class="fu">Reduce</span>(<span class="cf">function</span>(acc, f) <span class="fu">f</span>(acc), loop_constructors, action)</span>
-<span id="cb28-12"><a href="#cb28-12" tabindex="-1"></a>  </span>
-<span id="cb28-13"><a href="#cb28-13" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="cf">function</span>() {}</span>
-<span id="cb28-14"><a href="#cb28-14" tabindex="-1"></a>  <span class="fu">body</span>(f) <span class="ot">&lt;-</span> <span class="fu">call</span>(<span class="st">&quot;{&quot;</span>, <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> <span class="dv">0</span>), body_expr, <span class="fu">quote</span>(<span class="fu">return</span>(counter)))</span>
-<span id="cb28-15"><a href="#cb28-15" tabindex="-1"></a>  f</span>
-<span id="cb28-16"><a href="#cb28-16" tabindex="-1"></a>}</span>
-<span id="cb28-17"><a href="#cb28-17" tabindex="-1"></a></span>
-<span id="cb28-18"><a href="#cb28-18" tabindex="-1"></a><span class="co"># Test the map-reduce version</span></span>
-<span id="cb28-19"><a href="#cb28-19" tabindex="-1"></a>nested_mapreduce <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v4</span>(<span class="dv">3</span>, <span class="dv">4</span>)</span>
-<span id="cb28-20"><a href="#cb28-20" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated function body (Map-Reduce method):</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Generated function body (Map-Reduce method):</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="fu">print</span>(nested_mapreduce)</span></code></pre></div>
-<pre><code>## function () 
-## {
-##     counter &lt;- 0
-##     for (i1 in 1:4) for (i2 in 1:4) for (i3 in 1:4) counter &lt;- counter + 
-##         1
-##     return(counter)
-## }
-## &lt;environment: 0x588bf4e39ac0&gt;</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a>result_mapreduce <span class="ot">&lt;-</span> <span class="fu">nested_mapreduce</span>()</span>
-<span id="cb33-2"><a href="#cb33-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Map-Reduce pattern - 3 nested loops of 4 iterations:&quot;</span>, result_mapreduce, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Map-Reduce pattern - 3 nested loops of 4 iterations: 64 total iterations</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">4</span><span class="sc">^</span><span class="dv">3</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Expected: 64</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>create_nested_loops_v4 <span class="ot">&lt;-</span> <span class="cf">function</span>(n, k, <span class="at">action =</span> <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span>)) {</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  <span class="cf">if</span> (n <span class="sc">&lt;=</span> <span class="dv">0</span>) <span class="fu">stop</span>(<span class="st">&quot;Number of loops must be positive&quot;</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  </span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  <span class="co"># Map-Reduce pattern: Map indices to loop constructors, then Reduce to compose</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>  loop_constructors <span class="ot">&lt;-</span> <span class="fu">Map</span>(</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>    <span class="cf">function</span>(i) <span class="cf">function</span>(body) <span class="fu">call</span>(<span class="st">&quot;for&quot;</span>, <span class="fu">as.name</span>(<span class="fu">paste0</span>(<span class="st">&quot;i&quot;</span>, i)), <span class="fu">call</span>(<span class="st">&quot;:&quot;</span>, <span class="dv">1</span>, k), body),</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>    n<span class="sc">:</span><span class="dv">1</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>  )</span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>  </span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>  <span class="co"># Reduce all constructors into final expression</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>  body_expr <span class="ot">&lt;-</span> <span class="fu">Reduce</span>(<span class="cf">function</span>(acc, f) <span class="fu">f</span>(acc), loop_constructors, action)</span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>  </span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="cf">function</span>() {}</span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a>  <span class="fu">body</span>(f) <span class="ot">&lt;-</span> <span class="fu">call</span>(<span class="st">&quot;{&quot;</span>, <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> <span class="dv">0</span>), body_expr, <span class="fu">quote</span>(<span class="fu">return</span>(counter)))</span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a>  f</span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a>}</span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a><span class="co"># Test the map-reduce version</span></span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a>nested_mapreduce <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v4</span>(<span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated function body (Map-Reduce method):</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a><span class="co">#&gt; Generated function body (Map-Reduce method):</span></span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a><span class="fu">print</span>(nested_mapreduce)</span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a><span class="co">#&gt; function () </span></span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a><span class="co">#&gt; {</span></span>
+<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a><span class="co">#&gt;     counter &lt;- 0</span></span>
+<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a><span class="co">#&gt;     for (i1 in 1:4) for (i2 in 1:4) for (i3 in 1:4) counter &lt;- counter + </span></span>
+<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a><span class="co">#&gt;         1</span></span>
+<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a><span class="co">#&gt;     return(counter)</span></span>
+<span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a><span class="co">#&gt; }</span></span>
+<span id="cb4-30"><a href="#cb4-30" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x5ac891085a28&gt;</span></span>
+<span id="cb4-31"><a href="#cb4-31" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb4-32"><a href="#cb4-32" tabindex="-1"></a>result_mapreduce <span class="ot">&lt;-</span> <span class="fu">nested_mapreduce</span>()</span>
+<span id="cb4-33"><a href="#cb4-33" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Map-Reduce pattern - 3 nested loops of 4 iterations:&quot;</span>, result_mapreduce, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb4-34"><a href="#cb4-34" tabindex="-1"></a><span class="co">#&gt; Map-Reduce pattern - 3 nested loops of 4 iterations: 64 total iterations</span></span>
+<span id="cb4-35"><a href="#cb4-35" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">4</span><span class="sc">^</span><span class="dv">3</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb4-36"><a href="#cb4-36" tabindex="-1"></a><span class="co">#&gt; Expected: 64</span></span></code></pre></div>
 <h2 id="method-5-point-free-functional-style-ultimate-conciseness">Method 5:
 Point-Free Functional Style (Ultimate Conciseness)</h2>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a>create_nested_loops_v5 <span class="ot">&lt;-</span> <span class="cf">function</span>(n, k, <span class="at">action =</span> <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span>)) {</span>
-<span id="cb37-2"><a href="#cb37-2" tabindex="-1"></a>  <span class="cf">if</span> (n <span class="sc">&lt;=</span> <span class="dv">0</span>) <span class="fu">stop</span>(<span class="st">&quot;Number of loops must be positive&quot;</span>)</span>
-<span id="cb37-3"><a href="#cb37-3" tabindex="-1"></a>  </span>
-<span id="cb37-4"><a href="#cb37-4" tabindex="-1"></a>  <span class="co"># Point-free style: compose functions without explicit intermediate variables</span></span>
-<span id="cb37-5"><a href="#cb37-5" tabindex="-1"></a>  <span class="co"># Using functional composition patterns in base R</span></span>
-<span id="cb37-6"><a href="#cb37-6" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="cf">function</span>() {}</span>
-<span id="cb37-7"><a href="#cb37-7" tabindex="-1"></a>  indices <span class="ot">&lt;-</span> n<span class="sc">:</span><span class="dv">1</span></span>
-<span id="cb37-8"><a href="#cb37-8" tabindex="-1"></a>  body_expr <span class="ot">&lt;-</span> <span class="fu">Reduce</span>(<span class="cf">function</span>(body, i) <span class="fu">call</span>(<span class="st">&quot;for&quot;</span>, <span class="fu">as.name</span>(<span class="fu">paste0</span>(<span class="st">&quot;i&quot;</span>, i)), <span class="fu">call</span>(<span class="st">&quot;:&quot;</span>, <span class="dv">1</span>, k), body), </span>
-<span id="cb37-9"><a href="#cb37-9" tabindex="-1"></a>                     indices, action)</span>
-<span id="cb37-10"><a href="#cb37-10" tabindex="-1"></a>  <span class="fu">body</span>(f) <span class="ot">&lt;-</span> <span class="fu">call</span>(<span class="st">&quot;{&quot;</span>, <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> <span class="dv">0</span>), body_expr, <span class="fu">quote</span>(<span class="fu">return</span>(counter)))</span>
-<span id="cb37-11"><a href="#cb37-11" tabindex="-1"></a>  f</span>
-<span id="cb37-12"><a href="#cb37-12" tabindex="-1"></a>}</span>
-<span id="cb37-13"><a href="#cb37-13" tabindex="-1"></a></span>
-<span id="cb37-14"><a href="#cb37-14" tabindex="-1"></a><span class="co"># Even more concise one-liner version</span></span>
-<span id="cb37-15"><a href="#cb37-15" tabindex="-1"></a>create_loops_oneliner <span class="ot">&lt;-</span> <span class="cf">function</span>(n, k, <span class="at">action =</span> <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span>)) {</span>
-<span id="cb37-16"><a href="#cb37-16" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="cf">function</span>() {}</span>
-<span id="cb37-17"><a href="#cb37-17" tabindex="-1"></a>  <span class="fu">body</span>(f) <span class="ot">&lt;-</span> <span class="fu">call</span>(<span class="st">&quot;{&quot;</span>, <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> <span class="dv">0</span>),</span>
-<span id="cb37-18"><a href="#cb37-18" tabindex="-1"></a>    <span class="fu">Reduce</span>(<span class="cf">function</span>(b, i) <span class="fu">call</span>(<span class="st">&quot;for&quot;</span>, <span class="fu">as.name</span>(<span class="fu">paste0</span>(<span class="st">&quot;i&quot;</span>, i)), <span class="fu">call</span>(<span class="st">&quot;:&quot;</span>, <span class="dv">1</span>, k), b), n<span class="sc">:</span><span class="dv">1</span>, action),</span>
-<span id="cb37-19"><a href="#cb37-19" tabindex="-1"></a>    <span class="fu">quote</span>(<span class="fu">return</span>(counter)))</span>
-<span id="cb37-20"><a href="#cb37-20" tabindex="-1"></a>  f</span>
-<span id="cb37-21"><a href="#cb37-21" tabindex="-1"></a>}</span>
-<span id="cb37-22"><a href="#cb37-22" tabindex="-1"></a></span>
-<span id="cb37-23"><a href="#cb37-23" tabindex="-1"></a><span class="co"># Test point-free version</span></span>
-<span id="cb37-24"><a href="#cb37-24" tabindex="-1"></a>nested_pointfree <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v5</span>(<span class="dv">2</span>, <span class="dv">5</span>)</span>
-<span id="cb37-25"><a href="#cb37-25" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated function body (Point-free method):</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Generated function body (Point-free method):</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a><span class="fu">print</span>(nested_pointfree)</span></code></pre></div>
-<pre><code>## function () 
-## {
-##     counter &lt;- 0
-##     for (i1 in 1:5) for (i2 in 1:5) counter &lt;- counter + 1
-##     return(counter)
-## }
-## &lt;environment: 0x588bf70f0408&gt;</code></pre>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" tabindex="-1"></a>result_pointfree <span class="ot">&lt;-</span> <span class="fu">nested_pointfree</span>()</span>
-<span id="cb42-2"><a href="#cb42-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Point-free style - 2 nested loops of 5 iterations:&quot;</span>, result_pointfree, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Point-free style - 2 nested loops of 5 iterations: 25 total iterations</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">5</span><span class="sc">^</span><span class="dv">2</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Expected: 25</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" tabindex="-1"></a><span class="co"># Test the one-liner</span></span>
-<span id="cb46-2"><a href="#cb46-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">=== Testing the one-liner version ===</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## 
-## === Testing the one-liner version ===</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" tabindex="-1"></a>oneliner_func <span class="ot">&lt;-</span> <span class="fu">create_loops_oneliner</span>(<span class="dv">4</span>, <span class="dv">2</span>)</span>
-<span id="cb48-2"><a href="#cb48-2" tabindex="-1"></a>oneliner_result <span class="ot">&lt;-</span> <span class="fu">oneliner_func</span>()</span>
-<span id="cb48-3"><a href="#cb48-3" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;One-liner - 4 nested loops of 2 iterations:&quot;</span>, oneliner_result, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## One-liner - 4 nested loops of 2 iterations: 16 total iterations</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">2</span><span class="sc">^</span><span class="dv">4</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Expected: 16</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>create_nested_loops_v5 <span class="ot">&lt;-</span> <span class="cf">function</span>(n, k, <span class="at">action =</span> <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span>)) {</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>  <span class="cf">if</span> (n <span class="sc">&lt;=</span> <span class="dv">0</span>) <span class="fu">stop</span>(<span class="st">&quot;Number of loops must be positive&quot;</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>  </span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>  <span class="co"># Point-free style: compose functions without explicit intermediate variables</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>  <span class="co"># Using functional composition patterns in base R</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="cf">function</span>() {}</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>  indices <span class="ot">&lt;-</span> n<span class="sc">:</span><span class="dv">1</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>  body_expr <span class="ot">&lt;-</span> <span class="fu">Reduce</span>(<span class="cf">function</span>(body, i) <span class="fu">call</span>(<span class="st">&quot;for&quot;</span>, <span class="fu">as.name</span>(<span class="fu">paste0</span>(<span class="st">&quot;i&quot;</span>, i)), <span class="fu">call</span>(<span class="st">&quot;:&quot;</span>, <span class="dv">1</span>, k), body), </span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>                     indices, action)</span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>  <span class="fu">body</span>(f) <span class="ot">&lt;-</span> <span class="fu">call</span>(<span class="st">&quot;{&quot;</span>, <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> <span class="dv">0</span>), body_expr, <span class="fu">quote</span>(<span class="fu">return</span>(counter)))</span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a>  f</span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>}</span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="co"># Even more concise one-liner version</span></span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a>create_loops_oneliner <span class="ot">&lt;-</span> <span class="cf">function</span>(n, k, <span class="at">action =</span> <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span>)) {</span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="cf">function</span>() {}</span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a>  <span class="fu">body</span>(f) <span class="ot">&lt;-</span> <span class="fu">call</span>(<span class="st">&quot;{&quot;</span>, <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> <span class="dv">0</span>),</span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a>    <span class="fu">Reduce</span>(<span class="cf">function</span>(b, i) <span class="fu">call</span>(<span class="st">&quot;for&quot;</span>, <span class="fu">as.name</span>(<span class="fu">paste0</span>(<span class="st">&quot;i&quot;</span>, i)), <span class="fu">call</span>(<span class="st">&quot;:&quot;</span>, <span class="dv">1</span>, k), b), n<span class="sc">:</span><span class="dv">1</span>, action),</span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a>    <span class="fu">quote</span>(<span class="fu">return</span>(counter)))</span>
+<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a>  f</span>
+<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a>}</span>
+<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a><span class="co"># Test point-free version</span></span>
+<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a>nested_pointfree <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v5</span>(<span class="dv">2</span>, <span class="dv">5</span>)</span>
+<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated function body (Point-free method):</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb5-26"><a href="#cb5-26" tabindex="-1"></a><span class="co">#&gt; Generated function body (Point-free method):</span></span>
+<span id="cb5-27"><a href="#cb5-27" tabindex="-1"></a><span class="fu">print</span>(nested_pointfree)</span>
+<span id="cb5-28"><a href="#cb5-28" tabindex="-1"></a><span class="co">#&gt; function () </span></span>
+<span id="cb5-29"><a href="#cb5-29" tabindex="-1"></a><span class="co">#&gt; {</span></span>
+<span id="cb5-30"><a href="#cb5-30" tabindex="-1"></a><span class="co">#&gt;     counter &lt;- 0</span></span>
+<span id="cb5-31"><a href="#cb5-31" tabindex="-1"></a><span class="co">#&gt;     for (i1 in 1:5) for (i2 in 1:5) counter &lt;- counter + 1</span></span>
+<span id="cb5-32"><a href="#cb5-32" tabindex="-1"></a><span class="co">#&gt;     return(counter)</span></span>
+<span id="cb5-33"><a href="#cb5-33" tabindex="-1"></a><span class="co">#&gt; }</span></span>
+<span id="cb5-34"><a href="#cb5-34" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x5ac893344238&gt;</span></span>
+<span id="cb5-35"><a href="#cb5-35" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb5-36"><a href="#cb5-36" tabindex="-1"></a>result_pointfree <span class="ot">&lt;-</span> <span class="fu">nested_pointfree</span>()</span>
+<span id="cb5-37"><a href="#cb5-37" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Point-free style - 2 nested loops of 5 iterations:&quot;</span>, result_pointfree, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb5-38"><a href="#cb5-38" tabindex="-1"></a><span class="co">#&gt; Point-free style - 2 nested loops of 5 iterations: 25 total iterations</span></span>
+<span id="cb5-39"><a href="#cb5-39" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">5</span><span class="sc">^</span><span class="dv">2</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb5-40"><a href="#cb5-40" tabindex="-1"></a><span class="co">#&gt; Expected: 25</span></span>
+<span id="cb5-41"><a href="#cb5-41" tabindex="-1"></a></span>
+<span id="cb5-42"><a href="#cb5-42" tabindex="-1"></a><span class="co"># Test the one-liner</span></span>
+<span id="cb5-43"><a href="#cb5-43" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">=== Testing the one-liner version ===</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb5-44"><a href="#cb5-44" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-45"><a href="#cb5-45" tabindex="-1"></a><span class="co">#&gt; === Testing the one-liner version ===</span></span>
+<span id="cb5-46"><a href="#cb5-46" tabindex="-1"></a>oneliner_func <span class="ot">&lt;-</span> <span class="fu">create_loops_oneliner</span>(<span class="dv">4</span>, <span class="dv">2</span>)</span>
+<span id="cb5-47"><a href="#cb5-47" tabindex="-1"></a>oneliner_result <span class="ot">&lt;-</span> <span class="fu">oneliner_func</span>()</span>
+<span id="cb5-48"><a href="#cb5-48" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;One-liner - 4 nested loops of 2 iterations:&quot;</span>, oneliner_result, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb5-49"><a href="#cb5-49" tabindex="-1"></a><span class="co">#&gt; One-liner - 4 nested loops of 2 iterations: 16 total iterations</span></span>
+<span id="cb5-50"><a href="#cb5-50" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">2</span><span class="sc">^</span><span class="dv">4</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb5-51"><a href="#cb5-51" tabindex="-1"></a><span class="co">#&gt; Expected: 16</span></span></code></pre></div>
 <h2 id="method-6-codetools-inspired-walker-pattern-zero-loops">Method 6:
 Codetools-Inspired Walker Pattern (Zero Loops!)</h2>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" tabindex="-1"></a><span class="co"># Inspired by codetools&#39; makeCodeWalker - build AST without any loops!</span></span>
-<span id="cb52-2"><a href="#cb52-2" tabindex="-1"></a>create_walker_loops <span class="ot">&lt;-</span> <span class="cf">function</span>(n, k, <span class="at">action =</span> <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span>)) {</span>
-<span id="cb52-3"><a href="#cb52-3" tabindex="-1"></a>  <span class="cf">if</span> (n <span class="sc">&lt;=</span> <span class="dv">0</span>) <span class="fu">stop</span>(<span class="st">&quot;Number of loops must be positive&quot;</span>)</span>
-<span id="cb52-4"><a href="#cb52-4" tabindex="-1"></a>  </span>
-<span id="cb52-5"><a href="#cb52-5" tabindex="-1"></a>  <span class="co"># Create a &quot;walker&quot; pattern like in codetools</span></span>
-<span id="cb52-6"><a href="#cb52-6" tabindex="-1"></a>  makeLoopWalker <span class="ot">&lt;-</span> <span class="cf">function</span>(indices) {</span>
-<span id="cb52-7"><a href="#cb52-7" tabindex="-1"></a>    <span class="co"># Use Map to transform each index into a loop constructor function</span></span>
-<span id="cb52-8"><a href="#cb52-8" tabindex="-1"></a>    constructors <span class="ot">&lt;-</span> <span class="fu">Map</span>(<span class="cf">function</span>(i) <span class="cf">function</span>(body) <span class="fu">call</span>(<span class="st">&quot;for&quot;</span>, <span class="fu">as.name</span>(<span class="fu">paste0</span>(<span class="st">&quot;i&quot;</span>, i)), <span class="fu">call</span>(<span class="st">&quot;:&quot;</span>, <span class="dv">1</span>, k), body), indices)</span>
-<span id="cb52-9"><a href="#cb52-9" tabindex="-1"></a>    </span>
-<span id="cb52-10"><a href="#cb52-10" tabindex="-1"></a>    <span class="co"># Compose all constructors using functional composition</span></span>
-<span id="cb52-11"><a href="#cb52-11" tabindex="-1"></a>    <span class="cf">function</span>(init_body) <span class="fu">Reduce</span>(<span class="cf">function</span>(acc, f) <span class="fu">f</span>(acc), constructors, init_body)</span>
-<span id="cb52-12"><a href="#cb52-12" tabindex="-1"></a>  }</span>
-<span id="cb52-13"><a href="#cb52-13" tabindex="-1"></a>  </span>
-<span id="cb52-14"><a href="#cb52-14" tabindex="-1"></a>  <span class="co"># Apply the walker pattern</span></span>
-<span id="cb52-15"><a href="#cb52-15" tabindex="-1"></a>  walker <span class="ot">&lt;-</span> <span class="fu">makeLoopWalker</span>(n<span class="sc">:</span><span class="dv">1</span>)</span>
-<span id="cb52-16"><a href="#cb52-16" tabindex="-1"></a>  body_expr <span class="ot">&lt;-</span> <span class="fu">walker</span>(action)</span>
-<span id="cb52-17"><a href="#cb52-17" tabindex="-1"></a>  </span>
-<span id="cb52-18"><a href="#cb52-18" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="cf">function</span>() {}</span>
-<span id="cb52-19"><a href="#cb52-19" tabindex="-1"></a>  <span class="fu">body</span>(f) <span class="ot">&lt;-</span> <span class="fu">call</span>(<span class="st">&quot;{&quot;</span>, <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> <span class="dv">0</span>), body_expr, <span class="fu">quote</span>(<span class="fu">return</span>(counter)))</span>
-<span id="cb52-20"><a href="#cb52-20" tabindex="-1"></a>  f</span>
-<span id="cb52-21"><a href="#cb52-21" tabindex="-1"></a>}</span>
-<span id="cb52-22"><a href="#cb52-22" tabindex="-1"></a></span>
-<span id="cb52-23"><a href="#cb52-23" tabindex="-1"></a><span class="co"># Test walker pattern</span></span>
-<span id="cb52-24"><a href="#cb52-24" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;=== Testing codetools-inspired walker pattern ===</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## === Testing codetools-inspired walker pattern ===</code></pre>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" tabindex="-1"></a>nested_walker <span class="ot">&lt;-</span> <span class="fu">create_walker_loops</span>(<span class="dv">5</span>, <span class="dv">2</span>)</span>
-<span id="cb54-2"><a href="#cb54-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated function body (Walker pattern):</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Generated function body (Walker pattern):</code></pre>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" tabindex="-1"></a><span class="fu">print</span>(nested_walker)</span></code></pre></div>
-<pre><code>## function () 
-## {
-##     counter &lt;- 0
-##     for (i1 in 1:2) for (i2 in 1:2) for (i3 in 1:2) for (i4 in 1:2) for (i5 in 1:2) counter &lt;- counter + 
-##         1
-##     return(counter)
-## }
-## &lt;environment: 0x588bf8b47250&gt;</code></pre>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" tabindex="-1"></a>result_walker <span class="ot">&lt;-</span> <span class="fu">nested_walker</span>()</span>
-<span id="cb59-2"><a href="#cb59-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Walker pattern - 5 nested loops of 2 iterations:&quot;</span>, result_walker, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Walker pattern - 5 nested loops of 2 iterations: 32 total iterations</code></pre>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">2</span><span class="sc">^</span><span class="dv">5</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Expected: 32</code></pre>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" tabindex="-1"></a><span class="co"># Show the elegance - create 10 nested loops with zero explicit loops in our code!</span></span>
-<span id="cb63-2"><a href="#cb63-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">=== Demonstrating zero-loop creation of 10 nested loops ===</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## 
-## === Demonstrating zero-loop creation of 10 nested loops ===</code></pre>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" tabindex="-1"></a>ten_loops <span class="ot">&lt;-</span> <span class="fu">create_walker_loops</span>(<span class="dv">10</span>, <span class="dv">2</span>)</span>
-<span id="cb65-2"><a href="#cb65-2" tabindex="-1"></a>ten_result <span class="ot">&lt;-</span> <span class="fu">ten_loops</span>()</span>
-<span id="cb65-3"><a href="#cb65-3" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Created 10 nested loops without using ANY loops in our generator code!</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Created 10 nested loops without using ANY loops in our generator code!</code></pre>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Result:&quot;</span>, ten_result, <span class="st">&quot;iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Result: 1024 iterations</code></pre>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">2</span><span class="sc">^</span><span class="dv">10</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Expected: 1024</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co"># Inspired by codetools&#39; makeCodeWalker - build AST without any loops!</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>create_walker_loops <span class="ot">&lt;-</span> <span class="cf">function</span>(n, k, <span class="at">action =</span> <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span>)) {</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  <span class="cf">if</span> (n <span class="sc">&lt;=</span> <span class="dv">0</span>) <span class="fu">stop</span>(<span class="st">&quot;Number of loops must be positive&quot;</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>  </span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>  <span class="co"># Create a &quot;walker&quot; pattern like in codetools</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>  makeLoopWalker <span class="ot">&lt;-</span> <span class="cf">function</span>(indices) {</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>    <span class="co"># Use Map to transform each index into a loop constructor function</span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>    constructors <span class="ot">&lt;-</span> <span class="fu">Map</span>(<span class="cf">function</span>(i) <span class="cf">function</span>(body) <span class="fu">call</span>(<span class="st">&quot;for&quot;</span>, <span class="fu">as.name</span>(<span class="fu">paste0</span>(<span class="st">&quot;i&quot;</span>, i)), <span class="fu">call</span>(<span class="st">&quot;:&quot;</span>, <span class="dv">1</span>, k), body), indices)</span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>    </span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>    <span class="co"># Compose all constructors using functional composition</span></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>    <span class="cf">function</span>(init_body) <span class="fu">Reduce</span>(<span class="cf">function</span>(acc, f) <span class="fu">f</span>(acc), constructors, init_body)</span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>  }</span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a>  </span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a>  <span class="co"># Apply the walker pattern</span></span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a>  walker <span class="ot">&lt;-</span> <span class="fu">makeLoopWalker</span>(n<span class="sc">:</span><span class="dv">1</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a>  body_expr <span class="ot">&lt;-</span> <span class="fu">walker</span>(action)</span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a>  </span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="cf">function</span>() {}</span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a>  <span class="fu">body</span>(f) <span class="ot">&lt;-</span> <span class="fu">call</span>(<span class="st">&quot;{&quot;</span>, <span class="fu">quote</span>(counter <span class="ot">&lt;-</span> <span class="dv">0</span>), body_expr, <span class="fu">quote</span>(<span class="fu">return</span>(counter)))</span>
+<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a>  f</span>
+<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a>}</span>
+<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a><span class="co"># Test walker pattern</span></span>
+<span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;=== Testing codetools-inspired walker pattern ===</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a><span class="co">#&gt; === Testing codetools-inspired walker pattern ===</span></span>
+<span id="cb6-26"><a href="#cb6-26" tabindex="-1"></a>nested_walker <span class="ot">&lt;-</span> <span class="fu">create_walker_loops</span>(<span class="dv">5</span>, <span class="dv">2</span>)</span>
+<span id="cb6-27"><a href="#cb6-27" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated function body (Walker pattern):</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb6-28"><a href="#cb6-28" tabindex="-1"></a><span class="co">#&gt; Generated function body (Walker pattern):</span></span>
+<span id="cb6-29"><a href="#cb6-29" tabindex="-1"></a><span class="fu">print</span>(nested_walker)</span>
+<span id="cb6-30"><a href="#cb6-30" tabindex="-1"></a><span class="co">#&gt; function () </span></span>
+<span id="cb6-31"><a href="#cb6-31" tabindex="-1"></a><span class="co">#&gt; {</span></span>
+<span id="cb6-32"><a href="#cb6-32" tabindex="-1"></a><span class="co">#&gt;     counter &lt;- 0</span></span>
+<span id="cb6-33"><a href="#cb6-33" tabindex="-1"></a><span class="co">#&gt;     for (i1 in 1:2) for (i2 in 1:2) for (i3 in 1:2) for (i4 in 1:2) for (i5 in 1:2) counter &lt;- counter + </span></span>
+<span id="cb6-34"><a href="#cb6-34" tabindex="-1"></a><span class="co">#&gt;         1</span></span>
+<span id="cb6-35"><a href="#cb6-35" tabindex="-1"></a><span class="co">#&gt;     return(counter)</span></span>
+<span id="cb6-36"><a href="#cb6-36" tabindex="-1"></a><span class="co">#&gt; }</span></span>
+<span id="cb6-37"><a href="#cb6-37" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x5ac894d7cdf0&gt;</span></span>
+<span id="cb6-38"><a href="#cb6-38" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb6-39"><a href="#cb6-39" tabindex="-1"></a>result_walker <span class="ot">&lt;-</span> <span class="fu">nested_walker</span>()</span>
+<span id="cb6-40"><a href="#cb6-40" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Walker pattern - 5 nested loops of 2 iterations:&quot;</span>, result_walker, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb6-41"><a href="#cb6-41" tabindex="-1"></a><span class="co">#&gt; Walker pattern - 5 nested loops of 2 iterations: 32 total iterations</span></span>
+<span id="cb6-42"><a href="#cb6-42" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">2</span><span class="sc">^</span><span class="dv">5</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb6-43"><a href="#cb6-43" tabindex="-1"></a><span class="co">#&gt; Expected: 32</span></span>
+<span id="cb6-44"><a href="#cb6-44" tabindex="-1"></a></span>
+<span id="cb6-45"><a href="#cb6-45" tabindex="-1"></a><span class="co"># Show the elegance - create 10 nested loops with zero explicit loops in our code!</span></span>
+<span id="cb6-46"><a href="#cb6-46" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">=== Demonstrating zero-loop creation of 10 nested loops ===</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb6-47"><a href="#cb6-47" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb6-48"><a href="#cb6-48" tabindex="-1"></a><span class="co">#&gt; === Demonstrating zero-loop creation of 10 nested loops ===</span></span>
+<span id="cb6-49"><a href="#cb6-49" tabindex="-1"></a>ten_loops <span class="ot">&lt;-</span> <span class="fu">create_walker_loops</span>(<span class="dv">10</span>, <span class="dv">2</span>)</span>
+<span id="cb6-50"><a href="#cb6-50" tabindex="-1"></a>ten_result <span class="ot">&lt;-</span> <span class="fu">ten_loops</span>()</span>
+<span id="cb6-51"><a href="#cb6-51" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Created 10 nested loops without using ANY loops in our generator code!</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb6-52"><a href="#cb6-52" tabindex="-1"></a><span class="co">#&gt; Created 10 nested loops without using ANY loops in our generator code!</span></span>
+<span id="cb6-53"><a href="#cb6-53" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Result:&quot;</span>, ten_result, <span class="st">&quot;iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb6-54"><a href="#cb6-54" tabindex="-1"></a><span class="co">#&gt; Result: 1024 iterations</span></span>
+<span id="cb6-55"><a href="#cb6-55" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Expected:&quot;</span>, <span class="dv">2</span><span class="sc">^</span><span class="dv">10</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb6-56"><a href="#cb6-56" tabindex="-1"></a><span class="co">#&gt; Expected: 1024</span></span></code></pre></div>
 <h2 id="performance-comparison-functional-vs-traditional-approaches">Performance
 Comparison: Functional vs Traditional Approaches</h2>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" tabindex="-1"></a><span class="co"># Traditional approach (for comparison)</span></span>
-<span id="cb71-2"><a href="#cb71-2" tabindex="-1"></a>static_3_loops <span class="ot">&lt;-</span> <span class="cf">function</span>(k) {</span>
-<span id="cb71-3"><a href="#cb71-3" tabindex="-1"></a>  counter <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb71-4"><a href="#cb71-4" tabindex="-1"></a>  <span class="cf">for</span> (i1 <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k) {</span>
-<span id="cb71-5"><a href="#cb71-5" tabindex="-1"></a>    <span class="cf">for</span> (i2 <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k) {</span>
-<span id="cb71-6"><a href="#cb71-6" tabindex="-1"></a>      <span class="cf">for</span> (i3 <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k) {</span>
-<span id="cb71-7"><a href="#cb71-7" tabindex="-1"></a>        counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb71-8"><a href="#cb71-8" tabindex="-1"></a>      }</span>
-<span id="cb71-9"><a href="#cb71-9" tabindex="-1"></a>    }</span>
-<span id="cb71-10"><a href="#cb71-10" tabindex="-1"></a>  }</span>
-<span id="cb71-11"><a href="#cb71-11" tabindex="-1"></a>  <span class="fu">return</span>(counter)</span>
-<span id="cb71-12"><a href="#cb71-12" tabindex="-1"></a>}</span>
-<span id="cb71-13"><a href="#cb71-13" tabindex="-1"></a></span>
-<span id="cb71-14"><a href="#cb71-14" tabindex="-1"></a><span class="co"># Create all our functional variants</span></span>
-<span id="cb71-15"><a href="#cb71-15" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb71-16"><a href="#cb71-16" tabindex="-1"></a>dynamic_v1 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v1</span>(<span class="dv">3</span>, k)</span>
-<span id="cb71-17"><a href="#cb71-17" tabindex="-1"></a>dynamic_v2 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v2</span>(<span class="dv">3</span>, k)</span>
-<span id="cb71-18"><a href="#cb71-18" tabindex="-1"></a>dynamic_v3 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v3</span>(<span class="dv">3</span>, k)</span>
-<span id="cb71-19"><a href="#cb71-19" tabindex="-1"></a>dynamic_v4 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v4</span>(<span class="dv">3</span>, k)</span>
-<span id="cb71-20"><a href="#cb71-20" tabindex="-1"></a>dynamic_v5 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v5</span>(<span class="dv">3</span>, k)</span>
-<span id="cb71-21"><a href="#cb71-21" tabindex="-1"></a>dynamic_v6 <span class="ot">&lt;-</span> <span class="fu">create_walker_loops</span>(<span class="dv">3</span>, k)</span>
-<span id="cb71-22"><a href="#cb71-22" tabindex="-1"></a>dynamic_oneliner <span class="ot">&lt;-</span> <span class="fu">create_loops_oneliner</span>(<span class="dv">3</span>, k)</span>
-<span id="cb71-23"><a href="#cb71-23" tabindex="-1"></a></span>
-<span id="cb71-24"><a href="#cb71-24" tabindex="-1"></a><span class="co"># Performance comparison</span></span>
-<span id="cb71-25"><a href="#cb71-25" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">requireNamespace</span>(<span class="st">&quot;microbenchmark&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb71-26"><a href="#cb71-26" tabindex="-1"></a>  <span class="fu">library</span>(microbenchmark)</span>
-<span id="cb71-27"><a href="#cb71-27" tabindex="-1"></a>  </span>
-<span id="cb71-28"><a href="#cb71-28" tabindex="-1"></a>  benchmark_results <span class="ot">&lt;-</span> <span class="fu">microbenchmark</span>(</span>
-<span id="cb71-29"><a href="#cb71-29" tabindex="-1"></a>    <span class="at">static =</span> <span class="fu">static_3_loops</span>(k),</span>
-<span id="cb71-30"><a href="#cb71-30" tabindex="-1"></a>    <span class="at">functional_v1 =</span> <span class="fu">dynamic_v1</span>(),</span>
-<span id="cb71-31"><a href="#cb71-31" tabindex="-1"></a>    <span class="at">ultra_concise_v2 =</span> <span class="fu">dynamic_v2</span>(),</span>
-<span id="cb71-32"><a href="#cb71-32" tabindex="-1"></a>    <span class="at">tailcall_v3 =</span> <span class="fu">dynamic_v3</span>(),</span>
-<span id="cb71-33"><a href="#cb71-33" tabindex="-1"></a>    <span class="at">mapreduce_v4 =</span> <span class="fu">dynamic_v4</span>(),</span>
-<span id="cb71-34"><a href="#cb71-34" tabindex="-1"></a>    <span class="at">pointfree_v5 =</span> <span class="fu">dynamic_v5</span>(),</span>
-<span id="cb71-35"><a href="#cb71-35" tabindex="-1"></a>    <span class="at">walker_v6 =</span> <span class="fu">dynamic_v6</span>(),</span>
-<span id="cb71-36"><a href="#cb71-36" tabindex="-1"></a>    <span class="at">oneliner =</span> <span class="fu">dynamic_oneliner</span>(),</span>
-<span id="cb71-37"><a href="#cb71-37" tabindex="-1"></a>    <span class="at">times =</span> <span class="dv">100</span></span>
-<span id="cb71-38"><a href="#cb71-38" tabindex="-1"></a>  )</span>
-<span id="cb71-39"><a href="#cb71-39" tabindex="-1"></a>  </span>
-<span id="cb71-40"><a href="#cb71-40" tabindex="-1"></a>  <span class="fu">print</span>(benchmark_results)</span>
-<span id="cb71-41"><a href="#cb71-41" tabindex="-1"></a>  </span>
-<span id="cb71-42"><a href="#cb71-42" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">=== Performance Analysis ===</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb71-43"><a href="#cb71-43" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;All functional approaches avoid explicit loops in the generator code!</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb71-44"><a href="#cb71-44" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;The point-free and one-liner versions are particularly elegant.</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb71-45"><a href="#cb71-45" tabindex="-1"></a>  </span>
-<span id="cb71-46"><a href="#cb71-46" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb71-47"><a href="#cb71-47" tabindex="-1"></a>  <span class="co"># Simple timing if microbenchmark not available</span></span>
-<span id="cb71-48"><a href="#cb71-48" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;=== Simple Timing Comparison ===</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb71-49"><a href="#cb71-49" tabindex="-1"></a>  </span>
-<span id="cb71-50"><a href="#cb71-50" tabindex="-1"></a>  timing_test <span class="ot">&lt;-</span> <span class="cf">function</span>(name, func, <span class="at">iterations =</span> <span class="dv">100</span>) {</span>
-<span id="cb71-51"><a href="#cb71-51" tabindex="-1"></a>    start_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
-<span id="cb71-52"><a href="#cb71-52" tabindex="-1"></a>    <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>iterations) <span class="fu">func</span>()</span>
-<span id="cb71-53"><a href="#cb71-53" tabindex="-1"></a>    end_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
-<span id="cb71-54"><a href="#cb71-54" tabindex="-1"></a>    time_diff <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(end_time <span class="sc">-</span> start_time, <span class="at">units =</span> <span class="st">&quot;secs&quot;</span>)</span>
-<span id="cb71-55"><a href="#cb71-55" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">&quot;%-20s: %.4f seconds</span><span class="sc">\n</span><span class="st">&quot;</span>, name, time_diff))</span>
-<span id="cb71-56"><a href="#cb71-56" tabindex="-1"></a>    time_diff</span>
-<span id="cb71-57"><a href="#cb71-57" tabindex="-1"></a>  }</span>
-<span id="cb71-58"><a href="#cb71-58" tabindex="-1"></a>  </span>
-<span id="cb71-59"><a href="#cb71-59" tabindex="-1"></a>  <span class="fu">timing_test</span>(<span class="st">&quot;Static (traditional)&quot;</span>, <span class="cf">function</span>() <span class="fu">static_3_loops</span>(k))</span>
-<span id="cb71-60"><a href="#cb71-60" tabindex="-1"></a>  <span class="fu">timing_test</span>(<span class="st">&quot;Functional v1&quot;</span>, dynamic_v1)</span>
-<span id="cb71-61"><a href="#cb71-61" tabindex="-1"></a>  <span class="fu">timing_test</span>(<span class="st">&quot;Ultra-concise v2&quot;</span>, dynamic_v2)</span>
-<span id="cb71-62"><a href="#cb71-62" tabindex="-1"></a>  <span class="fu">timing_test</span>(<span class="st">&quot;Tailcall v3&quot;</span>, dynamic_v3)</span>
-<span id="cb71-63"><a href="#cb71-63" tabindex="-1"></a>  <span class="fu">timing_test</span>(<span class="st">&quot;Map-Reduce v4&quot;</span>, dynamic_v4)</span>
-<span id="cb71-64"><a href="#cb71-64" tabindex="-1"></a>  <span class="fu">timing_test</span>(<span class="st">&quot;Point-free v5&quot;</span>, dynamic_v5)</span>
-<span id="cb71-65"><a href="#cb71-65" tabindex="-1"></a>  <span class="fu">timing_test</span>(<span class="st">&quot;Walker v6&quot;</span>, dynamic_v6)</span>
-<span id="cb71-66"><a href="#cb71-66" tabindex="-1"></a>  <span class="fu">timing_test</span>(<span class="st">&quot;One-liner&quot;</span>, dynamic_oneliner)</span>
-<span id="cb71-67"><a href="#cb71-67" tabindex="-1"></a>}</span></code></pre></div>
-<pre><code>## Unit: milliseconds
-##              expr       min        lq      mean    median        uq       max
-##            static  4.117143  5.287753  6.503290  6.135765  7.011366  16.37101
-##     functional_v1 31.221985 39.132872 48.098596 45.287425 52.587305 127.41948
-##  ultra_concise_v2  4.246070  5.735401  7.350728  6.523699  7.944306  51.08135
-##       tailcall_v3  4.052261  5.327772  6.898706  6.305899  7.427446  41.22312
-##      mapreduce_v4  4.276172  5.628858  7.033628  6.347385  7.247150  41.52881
-##      pointfree_v5 30.892195 37.437929 44.061374 41.788411 46.904355  75.08259
-##         walker_v6 31.837915 38.719307 48.729708 42.886526 52.428067 167.13249
-##          oneliner  4.145429  5.713576  7.325737  6.604925  7.876489  44.03053
-##  neval
-##    100
-##    100
-##    100
-##    100
-##    100
-##    100
-##    100
-##    100
-## 
-## === Performance Analysis ===
-## All functional approaches avoid explicit loops in the generator code!
-## The point-free and one-liner versions are particularly elegant.</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">=== Code Conciseness Analysis ===</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## 
-## === Code Conciseness Analysis ===</code></pre>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Method 2 (Ultra-concise): ~4 lines of actual logic</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Method 2 (Ultra-concise): ~4 lines of actual logic</code></pre>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;One-liner version: Entire function generator in 1 expression!</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## One-liner version: Entire function generator in 1 expression!</code></pre>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Walker pattern: Zero explicit loops, maximum functional composition</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Walker pattern: Zero explicit loops, maximum functional composition</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># Traditional approach (for comparison)</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>static_3_loops <span class="ot">&lt;-</span> <span class="cf">function</span>(k) {</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>  counter <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  <span class="cf">for</span> (i1 <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k) {</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>    <span class="cf">for</span> (i2 <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k) {</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>      <span class="cf">for</span> (i3 <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k) {</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>        counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>      }</span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>    }</span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>  }</span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a>  <span class="fu">return</span>(counter)</span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a>}</span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="co"># Create all our functional variants</span></span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a>dynamic_v1 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v1</span>(<span class="dv">3</span>, k)</span>
+<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a>dynamic_v2 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v2</span>(<span class="dv">3</span>, k)</span>
+<span id="cb7-18"><a href="#cb7-18" tabindex="-1"></a>dynamic_v3 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v3</span>(<span class="dv">3</span>, k)</span>
+<span id="cb7-19"><a href="#cb7-19" tabindex="-1"></a>dynamic_v4 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v4</span>(<span class="dv">3</span>, k)</span>
+<span id="cb7-20"><a href="#cb7-20" tabindex="-1"></a>dynamic_v5 <span class="ot">&lt;-</span> <span class="fu">create_nested_loops_v5</span>(<span class="dv">3</span>, k)</span>
+<span id="cb7-21"><a href="#cb7-21" tabindex="-1"></a>dynamic_v6 <span class="ot">&lt;-</span> <span class="fu">create_walker_loops</span>(<span class="dv">3</span>, k)</span>
+<span id="cb7-22"><a href="#cb7-22" tabindex="-1"></a>dynamic_oneliner <span class="ot">&lt;-</span> <span class="fu">create_loops_oneliner</span>(<span class="dv">3</span>, k)</span>
+<span id="cb7-23"><a href="#cb7-23" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" tabindex="-1"></a><span class="co"># Performance comparison</span></span>
+<span id="cb7-25"><a href="#cb7-25" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">requireNamespace</span>(<span class="st">&quot;microbenchmark&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb7-26"><a href="#cb7-26" tabindex="-1"></a>  <span class="fu">library</span>(microbenchmark)</span>
+<span id="cb7-27"><a href="#cb7-27" tabindex="-1"></a>  </span>
+<span id="cb7-28"><a href="#cb7-28" tabindex="-1"></a>  benchmark_results <span class="ot">&lt;-</span> <span class="fu">microbenchmark</span>(</span>
+<span id="cb7-29"><a href="#cb7-29" tabindex="-1"></a>    <span class="at">static =</span> <span class="fu">static_3_loops</span>(k),</span>
+<span id="cb7-30"><a href="#cb7-30" tabindex="-1"></a>    <span class="at">functional_v1 =</span> <span class="fu">dynamic_v1</span>(),</span>
+<span id="cb7-31"><a href="#cb7-31" tabindex="-1"></a>    <span class="at">ultra_concise_v2 =</span> <span class="fu">dynamic_v2</span>(),</span>
+<span id="cb7-32"><a href="#cb7-32" tabindex="-1"></a>    <span class="at">tailcall_v3 =</span> <span class="fu">dynamic_v3</span>(),</span>
+<span id="cb7-33"><a href="#cb7-33" tabindex="-1"></a>    <span class="at">mapreduce_v4 =</span> <span class="fu">dynamic_v4</span>(),</span>
+<span id="cb7-34"><a href="#cb7-34" tabindex="-1"></a>    <span class="at">pointfree_v5 =</span> <span class="fu">dynamic_v5</span>(),</span>
+<span id="cb7-35"><a href="#cb7-35" tabindex="-1"></a>    <span class="at">walker_v6 =</span> <span class="fu">dynamic_v6</span>(),</span>
+<span id="cb7-36"><a href="#cb7-36" tabindex="-1"></a>    <span class="at">oneliner =</span> <span class="fu">dynamic_oneliner</span>(),</span>
+<span id="cb7-37"><a href="#cb7-37" tabindex="-1"></a>    <span class="at">times =</span> <span class="dv">100</span></span>
+<span id="cb7-38"><a href="#cb7-38" tabindex="-1"></a>  )</span>
+<span id="cb7-39"><a href="#cb7-39" tabindex="-1"></a>  </span>
+<span id="cb7-40"><a href="#cb7-40" tabindex="-1"></a>  <span class="fu">print</span>(benchmark_results)</span>
+<span id="cb7-41"><a href="#cb7-41" tabindex="-1"></a>  </span>
+<span id="cb7-42"><a href="#cb7-42" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">=== Performance Analysis ===</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb7-43"><a href="#cb7-43" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;All functional approaches avoid explicit loops in the generator code!</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb7-44"><a href="#cb7-44" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;The point-free and one-liner versions are particularly elegant.</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb7-45"><a href="#cb7-45" tabindex="-1"></a>  </span>
+<span id="cb7-46"><a href="#cb7-46" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb7-47"><a href="#cb7-47" tabindex="-1"></a>  <span class="co"># Simple timing if microbenchmark not available</span></span>
+<span id="cb7-48"><a href="#cb7-48" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;=== Simple Timing Comparison ===</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb7-49"><a href="#cb7-49" tabindex="-1"></a>  </span>
+<span id="cb7-50"><a href="#cb7-50" tabindex="-1"></a>  timing_test <span class="ot">&lt;-</span> <span class="cf">function</span>(name, func, <span class="at">iterations =</span> <span class="dv">100</span>) {</span>
+<span id="cb7-51"><a href="#cb7-51" tabindex="-1"></a>    start_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb7-52"><a href="#cb7-52" tabindex="-1"></a>    <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>iterations) <span class="fu">func</span>()</span>
+<span id="cb7-53"><a href="#cb7-53" tabindex="-1"></a>    end_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb7-54"><a href="#cb7-54" tabindex="-1"></a>    time_diff <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(end_time <span class="sc">-</span> start_time, <span class="at">units =</span> <span class="st">&quot;secs&quot;</span>)</span>
+<span id="cb7-55"><a href="#cb7-55" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">&quot;%-20s: %.4f seconds</span><span class="sc">\n</span><span class="st">&quot;</span>, name, time_diff))</span>
+<span id="cb7-56"><a href="#cb7-56" tabindex="-1"></a>    time_diff</span>
+<span id="cb7-57"><a href="#cb7-57" tabindex="-1"></a>  }</span>
+<span id="cb7-58"><a href="#cb7-58" tabindex="-1"></a>  </span>
+<span id="cb7-59"><a href="#cb7-59" tabindex="-1"></a>  <span class="fu">timing_test</span>(<span class="st">&quot;Static (traditional)&quot;</span>, <span class="cf">function</span>() <span class="fu">static_3_loops</span>(k))</span>
+<span id="cb7-60"><a href="#cb7-60" tabindex="-1"></a>  <span class="fu">timing_test</span>(<span class="st">&quot;Functional v1&quot;</span>, dynamic_v1)</span>
+<span id="cb7-61"><a href="#cb7-61" tabindex="-1"></a>  <span class="fu">timing_test</span>(<span class="st">&quot;Ultra-concise v2&quot;</span>, dynamic_v2)</span>
+<span id="cb7-62"><a href="#cb7-62" tabindex="-1"></a>  <span class="fu">timing_test</span>(<span class="st">&quot;Tailcall v3&quot;</span>, dynamic_v3)</span>
+<span id="cb7-63"><a href="#cb7-63" tabindex="-1"></a>  <span class="fu">timing_test</span>(<span class="st">&quot;Map-Reduce v4&quot;</span>, dynamic_v4)</span>
+<span id="cb7-64"><a href="#cb7-64" tabindex="-1"></a>  <span class="fu">timing_test</span>(<span class="st">&quot;Point-free v5&quot;</span>, dynamic_v5)</span>
+<span id="cb7-65"><a href="#cb7-65" tabindex="-1"></a>  <span class="fu">timing_test</span>(<span class="st">&quot;Walker v6&quot;</span>, dynamic_v6)</span>
+<span id="cb7-66"><a href="#cb7-66" tabindex="-1"></a>  <span class="fu">timing_test</span>(<span class="st">&quot;One-liner&quot;</span>, dynamic_oneliner)</span>
+<span id="cb7-67"><a href="#cb7-67" tabindex="-1"></a>}</span>
+<span id="cb7-68"><a href="#cb7-68" tabindex="-1"></a><span class="co">#&gt; Unit: milliseconds</span></span>
+<span id="cb7-69"><a href="#cb7-69" tabindex="-1"></a><span class="co">#&gt;              expr       min        lq      mean    median        uq        max</span></span>
+<span id="cb7-70"><a href="#cb7-70" tabindex="-1"></a><span class="co">#&gt;            static  3.308103  3.965065  4.654959  4.438868  5.087449   8.482923</span></span>
+<span id="cb7-71"><a href="#cb7-71" tabindex="-1"></a><span class="co">#&gt;     functional_v1  3.230579  3.762176  4.831938  4.252671  5.150900  28.527858</span></span>
+<span id="cb7-72"><a href="#cb7-72" tabindex="-1"></a><span class="co">#&gt;  ultra_concise_v2  3.262636  3.678297  4.771576  4.366129  4.991941  28.689820</span></span>
+<span id="cb7-73"><a href="#cb7-73" tabindex="-1"></a><span class="co">#&gt;       tailcall_v3  3.252300  3.668449  4.678603  4.345769  4.898494  24.761528</span></span>
+<span id="cb7-74"><a href="#cb7-74" tabindex="-1"></a><span class="co">#&gt;      mapreduce_v4 22.683680 26.437020 30.492731 29.541011 33.419298  49.312623</span></span>
+<span id="cb7-75"><a href="#cb7-75" tabindex="-1"></a><span class="co">#&gt;      pointfree_v5 22.500347 26.188874 30.454627 28.539836 32.810247 115.393648</span></span>
+<span id="cb7-76"><a href="#cb7-76" tabindex="-1"></a><span class="co">#&gt;         walker_v6 22.304791 27.018763 30.931807 29.871885 33.842326  48.434439</span></span>
+<span id="cb7-77"><a href="#cb7-77" tabindex="-1"></a><span class="co">#&gt;          oneliner  3.316414  3.888938  4.787483  4.369796  4.787411  43.326597</span></span>
+<span id="cb7-78"><a href="#cb7-78" tabindex="-1"></a><span class="co">#&gt;  neval</span></span>
+<span id="cb7-79"><a href="#cb7-79" tabindex="-1"></a><span class="co">#&gt;    100</span></span>
+<span id="cb7-80"><a href="#cb7-80" tabindex="-1"></a><span class="co">#&gt;    100</span></span>
+<span id="cb7-81"><a href="#cb7-81" tabindex="-1"></a><span class="co">#&gt;    100</span></span>
+<span id="cb7-82"><a href="#cb7-82" tabindex="-1"></a><span class="co">#&gt;    100</span></span>
+<span id="cb7-83"><a href="#cb7-83" tabindex="-1"></a><span class="co">#&gt;    100</span></span>
+<span id="cb7-84"><a href="#cb7-84" tabindex="-1"></a><span class="co">#&gt;    100</span></span>
+<span id="cb7-85"><a href="#cb7-85" tabindex="-1"></a><span class="co">#&gt;    100</span></span>
+<span id="cb7-86"><a href="#cb7-86" tabindex="-1"></a><span class="co">#&gt;    100</span></span>
+<span id="cb7-87"><a href="#cb7-87" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-88"><a href="#cb7-88" tabindex="-1"></a><span class="co">#&gt; === Performance Analysis ===</span></span>
+<span id="cb7-89"><a href="#cb7-89" tabindex="-1"></a><span class="co">#&gt; All functional approaches avoid explicit loops in the generator code!</span></span>
+<span id="cb7-90"><a href="#cb7-90" tabindex="-1"></a><span class="co">#&gt; The point-free and one-liner versions are particularly elegant.</span></span>
+<span id="cb7-91"><a href="#cb7-91" tabindex="-1"></a></span>
+<span id="cb7-92"><a href="#cb7-92" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">=== Code Conciseness Analysis ===</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb7-93"><a href="#cb7-93" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-94"><a href="#cb7-94" tabindex="-1"></a><span class="co">#&gt; === Code Conciseness Analysis ===</span></span>
+<span id="cb7-95"><a href="#cb7-95" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Method 2 (Ultra-concise): ~4 lines of actual logic</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb7-96"><a href="#cb7-96" tabindex="-1"></a><span class="co">#&gt; Method 2 (Ultra-concise): ~4 lines of actual logic</span></span>
+<span id="cb7-97"><a href="#cb7-97" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;One-liner version: Entire function generator in 1 expression!</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb7-98"><a href="#cb7-98" tabindex="-1"></a><span class="co">#&gt; One-liner version: Entire function generator in 1 expression!</span></span>
+<span id="cb7-99"><a href="#cb7-99" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Walker pattern: Zero explicit loops, maximum functional composition</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb7-100"><a href="#cb7-100" tabindex="-1"></a><span class="co">#&gt; Walker pattern: Zero explicit loops, maximum functional composition</span></span></code></pre></div>
 <h2 id="advanced-matrix-builder-with-zero-loop-construction">Advanced:
 Matrix Builder with Zero-Loop Construction</h2>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" tabindex="-1"></a><span class="co"># Create a matrix builder using pure functional composition</span></span>
-<span id="cb81-2"><a href="#cb81-2" tabindex="-1"></a>create_matrix_builder <span class="ot">&lt;-</span> <span class="cf">function</span>(rows, cols) {</span>
-<span id="cb81-3"><a href="#cb81-3" tabindex="-1"></a>  <span class="co"># Action: result[i1, i2] &lt;- i1 * i2 (no loops in construction!)</span></span>
-<span id="cb81-4"><a href="#cb81-4" tabindex="-1"></a>  action <span class="ot">&lt;-</span> <span class="fu">call</span>(<span class="st">&quot;&lt;-&quot;</span>, </span>
-<span id="cb81-5"><a href="#cb81-5" tabindex="-1"></a>                <span class="fu">call</span>(<span class="st">&quot;[&quot;</span>, <span class="fu">quote</span>(result), <span class="fu">quote</span>(i1), <span class="fu">quote</span>(i2)),</span>
-<span id="cb81-6"><a href="#cb81-6" tabindex="-1"></a>                <span class="fu">call</span>(<span class="st">&quot;*&quot;</span>, <span class="fu">quote</span>(i1), <span class="fu">quote</span>(i2)))</span>
-<span id="cb81-7"><a href="#cb81-7" tabindex="-1"></a>  </span>
-<span id="cb81-8"><a href="#cb81-8" tabindex="-1"></a>  <span class="co"># Build nested loops using pure functional composition</span></span>
-<span id="cb81-9"><a href="#cb81-9" tabindex="-1"></a>  specs <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">list</span>(<span class="at">var =</span> <span class="st">&quot;i1&quot;</span>, <span class="at">max =</span> rows), <span class="fu">list</span>(<span class="at">var =</span> <span class="st">&quot;i2&quot;</span>, <span class="at">max =</span> cols))</span>
-<span id="cb81-10"><a href="#cb81-10" tabindex="-1"></a>  body_expr <span class="ot">&lt;-</span> <span class="fu">Reduce</span>(</span>
-<span id="cb81-11"><a href="#cb81-11" tabindex="-1"></a>    <span class="cf">function</span>(body, spec) <span class="fu">call</span>(<span class="st">&quot;for&quot;</span>, <span class="fu">as.name</span>(spec<span class="sc">$</span>var), <span class="fu">call</span>(<span class="st">&quot;:&quot;</span>, <span class="dv">1</span>, spec<span class="sc">$</span>max), body),</span>
-<span id="cb81-12"><a href="#cb81-12" tabindex="-1"></a>    <span class="fu">rev</span>(specs),</span>
-<span id="cb81-13"><a href="#cb81-13" tabindex="-1"></a>    action</span>
-<span id="cb81-14"><a href="#cb81-14" tabindex="-1"></a>  )</span>
-<span id="cb81-15"><a href="#cb81-15" tabindex="-1"></a>  </span>
-<span id="cb81-16"><a href="#cb81-16" tabindex="-1"></a>  <span class="co"># Complete function using functional pipeline</span></span>
-<span id="cb81-17"><a href="#cb81-17" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="cf">function</span>() {}</span>
-<span id="cb81-18"><a href="#cb81-18" tabindex="-1"></a>  <span class="fu">body</span>(f) <span class="ot">&lt;-</span> <span class="fu">call</span>(<span class="st">&quot;{&quot;</span>,</span>
-<span id="cb81-19"><a href="#cb81-19" tabindex="-1"></a>         <span class="fu">call</span>(<span class="st">&quot;&lt;-&quot;</span>, <span class="fu">quote</span>(result), <span class="fu">call</span>(<span class="st">&quot;matrix&quot;</span>, <span class="dv">0</span>, <span class="at">nrow =</span> rows, <span class="at">ncol =</span> cols)),</span>
-<span id="cb81-20"><a href="#cb81-20" tabindex="-1"></a>         body_expr,</span>
-<span id="cb81-21"><a href="#cb81-21" tabindex="-1"></a>         <span class="fu">quote</span>(<span class="fu">return</span>(result)))</span>
-<span id="cb81-22"><a href="#cb81-22" tabindex="-1"></a>  f</span>
-<span id="cb81-23"><a href="#cb81-23" tabindex="-1"></a>}</span>
-<span id="cb81-24"><a href="#cb81-24" tabindex="-1"></a></span>
-<span id="cb81-25"><a href="#cb81-25" tabindex="-1"></a><span class="co"># Test matrix builder (created without any explicit loops!)</span></span>
-<span id="cb81-26"><a href="#cb81-26" tabindex="-1"></a>matrix_builder <span class="ot">&lt;-</span> <span class="fu">create_matrix_builder</span>(<span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb81-27"><a href="#cb81-27" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated matrix builder function body:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Generated matrix builder function body:</code></pre>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" tabindex="-1"></a><span class="fu">print</span>(matrix_builder)</span></code></pre></div>
-<pre><code>## function () 
-## {
-##     result &lt;- matrix(0, nrow = 4, ncol = 5)
-##     for (i1 in 1:4) for (i2 in 1:5) result[i1, i2] &lt;- i1 * i2
-##     return(result)
-## }
-## &lt;environment: 0x588bfa6e7038&gt;</code></pre>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" tabindex="-1"></a>my_matrix <span class="ot">&lt;-</span> <span class="fu">matrix_builder</span>()</span>
-<span id="cb86-2"><a href="#cb86-2" tabindex="-1"></a><span class="fu">print</span>(my_matrix)</span></code></pre></div>
-<pre><code>##      [,1] [,2] [,3] [,4] [,5]
-## [1,]    1    2    3    4    5
-## [2,]    2    4    6    8   10
-## [3,]    3    6    9   12   15
-## [4,]    4    8   12   16   20</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co"># Create a matrix builder using pure functional composition</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>create_matrix_builder <span class="ot">&lt;-</span> <span class="cf">function</span>(rows, cols) {</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>  <span class="co"># Action: result[i1, i2] &lt;- i1 * i2 (no loops in construction!)</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>  action <span class="ot">&lt;-</span> <span class="fu">call</span>(<span class="st">&quot;&lt;-&quot;</span>, </span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>                <span class="fu">call</span>(<span class="st">&quot;[&quot;</span>, <span class="fu">quote</span>(result), <span class="fu">quote</span>(i1), <span class="fu">quote</span>(i2)),</span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>                <span class="fu">call</span>(<span class="st">&quot;*&quot;</span>, <span class="fu">quote</span>(i1), <span class="fu">quote</span>(i2)))</span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>  </span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>  <span class="co"># Build nested loops using pure functional composition</span></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>  specs <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">list</span>(<span class="at">var =</span> <span class="st">&quot;i1&quot;</span>, <span class="at">max =</span> rows), <span class="fu">list</span>(<span class="at">var =</span> <span class="st">&quot;i2&quot;</span>, <span class="at">max =</span> cols))</span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>  body_expr <span class="ot">&lt;-</span> <span class="fu">Reduce</span>(</span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a>    <span class="cf">function</span>(body, spec) <span class="fu">call</span>(<span class="st">&quot;for&quot;</span>, <span class="fu">as.name</span>(spec<span class="sc">$</span>var), <span class="fu">call</span>(<span class="st">&quot;:&quot;</span>, <span class="dv">1</span>, spec<span class="sc">$</span>max), body),</span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a>    <span class="fu">rev</span>(specs),</span>
+<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a>    action</span>
+<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a>  )</span>
+<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a>  </span>
+<span id="cb8-16"><a href="#cb8-16" tabindex="-1"></a>  <span class="co"># Complete function using functional pipeline</span></span>
+<span id="cb8-17"><a href="#cb8-17" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="cf">function</span>() {}</span>
+<span id="cb8-18"><a href="#cb8-18" tabindex="-1"></a>  <span class="fu">body</span>(f) <span class="ot">&lt;-</span> <span class="fu">call</span>(<span class="st">&quot;{&quot;</span>,</span>
+<span id="cb8-19"><a href="#cb8-19" tabindex="-1"></a>         <span class="fu">call</span>(<span class="st">&quot;&lt;-&quot;</span>, <span class="fu">quote</span>(result), <span class="fu">call</span>(<span class="st">&quot;matrix&quot;</span>, <span class="dv">0</span>, <span class="at">nrow =</span> rows, <span class="at">ncol =</span> cols)),</span>
+<span id="cb8-20"><a href="#cb8-20" tabindex="-1"></a>         body_expr,</span>
+<span id="cb8-21"><a href="#cb8-21" tabindex="-1"></a>         <span class="fu">quote</span>(<span class="fu">return</span>(result)))</span>
+<span id="cb8-22"><a href="#cb8-22" tabindex="-1"></a>  f</span>
+<span id="cb8-23"><a href="#cb8-23" tabindex="-1"></a>}</span>
+<span id="cb8-24"><a href="#cb8-24" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" tabindex="-1"></a><span class="co"># Test matrix builder (created without any explicit loops!)</span></span>
+<span id="cb8-26"><a href="#cb8-26" tabindex="-1"></a>matrix_builder <span class="ot">&lt;-</span> <span class="fu">create_matrix_builder</span>(<span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb8-27"><a href="#cb8-27" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated matrix builder function body:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb8-28"><a href="#cb8-28" tabindex="-1"></a><span class="co">#&gt; Generated matrix builder function body:</span></span>
+<span id="cb8-29"><a href="#cb8-29" tabindex="-1"></a><span class="fu">print</span>(matrix_builder)</span>
+<span id="cb8-30"><a href="#cb8-30" tabindex="-1"></a><span class="co">#&gt; function () </span></span>
+<span id="cb8-31"><a href="#cb8-31" tabindex="-1"></a><span class="co">#&gt; {</span></span>
+<span id="cb8-32"><a href="#cb8-32" tabindex="-1"></a><span class="co">#&gt;     result &lt;- matrix(0, nrow = 4, ncol = 5)</span></span>
+<span id="cb8-33"><a href="#cb8-33" tabindex="-1"></a><span class="co">#&gt;     for (i1 in 1:4) for (i2 in 1:5) result[i1, i2] &lt;- i1 * i2</span></span>
+<span id="cb8-34"><a href="#cb8-34" tabindex="-1"></a><span class="co">#&gt;     return(result)</span></span>
+<span id="cb8-35"><a href="#cb8-35" tabindex="-1"></a><span class="co">#&gt; }</span></span>
+<span id="cb8-36"><a href="#cb8-36" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x5ac896b2bb00&gt;</span></span>
+<span id="cb8-37"><a href="#cb8-37" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb8-38"><a href="#cb8-38" tabindex="-1"></a>my_matrix <span class="ot">&lt;-</span> <span class="fu">matrix_builder</span>()</span>
+<span id="cb8-39"><a href="#cb8-39" tabindex="-1"></a><span class="fu">print</span>(my_matrix)</span>
+<span id="cb8-40"><a href="#cb8-40" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
+<span id="cb8-41"><a href="#cb8-41" tabindex="-1"></a><span class="co">#&gt; [1,]    1    2    3    4    5</span></span>
+<span id="cb8-42"><a href="#cb8-42" tabindex="-1"></a><span class="co">#&gt; [2,]    2    4    6    8   10</span></span>
+<span id="cb8-43"><a href="#cb8-43" tabindex="-1"></a><span class="co">#&gt; [3,]    3    6    9   12   15</span></span>
+<span id="cb8-44"><a href="#cb8-44" tabindex="-1"></a><span class="co">#&gt; [4,]    4    8   12   16   20</span></span></code></pre></div>
 <h2 id="the-ultimate-test-generating-the-1-billion-iteration-function">The
 Ultimate Test: Generating the 1 Billion Iteration Function</h2>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" tabindex="-1"></a><span class="co"># </span><span class="al">WARNING</span><span class="co">: Don&#39;t actually run this unless you have time to kill!</span></span>
-<span id="cb88-2"><a href="#cb88-2" tabindex="-1"></a><span class="co"># This would create the equivalent of the benchmark from the meme</span></span>
-<span id="cb88-3"><a href="#cb88-3" tabindex="-1"></a></span>
-<span id="cb88-4"><a href="#cb88-4" tabindex="-1"></a>create_billion_iteration_function <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb88-5"><a href="#cb88-5" tabindex="-1"></a>  <span class="co"># For 1 billion iterations, we could do 10 loops of 100 iterations each</span></span>
-<span id="cb88-6"><a href="#cb88-6" tabindex="-1"></a>  <span class="co"># 100^10 = 10^20 (way too much!)</span></span>
-<span id="cb88-7"><a href="#cb88-7" tabindex="-1"></a>  <span class="co"># Let&#39;s do 4 loops of 178 iterations: 178^4 ≈ 1 billion</span></span>
-<span id="cb88-8"><a href="#cb88-8" tabindex="-1"></a>  </span>
-<span id="cb88-9"><a href="#cb88-9" tabindex="-1"></a>  k <span class="ot">&lt;-</span> <span class="dv">178</span>  <span class="co"># 178^4 = 1,002,002,816 ≈ 1 billion</span></span>
-<span id="cb88-10"><a href="#cb88-10" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb88-11"><a href="#cb88-11" tabindex="-1"></a>  </span>
-<span id="cb88-12"><a href="#cb88-12" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Creating function with&quot;</span>, n, <span class="st">&quot;nested loops of&quot;</span>, k, <span class="st">&quot;iterations each</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb88-13"><a href="#cb88-13" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Total iterations:&quot;</span>, k<span class="sc">^</span>n, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb88-14"><a href="#cb88-14" tabindex="-1"></a>  </span>
-<span id="cb88-15"><a href="#cb88-15" tabindex="-1"></a>  <span class="fu">create_nested_loops_v1</span>(n, k)</span>
-<span id="cb88-16"><a href="#cb88-16" tabindex="-1"></a>}</span>
-<span id="cb88-17"><a href="#cb88-17" tabindex="-1"></a></span>
-<span id="cb88-18"><a href="#cb88-18" tabindex="-1"></a><span class="co"># Generate but don&#39;t run (for your sanity)</span></span>
-<span id="cb88-19"><a href="#cb88-19" tabindex="-1"></a>billion_func <span class="ot">&lt;-</span> <span class="fu">create_billion_iteration_function</span>()</span>
-<span id="cb88-20"><a href="#cb88-20" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Function created! (But we won&#39;t run it...)</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co"># </span><span class="al">WARNING</span><span class="co">: Don&#39;t actually run this unless you have time to kill!</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="co"># This would create the equivalent of the benchmark from the meme</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>create_billion_iteration_function <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>  <span class="co"># For 1 billion iterations, we could do 10 loops of 100 iterations each</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>  <span class="co"># 100^10 = 10^20 (way too much!)</span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>  <span class="co"># Let&#39;s do 4 loops of 178 iterations: 178^4 ≈ 1 billion</span></span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>  </span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>  k <span class="ot">&lt;-</span> <span class="dv">178</span>  <span class="co"># 178^4 = 1,002,002,816 ≈ 1 billion</span></span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a>  </span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Creating function with&quot;</span>, n, <span class="st">&quot;nested loops of&quot;</span>, k, <span class="st">&quot;iterations each</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Total iterations:&quot;</span>, k<span class="sc">^</span>n, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a>  </span>
+<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a>  <span class="fu">create_nested_loops_v1</span>(n, k)</span>
+<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a>}</span>
+<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" tabindex="-1"></a><span class="co"># Generate but don&#39;t run (for your sanity)</span></span>
+<span id="cb9-19"><a href="#cb9-19" tabindex="-1"></a>billion_func <span class="ot">&lt;-</span> <span class="fu">create_billion_iteration_function</span>()</span>
+<span id="cb9-20"><a href="#cb9-20" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Function created! (But we won&#39;t run it...)</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
 <h2 id="conclusion-the-art-of-loop-free-loop-generation">Conclusion: The
 Art of Loop-Free Loop Generation</h2>
 <p><strong>Achievement Unlocked: We’ve created nested loops without
@@ -1166,101 +1169,108 @@ elegantly solve problems that seem to require imperative
 constructs.</strong></p>
 <p><strong>R doesn’t just compete in the nested loop olympics - it
 redefines the game entirely!</strong> 🚀</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" tabindex="-1"></a><span class="co"># One final demonstration: The ultimate meta-achievement</span></span>
-<span id="cb89-2"><a href="#cb89-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🎯 FINAL DEMONSTRATION: Creating 6 nested loops with ZERO loops in our code!</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## 🎯 FINAL DEMONSTRATION: Creating 6 nested loops with ZERO loops in our code!</code></pre>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" tabindex="-1"></a><span class="co"># Using our most elegant approach</span></span>
-<span id="cb91-2"><a href="#cb91-2" tabindex="-1"></a>ultimate_func <span class="ot">&lt;-</span> <span class="fu">create_loops_oneliner</span>(<span class="dv">6</span>, <span class="dv">3</span>)</span>
-<span id="cb91-3"><a href="#cb91-3" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated function structure analysis:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Generated function structure analysis:</code></pre>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Created via: Pure functional composition</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## - Created via: Pure functional composition</code></pre>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Generator loops used: 0</span><span class="sc">\n</span><span class="st">&quot;</span>) </span></code></pre></div>
-<pre><code>## - Generator loops used: 0</code></pre>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Target loops created: 6</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## - Target loops created: 6</code></pre>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Code lines in generator: 1</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## - Code lines in generator: 1</code></pre>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" tabindex="-1"></a>ultimate_result <span class="ot">&lt;-</span> <span class="fu">ultimate_func</span>()</span>
-<span id="cb101-2"><a href="#cb101-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🔥 RESULT:&quot;</span>, ultimate_result, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## 🔥 RESULT: 729 total iterations</code></pre>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;✅ EXPECTED:&quot;</span>, <span class="dv">3</span><span class="sc">^</span><span class="dv">6</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## ✅ EXPECTED: 729</code></pre>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🎉 SUCCESS: Math checks out!</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## 🎉 SUCCESS: Math checks out!</code></pre>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🏆 ACHIEVEMENT: We&#39;ve officially created loops without using loops!</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## 🏆 ACHIEVEMENT: We&#39;ve officially created loops without using loops!</code></pre>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🤯 This is the programming equivalent of pulling yourself up by your bootstraps!</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## 🤯 This is the programming equivalent of pulling yourself up by your bootstraps!</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co"># One final demonstration: The ultimate meta-achievement</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🎯 FINAL DEMONSTRATION: Creating 6 nested loops with ZERO loops in our code!</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="co">#&gt; 🎯 FINAL DEMONSTRATION: Creating 6 nested loops with ZERO loops in our code!</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="co"># Using our most elegant approach</span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>ultimate_func <span class="ot">&lt;-</span> <span class="fu">create_loops_oneliner</span>(<span class="dv">6</span>, <span class="dv">3</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generated function structure analysis:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="co">#&gt; Generated function structure analysis:</span></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Created via: Pure functional composition</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="co">#&gt; - Created via: Pure functional composition</span></span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Generator loops used: 0</span><span class="sc">\n</span><span class="st">&quot;</span>) </span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a><span class="co">#&gt; - Generator loops used: 0</span></span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Target loops created: 6</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a><span class="co">#&gt; - Target loops created: 6</span></span>
+<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Code lines in generator: 1</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span>
+<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a><span class="co">#&gt; - Code lines in generator: 1</span></span>
+<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a>ultimate_result <span class="ot">&lt;-</span> <span class="fu">ultimate_func</span>()</span>
+<span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🔥 RESULT:&quot;</span>, ultimate_result, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a><span class="co">#&gt; 🔥 RESULT: 729 total iterations</span></span>
+<span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;✅ EXPECTED:&quot;</span>, <span class="dv">3</span><span class="sc">^</span><span class="dv">6</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a><span class="co">#&gt; ✅ EXPECTED: 729</span></span>
+<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🎉 SUCCESS: Math checks out!</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span>
+<span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a><span class="co">#&gt; 🎉 SUCCESS: Math checks out!</span></span>
+<span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a></span>
+<span id="cb10-26"><a href="#cb10-26" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🏆 ACHIEVEMENT: We&#39;ve officially created loops without using loops!</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb10-27"><a href="#cb10-27" tabindex="-1"></a><span class="co">#&gt; 🏆 ACHIEVEMENT: We&#39;ve officially created loops without using loops!</span></span>
+<span id="cb10-28"><a href="#cb10-28" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🤯 This is the programming equivalent of pulling yourself up by your bootstraps!</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb10-29"><a href="#cb10-29" tabindex="-1"></a><span class="co">#&gt; 🤯 This is the programming equivalent of pulling yourself up by your bootstraps!</span></span></code></pre></div>
 <h2 id="more-ridiculous-test-1000-nested-loops-function-zero-loop-construction">More
 Ridiculous Test: 1000 NESTED LOOPS Function (Zero-Loop
 Construction!)</h2>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" tabindex="-1"></a><span class="co"># The TRULY ridiculous test - 1000 NESTED LOOPS created with ZERO explicit loops!</span></span>
-<span id="cb111-2"><a href="#cb111-2" tabindex="-1"></a><span class="co"># Using pure functional composition - the ultimate meta-programming achievement!</span></span>
-<span id="cb111-3"><a href="#cb111-3" tabindex="-1"></a></span>
-<span id="cb111-4"><a href="#cb111-4" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🚀 === ULTIMATE CHALLENGE: 1000 NESTED LOOPS with ZERO-LOOP CONSTRUCTION ===</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## 🚀 === ULTIMATE CHALLENGE: 1000 NESTED LOOPS with ZERO-LOOP CONSTRUCTION ===</code></pre>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Creating a function with 1000 levels of nesting using pure functional programming!</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Creating a function with 1000 levels of nesting using pure functional programming!</code></pre>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generator method: Point-free functional composition (no loops whatsoever)</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Generator method: Point-free functional composition (no loops whatsoever)</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" tabindex="-1"></a><span class="co"># Use our most concise approach for maximum elegance</span></span>
-<span id="cb117-2"><a href="#cb117-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🔧 Building AST for 1000 nested loops using pure functional composition...</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## 🔧 Building AST for 1000 nested loops using pure functional composition...</code></pre>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" tabindex="-1"></a>thousand_loops_func <span class="ot">&lt;-</span> <span class="fu">create_loops_oneliner</span>(<span class="dv">1000</span>, <span class="dv">1</span>)</span>
-<span id="cb119-2"><a href="#cb119-2" tabindex="-1"></a></span>
-<span id="cb119-3"><a href="#cb119-3" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;📊 Generated function analysis:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## 📊 Generated function analysis:</code></pre>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" tabindex="-1"></a>func_str <span class="ot">&lt;-</span> <span class="fu">deparse</span>(<span class="fu">body</span>(thousand_loops_func))</span>
-<span id="cb121-2"><a href="#cb121-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- AST lines generated:&quot;</span>, <span class="fu">length</span>(func_str), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## - AST lines generated: 6</code></pre>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Generator loops used: 0 (pure functional composition!)</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## - Generator loops used: 0 (pure functional composition!)</code></pre>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Object size:&quot;</span>, <span class="fu">format</span>(<span class="fu">object.size</span>(thousand_loops_func), <span class="at">units =</span> <span class="st">&quot;Kb&quot;</span>), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## - Object size: 657.7 Kb</code></pre>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Nesting depth: 1000 levels</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## - Nesting depth: 1000 levels</code></pre>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Construction method: One-liner functional composition</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## - Construction method: One-liner functional composition</code></pre>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="#cb131-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🎯 Sample of generated AST structure:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## 🎯 Sample of generated AST structure:</code></pre>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;First 3 lines:</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="fu">paste</span>(func_str[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="at">collapse =</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## First 3 lines:
-##  {
-##     counter &lt;- 0
-##     for (i1 in 1:1) for (i2 in 1:1) for (i3 in 1:1) for (i4 in 1:1) for (i5 in 1:1) for (i6 in 1:1) for (i7 in 1:1) for (i8 in 1:1) for (i9 in 1:1) for (i10 in 1:1) for (i11 in 1:1) for (i12 in 1:1) for (i13 in 1:1) for (i14 in 1:1) for (i15 in 1:1) for (i16 in 1:1) for (i17 in 1:1) for (i18 in 1:1) for (i19 in 1:1) for (i20 in 1:1) for (i21 in 1:1) for (i22 in 1:1) for (i23 in 1:1) for (i24 in 1:1) for (i25 in 1:1) for (i26 in 1:1) for (i27 in 1:1) for (i28 in 1:1) for (i29 in 1:1) for (i30 in 1:1) for (i31 in 1:1) for (i32 in 1:1) for (i33 in 1:1) for (i34 in 1:1) for (i35 in 1:1) for (i36 in 1:1) for (i37 in 1:1) for (i38 in 1:1) for (i39 in 1:1) for (i40 in 1:1) for (i41 in 1:1) for (i42 in 1:1) for (i43 in 1:1) for (i44 in 1:1) for (i45 in 1:1) for (i46 in 1:1) for (i47 in 1:1) for (i48 in 1:1) for (i49 in 1:1) for (i50 in 1:1) for (i51 in 1:1) for (i52 in 1:1) for (i53 in 1:1) for (i54 in 1:1) for (i55 in 1:1) for (i56 in 1:1) for (i57 in 1:1) for (i58 in 1:1) for (i59 in 1:1) for (i60 in 1:1) for (i61 in 1:1) for (i62 in 1:1) for (i63 in 1:1) for (i64 in 1:1) for (i65 in 1:1) for (i66 in 1:1) for (i67 in 1:1) for (i68 in 1:1) for (i69 in 1:1) for (i70 in 1:1) for (i71 in 1:1) for (i72 in 1:1) for (i73 in 1:1) for (i74 in 1:1) for (i75 in 1:1) for (i76 in 1:1) for (i77 in 1:1) for (i78 in 1:1) for (i79 in 1:1) for (i80 in 1:1) for (i81 in 1:1) for (i82 in 1:1) for (i83 in 1:1) for (i84 in 1:1) for (i85 in 1:1) for (i86 in 1:1) for (i87 in 1:1) for (i88 in 1:1) for (i89 in 1:1) for (i90 in 1:1) for (i91 in 1:1) for (i92 in 1:1) for (i93 in 1:1) for (i94 in 1:1) for (i95 in 1:1) for (i96 in 1:1) for (i97 in 1:1) for (i98 in 1:1) for (i99 in 1:1) for (i100 in 1:1) for (i101 in 1:1) for (i102 in 1:1) for (i103 in 1:1) for (i104 in 1:1) for (i105 in 1:1) for (i106 in 1:1) for (i107 in 1:1) for (i108 in 1:1) for (i109 in 1:1) for (i110 in 1:1) for (i111 in 1:1) for (i112 in 1:1) for (i113 in 1:1) for (i114 in 1:1) for (i115 in 1:1) for (i116 in 1:1) for (i117 in 1:1) for (i118 in 1:1) for (i119 in 1:1) for (i120 in 1:1) for (i121 in 1:1) for (i122 in 1:1) for (i123 in 1:1) for (i124 in 1:1) for (i125 in 1:1) for (i126 in 1:1) for (i127 in 1:1) for (i128 in 1:1) for (i129 in 1:1) for (i130 in 1:1) for (i131 in 1:1) for (i132 in 1:1) for (i133 in 1:1) for (i134 in 1:1) for (i135 in 1:1) for (i136 in 1:1) for (i137 in 1:1) for (i138 in 1:1) for (i139 in 1:1) for (i140 in 1:1) for (i141 in 1:1) for (i142 in 1:1) for (i143 in 1:1) for (i144 in 1:1) for (i145 in 1:1) for (i146 in 1:1) for (i147 in 1:1) for (i148 in 1:1) for (i149 in 1:1) for (i150 in 1:1) for (i151 in 1:1) for (i152 in 1:1) for (i153 in 1:1) for (i154 in 1:1) for (i155 in 1:1) for (i156 in 1:1) for (i157 in 1:1) for (i158 in 1:1) for (i159 in 1:1) for (i160 in 1:1) for (i161 in 1:1) for (i162 in 1:1) for (i163 in 1:1) for (i164 in 1:1) for (i165 in 1:1) for (i166 in 1:1) for (i167 in 1:1) for (i168 in 1:1) for (i169 in 1:1) for (i170 in 1:1) for (i171 in 1:1) for (i172 in 1:1) for (i173 in 1:1) for (i174 in 1:1) for (i175 in 1:1) for (i176 in 1:1) for (i177 in 1:1) for (i178 in 1:1) for (i179 in 1:1) for (i180 in 1:1) for (i181 in 1:1) for (i182 in 1:1) for (i183 in 1:1) for (i184 in 1:1) for (i185 in 1:1) for (i186 in 1:1) for (i187 in 1:1) for (i188 in 1:1) for (i189 in 1:1) for (i190 in 1:1) for (i191 in 1:1) for (i192 in 1:1) for (i193 in 1:1) for (i194 in 1:1) for (i195 in 1:1) for (i196 in 1:1) for (i197 in 1:1) for (i198 in 1:1) for (i199 in 1:1) for (i200 in 1:1) for (i201 in 1:1) for (i202 in 1:1) for (i203 in 1:1) for (i204 in 1:1) for (i205 in 1:1) for (i206 in 1:1) for (i207 in 1:1) for (i208 in 1:1) for (i209 in 1:1) for (i210 in 1:1) for (i211 in 1:1) for (i212 in 1:1) for (i213 in 1:1) for (i214 in 1:1) for (i215 in 1:1) for (i216 in 1:1) for (i217 in 1:1) for (i218 in 1:1) for (i219 in 1:1) for (i220 in 1:1) for (i221 in 1:1) for (i222 in 1:1) for (i223 in 1:1) for (i224 in 1:1) for (i225 in 1:1) for (i226 in 1:1) for (i227 in 1:1) for (i228 in 1:1) for (i229 in 1:1) for (i230 in 1:1) for (i231 in 1:1) for (i232 in 1:1) for (i233 in 1:1) for (i234 in 1:1) for (i235 in 1:1) for (i236 in 1:1) for (i237 in 1:1) for (i238 in 1:1) for (i239 in 1:1) for (i240 in 1:1) for (i241 in 1:1) for (i242 in 1:1) for (i243 in 1:1) for (i244 in 1:1) for (i245 in 1:1) for (i246 in 1:1) for (i247 in 1:1) for (i248 in 1:1) for (i249 in 1:1) for (i250 in 1:1) for (i251 in 1:1) for (i252 in 1:1) for (i253 in 1:1) for (i254 in 1:1) for (i255 in 1:1) for (i256 in 1:1) for (i257 in 1:1) for (i258 in 1:1) for (i259 in 1:1) for (i260 in 1:1) for (i261 in 1:1) for (i262 in 1:1) for (i263 in 1:1) for (i264 in 1:1) for (i265 in 1:1) for (i266 in 1:1) for (i267 in 1:1) for (i268 in 1:1) for (i269 in 1:1) for (i270 in 1:1) for (i271 in 1:1) for (i272 in 1:1) for (i273 in 1:1) for (i274 in 1:1) for (i275 in 1:1) for (i276 in 1:1) for (i277 in 1:1) for (i278 in 1:1) for (i279 in 1:1) for (i280 in 1:1) for (i281 in 1:1) for (i282 in 1:1) for (i283 in 1:1) for (i284 in 1:1) for (i285 in 1:1) for (i286 in 1:1) for (i287 in 1:1) for (i288 in 1:1) for (i289 in 1:1) for (i290 in 1:1) for (i291 in 1:1) for (i292 in 1:1) for (i293 in 1:1) for (i294 in 1:1) for (i295 in 1:1) for (i296 in 1:1) for (i297 in 1:1) for (i298 in 1:1) for (i299 in 1:1) for (i300 in 1:1) for (i301 in 1:1) for (i302 in 1:1) for (i303 in 1:1) for (i304 in 1:1) for (i305 in 1:1) for (i306 in 1:1) for (i307 in 1:1) for (i308 in 1:1) for (i309 in 1:1) for (i310 in 1:1) for (i311 in 1:1) for (i312 in 1:1) for (i313 in 1:1) for (i314 in 1:1) for (i315 in 1:1) for (i316 in 1:1) for (i317 in 1:1) for (i318 in 1:1) for (i319 in 1:1) for (i320 in 1:1) for (i321 in 1:1) for (i322 in 1:1) for (i323 in 1:1) for (i324 in 1:1) for (i325 in 1:1) for (i326 in 1:1) for (i327 in 1:1) for (i328 in 1:1) for (i329 in 1:1) for (i330 in 1:1) for (i331 in 1:1) for (i332 in 1:1) for (i333 in 1:1) for (i334 in 1:1) for (i335 in 1:1) for (i336 in 1:1) for (i337 in 1:1) for (i338 in 1:1) for (i339 in 1:1) for (i340 in 1:1) for (i341 in 1:1) for (i342 in 1:1) for (i343 in 1:1) for (i344 in 1:1) for (i345 in 1:1) for (i346 in 1:1) for (i347 in 1:1) for (i348 in 1:1) for (i349 in 1:1) for (i350 in 1:1) for (i351 in 1:1) for (i352 in 1:1) for (i353 in 1:1) for (i354 in 1:1) for (i355 in 1:1) for (i356 in 1:1) for (i357 in 1:1) for (i358 in 1:1) for (i359 in 1:1) for (i360 in 1:1) for (i361 in 1:1) for (i362 in 1:1) for (i363 in 1:1) for (i364 in 1:1) for (i365 in 1:1) for (i366 in 1:1) for (i367 in 1:1) for (i368 in 1:1) for (i369 in 1:1) for (i370 in 1:1) for (i371 in 1:1) for (i372 in 1:1) for (i373 in 1:1) for (i374 in 1:1) for (i375 in 1:1) for (i376 in 1:1) for (i377 in 1:1) for (i378 in 1:1) for (i379 in 1:1) for (i380 in 1:1) for (i381 in 1:1) for (i382 in 1:1) for (i383 in 1:1) for (i384 in 1:1) for (i385 in 1:1) for (i386 in 1:1) for (i387 in 1:1) for (i388 in 1:1) for (i389 in 1:1) for (i390 in 1:1) for (i391 in 1:1) for (i392 in 1:1) for (i393 in 1:1) for (i394 in 1:1) for (i395 in 1:1) for (i396 in 1:1) for (i397 in 1:1) for (i398 in 1:1) for (i399 in 1:1) for (i400 in 1:1) for (i401 in 1:1) for (i402 in 1:1) for (i403 in 1:1) for (i404 in 1:1) for (i405 in 1:1) for (i406 in 1:1) for (i407 in 1:1) for (i408 in 1:1) for (i409 in 1:1) for (i410 in 1:1) for (i411 in 1:1) for (i412 in 1:1) for (i413 in 1:1) for (i414 in 1:1) for (i415 in 1:1) for (i416 in 1:1) for (i417 in 1:1) for (i418 in 1:1) for (i419 in 1:1) for (i420 in 1:1) for (i421 in 1:1) for (i422 in 1:1) for (i423 in 1:1) for (i424 in 1:1) for (i425 in 1:1) for (i426 in 1:1) for (i427 in 1:1) for (i428 in 1:1) for (i429 in 1:1) for (i430 in 1:1) for (i431 in 1:1) for (i432 in 1:1) for (i433 in 1:1) for (i434 in 1:1) for (i435 in 1:1) for (i436 in 1:1) for (i437 in 1:1) for (i438 in 1:1) for (i439 in 1:1) for (i440 in 1:1) for (i441 in 1:1) for (i442 in 1:1) for (i443 in 1:1) for (i444 in 1:1) for (i445 in 1:1) for (i446 in 1:1) for (i447 in 1:1) for (i448 in 1:1) for (i449 in 1:1) for (i450 in 1:1) for (i451 in 1:1) for (i452 in 1:1) for (i453 in 1:1) for (i454 in 1:1) for (i455 in 1:1) for (i456 in 1:1) for (i457 in 1:1) for (i458 in 1:1) for (i459 in 1:1) for (i460 in 1:1) for (i461 in 1:1) for (i462 in 1:1) for (i463 in 1:1) for (i464 in 1:1) for (i465 in 1:1) for (i466 in 1:1) for (i467 in 1:1) for (i468 in 1:1) for (i469 in 1:1) for (i470 in 1:1) for (i471 in 1:1) for (i472 in 1:1) for (i473 in 1:1) for (i474 in 1:1) for (i475 in 1:1) for (i476 in 1:1) for (i477 in 1:1) for (i478 in 1:1) for (i479 in 1:1) for (i480 in 1:1) for (i481 in 1:1) for (i482 in 1:1) for (i483 in 1:1) for (i484 in 1:1) for (i485 in 1:1) for (i486 in 1:1) for (i487 in 1:1) for (i488 in 1:1) for (i489 in 1:1) for (i490 in 1:1) for (i491 in 1:1) for (i492 in 1:1) for (i493 in 1:1) for (i494 in 1:1) for (i495 in 1:1) for (i496 in 1:1) for (i497 in 1:1) for (i498 in 1:1) for (i499 in 1:1) for (i500 in 1:1) for (i501 in 1:1) for (i502 in 1:1) for (i503 in 1:1) for (i504 in 1:1) for (i505 in 1:1) for (i506 in 1:1) for (i507 in 1:1) for (i508 in 1:1) for (i509 in 1:1) for (i510 in 1:1) for (i511 in 1:1) for (i512 in 1:1) for (i513 in 1:1) for (i514 in 1:1) for (i515 in 1:1) for (i516 in 1:1) for (i517 in 1:1) for (i518 in 1:1) for (i519 in 1:1) for (i520 in 1:1) for (i521 in 1:1) for (i522 in 1:1) for (i523 in 1:1) for (i524 in 1:1) for (i525 in 1:1) for (i526 in 1:1) for (i527 in 1:1) for (i528 in 1:1) for (i529 in 1:1) for (i530 in 1:1) for (i531 in 1:1) for (i532 in 1:1) for (i533 in 1:1) for (i534 in 1:1) for (i535 in 1:1) for (i536 in 1:1) for (i537 in 1:1) for (i538 in 1:1) for (i539 in 1:1) for (i540 in 1:1) for (i541 in 1:1) for (i542 in 1:1) for (i543 in 1:1) for (i544 in 1:1) for (i545 in 1:1) for (i546 in 1:1) for (i547 in 1:1) for (i548 in 1:1) for (i549 in 1:1) for (i550 in 1:1) for (i551 in 1:1) for (i552 in 1:1) for (i553 in 1:1) for (i554 in 1:1) for (i555 in 1:1) for (i556 in 1:1) for (i557 in 1:1) for (i558 in 1:1) for (i559 in 1:1) for (i560 in 1:1) for (i561 in 1:1) for (i562 in 1:1) for (i563 in 1:1) for (i564 in 1:1) for (i565 in 1:1) for (i566 in 1:1) for (i567 in 1:1) for (i568 in 1:1) for (i569 in 1:1) for (i570 in 1:1) for (i571 in 1:1) for (i572 in 1:1) for (i573 in 1:1) for (i574 in 1:1) for (i575 in 1:1) for (i576 in 1:1) for (i577 in 1:1) for (i578 in 1:1) for (i579 in 1:1) for (i580 in 1:1) for (i581 in 1:1) for (i582 in 1:1) for (i583 in 1:1) for (i584 in 1:1) for (i585 in 1:1) for (i586 in 1:1) for (i587 in 1:1) for (i588 in 1:1) for (i589 in 1:1) for (i590 in 1:1) for (i591 in 1:1) for (i592 in 1:1) for (i593 in 1:1) for (i594 in 1:1) for (i595 in 1:1) for (i596 in 1:1) for (i597 in 1:1) for (i598 in 1:1) for (i599 in 1:1) for (i600 in 1:1) for (i601 in 1:1) for (i602 in 1:1) for (i603 in 1:1) for (i604 in 1:1) for (i605 in 1:1) for (i606 in 1:1) for (i607 in 1:1) for (i608 in 1:1) for (i609 in 1:1) for (i610 in 1:1) for (i611 in 1:1) for (i612 in 1:1) for (i613 in 1:1) for (i614 in 1:1) for (i615 in 1:1) for (i616 in 1:1) for (i617 in 1:1) for (i618 in 1:1) for (i619 in 1:1) for (i620 in 1:1) for (i621 in 1:1) for (i622 in 1:1) for (i623 in 1:1) for (i624 in 1:1) for (i625 in 1:1) for (i626 in 1:1) for (i627 in 1:1) for (i628 in 1:1) for (i629 in 1:1) for (i630 in 1:1) for (i631 in 1:1) for (i632 in 1:1) for (i633 in 1:1) for (i634 in 1:1) for (i635 in 1:1) for (i636 in 1:1) for (i637 in 1:1) for (i638 in 1:1) for (i639 in 1:1) for (i640 in 1:1) for (i641 in 1:1) for (i642 in 1:1) for (i643 in 1:1) for (i644 in 1:1) for (i645 in 1:1) for (i646 in 1:1) for (i647 in 1:1) for (i648 in 1:1) for (i649 in 1:1) for (i650 in 1:1) for (i651 in 1:1) for (i652 in 1:1) for (i653 in 1:1) for (i654 in 1:1) for (i655 in 1:1) for (i656 in 1:1) for (i657 in 1:1) for (i658 in 1:1) for (i659 in 1:1) for (i660 in 1:1) for (i661 in 1:1) for (i662 in 1:1) for (i663 in 1:1) for (i664 in 1:1) for (i665 in 1:1) for (i666 in 1:1) for (i667 in 1:1) for (i668 in 1:1) for (i669 in 1:1) for (i670 in 1:1) for (i671 in 1:1) for (i672 in 1:1) for (i673 in 1:1) for (i674 in 1:1) for (i675 in 1:1) for (i676 in 1:1) for (i677 in 1:1) for (i678 in 1:1) for (i679 in 1:1) for (i680 in 1:1) for (i681 in 1:1) for (i682 in 1:1) for (i683 in 1:1) for (i684 in 1:1) for (i685 in 1:1) for (i686 in 1:1) for (i687 in 1:1) for (i688 in 1:1) for (i689 in 1:1) for (i690 in 1:1) for (i691 in 1:1) for (i692 in 1:1) for (i693 in 1:1) for (i694 in 1:1) for (i695 in 1:1) for (i696 in 1:1) for (i697 in 1:1) for (i698 in 1:1) for (i699 in 1:1) for (i700 in 1:1) for (i701 in 1:1) for (i702 in 1:1) for (i703 in 1:1) for (i704 in 1:1) for (i705 in 1:1) for (i706 in 1:1) for (i707 in 1:1) for (i708 in 1:1) for (i709 in 1:1) for (i710 in 1:1) for (i711 in 1:1) for (i712 in 1:1) for (i713 in 1:1) for (i714 in 1:1) for (i715 in 1:1) for (i716 in 1:1) for (i717 in 1:1) for (i718 in 1:1) for (i719 in 1:1) for (i720 in 1:1) for (i721 in 1:1) for (i722 in 1:1) for (i723 in 1:1) for (i724 in 1:1) for (i725 in 1:1) for (i726 in 1:1) for (i727 in 1:1) for (i728 in 1:1) for (i729 in 1:1) for (i730 in 1:1) for (i731 in 1:1) for (i732 in 1:1) for (i733 in 1:1) for (i734 in 1:1) for (i735 in 1:1) for (i736 in 1:1) for (i737 in 1:1) for (i738 in 1:1) for (i739 in 1:1) for (i740 in 1:1) for (i741 in 1:1) for (i742 in 1:1) for (i743 in 1:1) for (i744 in 1:1) for (i745 in 1:1) for (i746 in 1:1) for (i747 in 1:1) for (i748 in 1:1) for (i749 in 1:1) for (i750 in 1:1) for (i751 in 1:1) for (i752 in 1:1) for (i753 in 1:1) for (i754 in 1:1) for (i755 in 1:1) for (i756 in 1:1) for (i757 in 1:1) for (i758 in 1:1) for (i759 in 1:1) for (i760 in 1:1) for (i761 in 1:1) for (i762 in 1:1) for (i763 in 1:1) for (i764 in 1:1) for (i765 in 1:1) for (i766 in 1:1) for (i767 in 1:1) for (i768 in 1:1) for (i769 in 1:1) for (i770 in 1:1) for (i771 in 1:1) for (i772 in 1:1) for (i773 in 1:1) for (i774 in 1:1) for (i775 in 1:1) for (i776 in 1:1) for (i777 in 1:1) for (i778 in 1:1) for (i779 in 1:1) for (i780 in 1:1) for (i781 in 1:1) for (i782 in 1:1) for (i783 in 1:1) for (i784 in 1:1) for (i785 in 1:1) for (i786 in 1:1) for (i787 in 1:1) for (i788 in 1:1) for (i789 in 1:1) for (i790 in 1:1) for (i791 in 1:1) for (i792 in 1:1) for (i793 in 1:1) for (i794 in 1:1) for (i795 in 1:1) for (i796 in 1:1) for (i797 in 1:1) for (i798 in 1:1) for (i799 in 1:1) for (i800 in 1:1) for (i801 in 1:1) for (i802 in 1:1) for (i803 in 1:1) for (i804 in 1:1) for (i805 in 1:1) for (i806 in 1:1) for (i807 in 1:1) for (i808 in 1:1) for (i809 in 1:1) for (i810 in 1:1) for (i811 in 1:1) for (i812 in 1:1) for (i813 in 1:1) for (i814 in 1:1) for (i815 in 1:1) for (i816 in 1:1) for (i817 in 1:1) for (i818 in 1:1) for (i819 in 1:1) for (i820 in 1:1) for (i821 in 1:1) for (i822 in 1:1) for (i823 in 1:1) for (i824 in 1:1) for (i825 in 1:1) for (i826 in 1:1) for (i827 in 1:1) for (i828 in 1:1) for (i829 in 1:1) for (i830 in 1:1) for (i831 in 1:1) for (i832 in 1:1) for (i833 in 1:1) for (i834 in 1:1) for (i835 in 1:1) for (i836 in 1:1) for (i837 in 1:1) for (i838 in 1:1) for (i839 in 1:1) for (i840 in 1:1) for (i841 in 1:1) for (i842 in 1:1) for (i843 in 1:1) for (i844 in 1:1) for (i845 in 1:1) for (i846 in 1:1) for (i847 in 1:1) for (i848 in 1:1) for (i849 in 1:1) for (i850 in 1:1) for (i851 in 1:1) for (i852 in 1:1) for (i853 in 1:1) for (i854 in 1:1) for (i855 in 1:1) for (i856 in 1:1) for (i857 in 1:1) for (i858 in 1:1) for (i859 in 1:1) for (i860 in 1:1) for (i861 in 1:1) for (i862 in 1:1) for (i863 in 1:1) for (i864 in 1:1) for (i865 in 1:1) for (i866 in 1:1) for (i867 in 1:1) for (i868 in 1:1) for (i869 in 1:1) for (i870 in 1:1) for (i871 in 1:1) for (i872 in 1:1) for (i873 in 1:1) for (i874 in 1:1) for (i875 in 1:1) for (i876 in 1:1) for (i877 in 1:1) for (i878 in 1:1) for (i879 in 1:1) for (i880 in 1:1) for (i881 in 1:1) for (i882 in 1:1) for (i883 in 1:1) for (i884 in 1:1) for (i885 in 1:1) for (i886 in 1:1) for (i887 in 1:1) for (i888 in 1:1) for (i889 in 1:1) for (i890 in 1:1) for (i891 in 1:1) for (i892 in 1:1) for (i893 in 1:1) for (i894 in 1:1) for (i895 in 1:1) for (i896 in 1:1) for (i897 in 1:1) for (i898 in 1:1) for (i899 in 1:1) for (i900 in 1:1) for (i901 in 1:1) for (i902 in 1:1) for (i903 in 1:1) for (i904 in 1:1) for (i905 in 1:1) for (i906 in 1:1) for (i907 in 1:1) for (i908 in 1:1) for (i909 in 1:1) for (i910 in 1:1) for (i911 in 1:1) for (i912 in 1:1) for (i913 in 1:1) for (i914 in 1:1) for (i915 in 1:1) for (i916 in 1:1) for (i917 in 1:1) for (i918 in 1:1) for (i919 in 1:1) for (i920 in 1:1) for (i921 in 1:1) for (i922 in 1:1) for (i923 in 1:1) for (i924 in 1:1) for (i925 in 1:1) for (i926 in 1:1) for (i927 in 1:1) for (i928 in 1:1) for (i929 in 1:1) for (i930 in 1:1) for (i931 in 1:1) for (i932 in 1:1) for (i933 in 1:1) for (i934 in 1:1) for (i935 in 1:1) for (i936 in 1:1) for (i937 in 1:1) for (i938 in 1:1) for (i939 in 1:1) for (i940 in 1:1) for (i941 in 1:1) for (i942 in 1:1) for (i943 in 1:1) for (i944 in 1:1) for (i945 in 1:1) for (i946 in 1:1) for (i947 in 1:1) for (i948 in 1:1) for (i949 in 1:1) for (i950 in 1:1) for (i951 in 1:1) for (i952 in 1:1) for (i953 in 1:1) for (i954 in 1:1) for (i955 in 1:1) for (i956 in 1:1) for (i957 in 1:1) for (i958 in 1:1) for (i959 in 1:1) for (i960 in 1:1) for (i961 in 1:1) for (i962 in 1:1) for (i963 in 1:1) for (i964 in 1:1) for (i965 in 1:1) for (i966 in 1:1) for (i967 in 1:1) for (i968 in 1:1) for (i969 in 1:1) for (i970 in 1:1) for (i971 in 1:1) for (i972 in 1:1) for (i973 in 1:1) for (i974 in 1:1) for (i975 in 1:1) for (i976 in 1:1) for (i977 in 1:1) for (i978 in 1:1) for (i979 in 1:1) for (i980 in 1:1) for (i981 in 1:1) for (i982 in 1:1) for (i983 in 1:1) for (i984 in 1:1) for (i985 in 1:1) for (i986 in 1:1) for (i987 in 1:1) for (i988 in 1:1) for (i989 in 1:1) for (i990 in 1:1) for (i991 in 1:1) for (i992 in 1:1) for (i993 in 1:1) for (i994 in 1:1) for (i995 in 1:1) for (i996 in 1:1) for (i997 in 1:1) for (i998 in 1:1) for (i999 in 1:1) for (i1000 in 1:1) counter &lt;- counter +</code></pre>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;...</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## ...</code></pre>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Last 3 lines:</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="fu">paste</span>(func_str[(<span class="fu">length</span>(func_str)<span class="sc">-</span><span class="dv">2</span>)<span class="sc">:</span><span class="fu">length</span>(func_str)], <span class="at">collapse =</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>), <span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## Last 3 lines:
-##          1
-##     return(counter)
-## }</code></pre>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1" tabindex="-1"></a><span class="co"># Execute the monster</span></span>
-<span id="cb139-2"><a href="#cb139-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;⚡ Executing 1000-nested-loops function (created without loops)...</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## ⚡ Executing 1000-nested-loops function (created without loops)...</code></pre>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1" tabindex="-1"></a>start_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
-<span id="cb141-2"><a href="#cb141-2" tabindex="-1"></a>thousand_result <span class="ot">&lt;-</span> <span class="fu">thousand_loops_func</span>()</span>
-<span id="cb141-3"><a href="#cb141-3" tabindex="-1"></a>end_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
-<span id="cb141-4"><a href="#cb141-4" tabindex="-1"></a></span>
-<span id="cb141-5"><a href="#cb141-5" tabindex="-1"></a>execution_time <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">as.numeric</span>(end_time <span class="sc">-</span> start_time, <span class="at">units =</span> <span class="st">&quot;secs&quot;</span>) <span class="sc">*</span> <span class="dv">1000</span>, <span class="dv">2</span>)</span>
-<span id="cb141-6"><a href="#cb141-6" tabindex="-1"></a></span>
-<span id="cb141-7"><a href="#cb141-7" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🏆 RESULTS:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## 🏆 RESULTS:</code></pre>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Iterations completed:&quot;</span>, thousand_result, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## - Iterations completed: 1</code></pre>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Expected result:&quot;</span>, <span class="dv">1</span><span class="sc">^</span><span class="dv">1000</span>, <span class="st">&quot;(each loop runs once)</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## - Expected result: 1 (each loop runs once)</code></pre>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Execution time:&quot;</span>, execution_time, <span class="st">&quot;milliseconds</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## - Execution time: 5.79 milliseconds</code></pre>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="#cb149-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Call stack depth: 1000 levels</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## - Call stack depth: 1000 levels</code></pre>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="#cb151-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🎉 SUCCESS: We executed 1000 nested loops created via zero-loop construction!</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## 🎉 SUCCESS: We executed 1000 nested loops created via zero-loop construction!</code></pre>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="#cb153-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🤯 Meta-achievement: Used functional programming to avoid loops while creating loops!</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## 🤯 Meta-achievement: Used functional programming to avoid loops while creating loops!</code></pre>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="#cb155-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🏅 This demonstrates R&#39;s ultimate metaprogramming power!</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## 🏅 This demonstrates R&#39;s ultimate metaprogramming power!</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="co"># The TRULY ridiculous test - 1000 NESTED LOOPS created with ZERO explicit loops!</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="co"># Using pure functional composition - the ultimate meta-programming achievement!</span></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🚀 === ULTIMATE CHALLENGE: 1000 NESTED LOOPS with ZERO-LOOP CONSTRUCTION ===</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="co">#&gt; 🚀 === ULTIMATE CHALLENGE: 1000 NESTED LOOPS with ZERO-LOOP CONSTRUCTION ===</span></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Creating a function with 1000 levels of nesting using pure functional programming!</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="co">#&gt; Creating a function with 1000 levels of nesting using pure functional programming!</span></span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Generator method: Point-free functional composition (no loops whatsoever)</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a><span class="co">#&gt; Generator method: Point-free functional composition (no loops whatsoever)</span></span>
+<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a><span class="co"># Use our most concise approach for maximum elegance</span></span>
+<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🔧 Building AST for 1000 nested loops using pure functional composition...</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-13"><a href="#cb11-13" tabindex="-1"></a><span class="co">#&gt; 🔧 Building AST for 1000 nested loops using pure functional composition...</span></span>
+<span id="cb11-14"><a href="#cb11-14" tabindex="-1"></a>thousand_loops_func <span class="ot">&lt;-</span> <span class="fu">create_loops_oneliner</span>(<span class="dv">1000</span>, <span class="dv">1</span>)</span>
+<span id="cb11-15"><a href="#cb11-15" tabindex="-1"></a></span>
+<span id="cb11-16"><a href="#cb11-16" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;📊 Generated function analysis:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-17"><a href="#cb11-17" tabindex="-1"></a><span class="co">#&gt; 📊 Generated function analysis:</span></span>
+<span id="cb11-18"><a href="#cb11-18" tabindex="-1"></a>func_str <span class="ot">&lt;-</span> <span class="fu">deparse</span>(<span class="fu">body</span>(thousand_loops_func))</span>
+<span id="cb11-19"><a href="#cb11-19" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- AST lines generated:&quot;</span>, <span class="fu">length</span>(func_str), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-20"><a href="#cb11-20" tabindex="-1"></a><span class="co">#&gt; - AST lines generated: 6</span></span>
+<span id="cb11-21"><a href="#cb11-21" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Generator loops used: 0 (pure functional composition!)</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-22"><a href="#cb11-22" tabindex="-1"></a><span class="co">#&gt; - Generator loops used: 0 (pure functional composition!)</span></span>
+<span id="cb11-23"><a href="#cb11-23" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Object size:&quot;</span>, <span class="fu">format</span>(<span class="fu">object.size</span>(thousand_loops_func), <span class="at">units =</span> <span class="st">&quot;Kb&quot;</span>), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-24"><a href="#cb11-24" tabindex="-1"></a><span class="co">#&gt; - Object size: 657.7 Kb</span></span>
+<span id="cb11-25"><a href="#cb11-25" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Nesting depth: 1000 levels</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-26"><a href="#cb11-26" tabindex="-1"></a><span class="co">#&gt; - Nesting depth: 1000 levels</span></span>
+<span id="cb11-27"><a href="#cb11-27" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Construction method: One-liner functional composition</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-28"><a href="#cb11-28" tabindex="-1"></a><span class="co">#&gt; - Construction method: One-liner functional composition</span></span>
+<span id="cb11-29"><a href="#cb11-29" tabindex="-1"></a></span>
+<span id="cb11-30"><a href="#cb11-30" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🎯 Sample of generated AST structure:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-31"><a href="#cb11-31" tabindex="-1"></a><span class="co">#&gt; 🎯 Sample of generated AST structure:</span></span>
+<span id="cb11-32"><a href="#cb11-32" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;First 3 lines:</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="fu">paste</span>(func_str[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="at">collapse =</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-33"><a href="#cb11-33" tabindex="-1"></a><span class="co">#&gt; First 3 lines:</span></span>
+<span id="cb11-34"><a href="#cb11-34" tabindex="-1"></a><span class="co">#&gt;  {</span></span>
+<span id="cb11-35"><a href="#cb11-35" tabindex="-1"></a><span class="co">#&gt;     counter &lt;- 0</span></span>
+<span id="cb11-36"><a href="#cb11-36" tabindex="-1"></a><span class="co">#&gt;     for (i1 in 1:1) for (i2 in 1:1) for (i3 in 1:1) for (i4 in 1:1) for (i5 in 1:1) for (i6 in 1:1) for (i7 in 1:1) for (i8 in 1:1) for (i9 in 1:1) for (i10 in 1:1) for (i11 in 1:1) for (i12 in 1:1) for (i13 in 1:1) for (i14 in 1:1) for (i15 in 1:1) for (i16 in 1:1) for (i17 in 1:1) for (i18 in 1:1) for (i19 in 1:1) for (i20 in 1:1) for (i21 in 1:1) for (i22 in 1:1) for (i23 in 1:1) for (i24 in 1:1) for (i25 in 1:1) for (i26 in 1:1) for (i27 in 1:1) for (i28 in 1:1) for (i29 in 1:1) for (i30 in 1:1) for (i31 in 1:1) for (i32 in 1:1) for (i33 in 1:1) for (i34 in 1:1) for (i35 in 1:1) for (i36 in 1:1) for (i37 in 1:1) for (i38 in 1:1) for (i39 in 1:1) for (i40 in 1:1) for (i41 in 1:1) for (i42 in 1:1) for (i43 in 1:1) for (i44 in 1:1) for (i45 in 1:1) for (i46 in 1:1) for (i47 in 1:1) for (i48 in 1:1) for (i49 in 1:1) for (i50 in 1:1) for (i51 in 1:1) for (i52 in 1:1) for (i53 in 1:1) for (i54 in 1:1) for (i55 in 1:1) for (i56 in 1:1) for (i57 in 1:1) for (i58 in 1:1) for (i59 in 1:1) for (i60 in 1:1) for (i61 in 1:1) for (i62 in 1:1) for (i63 in 1:1) for (i64 in 1:1) for (i65 in 1:1) for (i66 in 1:1) for (i67 in 1:1) for (i68 in 1:1) for (i69 in 1:1) for (i70 in 1:1) for (i71 in 1:1) for (i72 in 1:1) for (i73 in 1:1) for (i74 in 1:1) for (i75 in 1:1) for (i76 in 1:1) for (i77 in 1:1) for (i78 in 1:1) for (i79 in 1:1) for (i80 in 1:1) for (i81 in 1:1) for (i82 in 1:1) for (i83 in 1:1) for (i84 in 1:1) for (i85 in 1:1) for (i86 in 1:1) for (i87 in 1:1) for (i88 in 1:1) for (i89 in 1:1) for (i90 in 1:1) for (i91 in 1:1) for (i92 in 1:1) for (i93 in 1:1) for (i94 in 1:1) for (i95 in 1:1) for (i96 in 1:1) for (i97 in 1:1) for (i98 in 1:1) for (i99 in 1:1) for (i100 in 1:1) for (i101 in 1:1) for (i102 in 1:1) for (i103 in 1:1) for (i104 in 1:1) for (i105 in 1:1) for (i106 in 1:1) for (i107 in 1:1) for (i108 in 1:1) for (i109 in 1:1) for (i110 in 1:1) for (i111 in 1:1) for (i112 in 1:1) for (i113 in 1:1) for (i114 in 1:1) for (i115 in 1:1) for (i116 in 1:1) for (i117 in 1:1) for (i118 in 1:1) for (i119 in 1:1) for (i120 in 1:1) for (i121 in 1:1) for (i122 in 1:1) for (i123 in 1:1) for (i124 in 1:1) for (i125 in 1:1) for (i126 in 1:1) for (i127 in 1:1) for (i128 in 1:1) for (i129 in 1:1) for (i130 in 1:1) for (i131 in 1:1) for (i132 in 1:1) for (i133 in 1:1) for (i134 in 1:1) for (i135 in 1:1) for (i136 in 1:1) for (i137 in 1:1) for (i138 in 1:1) for (i139 in 1:1) for (i140 in 1:1) for (i141 in 1:1) for (i142 in 1:1) for (i143 in 1:1) for (i144 in 1:1) for (i145 in 1:1) for (i146 in 1:1) for (i147 in 1:1) for (i148 in 1:1) for (i149 in 1:1) for (i150 in 1:1) for (i151 in 1:1) for (i152 in 1:1) for (i153 in 1:1) for (i154 in 1:1) for (i155 in 1:1) for (i156 in 1:1) for (i157 in 1:1) for (i158 in 1:1) for (i159 in 1:1) for (i160 in 1:1) for (i161 in 1:1) for (i162 in 1:1) for (i163 in 1:1) for (i164 in 1:1) for (i165 in 1:1) for (i166 in 1:1) for (i167 in 1:1) for (i168 in 1:1) for (i169 in 1:1) for (i170 in 1:1) for (i171 in 1:1) for (i172 in 1:1) for (i173 in 1:1) for (i174 in 1:1) for (i175 in 1:1) for (i176 in 1:1) for (i177 in 1:1) for (i178 in 1:1) for (i179 in 1:1) for (i180 in 1:1) for (i181 in 1:1) for (i182 in 1:1) for (i183 in 1:1) for (i184 in 1:1) for (i185 in 1:1) for (i186 in 1:1) for (i187 in 1:1) for (i188 in 1:1) for (i189 in 1:1) for (i190 in 1:1) for (i191 in 1:1) for (i192 in 1:1) for (i193 in 1:1) for (i194 in 1:1) for (i195 in 1:1) for (i196 in 1:1) for (i197 in 1:1) for (i198 in 1:1) for (i199 in 1:1) for (i200 in 1:1) for (i201 in 1:1) for (i202 in 1:1) for (i203 in 1:1) for (i204 in 1:1) for (i205 in 1:1) for (i206 in 1:1) for (i207 in 1:1) for (i208 in 1:1) for (i209 in 1:1) for (i210 in 1:1) for (i211 in 1:1) for (i212 in 1:1) for (i213 in 1:1) for (i214 in 1:1) for (i215 in 1:1) for (i216 in 1:1) for (i217 in 1:1) for (i218 in 1:1) for (i219 in 1:1) for (i220 in 1:1) for (i221 in 1:1) for (i222 in 1:1) for (i223 in 1:1) for (i224 in 1:1) for (i225 in 1:1) for (i226 in 1:1) for (i227 in 1:1) for (i228 in 1:1) for (i229 in 1:1) for (i230 in 1:1) for (i231 in 1:1) for (i232 in 1:1) for (i233 in 1:1) for (i234 in 1:1) for (i235 in 1:1) for (i236 in 1:1) for (i237 in 1:1) for (i238 in 1:1) for (i239 in 1:1) for (i240 in 1:1) for (i241 in 1:1) for (i242 in 1:1) for (i243 in 1:1) for (i244 in 1:1) for (i245 in 1:1) for (i246 in 1:1) for (i247 in 1:1) for (i248 in 1:1) for (i249 in 1:1) for (i250 in 1:1) for (i251 in 1:1) for (i252 in 1:1) for (i253 in 1:1) for (i254 in 1:1) for (i255 in 1:1) for (i256 in 1:1) for (i257 in 1:1) for (i258 in 1:1) for (i259 in 1:1) for (i260 in 1:1) for (i261 in 1:1) for (i262 in 1:1) for (i263 in 1:1) for (i264 in 1:1) for (i265 in 1:1) for (i266 in 1:1) for (i267 in 1:1) for (i268 in 1:1) for (i269 in 1:1) for (i270 in 1:1) for (i271 in 1:1) for (i272 in 1:1) for (i273 in 1:1) for (i274 in 1:1) for (i275 in 1:1) for (i276 in 1:1) for (i277 in 1:1) for (i278 in 1:1) for (i279 in 1:1) for (i280 in 1:1) for (i281 in 1:1) for (i282 in 1:1) for (i283 in 1:1) for (i284 in 1:1) for (i285 in 1:1) for (i286 in 1:1) for (i287 in 1:1) for (i288 in 1:1) for (i289 in 1:1) for (i290 in 1:1) for (i291 in 1:1) for (i292 in 1:1) for (i293 in 1:1) for (i294 in 1:1) for (i295 in 1:1) for (i296 in 1:1) for (i297 in 1:1) for (i298 in 1:1) for (i299 in 1:1) for (i300 in 1:1) for (i301 in 1:1) for (i302 in 1:1) for (i303 in 1:1) for (i304 in 1:1) for (i305 in 1:1) for (i306 in 1:1) for (i307 in 1:1) for (i308 in 1:1) for (i309 in 1:1) for (i310 in 1:1) for (i311 in 1:1) for (i312 in 1:1) for (i313 in 1:1) for (i314 in 1:1) for (i315 in 1:1) for (i316 in 1:1) for (i317 in 1:1) for (i318 in 1:1) for (i319 in 1:1) for (i320 in 1:1) for (i321 in 1:1) for (i322 in 1:1) for (i323 in 1:1) for (i324 in 1:1) for (i325 in 1:1) for (i326 in 1:1) for (i327 in 1:1) for (i328 in 1:1) for (i329 in 1:1) for (i330 in 1:1) for (i331 in 1:1) for (i332 in 1:1) for (i333 in 1:1) for (i334 in 1:1) for (i335 in 1:1) for (i336 in 1:1) for (i337 in 1:1) for (i338 in 1:1) for (i339 in 1:1) for (i340 in 1:1) for (i341 in 1:1) for (i342 in 1:1) for (i343 in 1:1) for (i344 in 1:1) for (i345 in 1:1) for (i346 in 1:1) for (i347 in 1:1) for (i348 in 1:1) for (i349 in 1:1) for (i350 in 1:1) for (i351 in 1:1) for (i352 in 1:1) for (i353 in 1:1) for (i354 in 1:1) for (i355 in 1:1) for (i356 in 1:1) for (i357 in 1:1) for (i358 in 1:1) for (i359 in 1:1) for (i360 in 1:1) for (i361 in 1:1) for (i362 in 1:1) for (i363 in 1:1) for (i364 in 1:1) for (i365 in 1:1) for (i366 in 1:1) for (i367 in 1:1) for (i368 in 1:1) for (i369 in 1:1) for (i370 in 1:1) for (i371 in 1:1) for (i372 in 1:1) for (i373 in 1:1) for (i374 in 1:1) for (i375 in 1:1) for (i376 in 1:1) for (i377 in 1:1) for (i378 in 1:1) for (i379 in 1:1) for (i380 in 1:1) for (i381 in 1:1) for (i382 in 1:1) for (i383 in 1:1) for (i384 in 1:1) for (i385 in 1:1) for (i386 in 1:1) for (i387 in 1:1) for (i388 in 1:1) for (i389 in 1:1) for (i390 in 1:1) for (i391 in 1:1) for (i392 in 1:1) for (i393 in 1:1) for (i394 in 1:1) for (i395 in 1:1) for (i396 in 1:1) for (i397 in 1:1) for (i398 in 1:1) for (i399 in 1:1) for (i400 in 1:1) for (i401 in 1:1) for (i402 in 1:1) for (i403 in 1:1) for (i404 in 1:1) for (i405 in 1:1) for (i406 in 1:1) for (i407 in 1:1) for (i408 in 1:1) for (i409 in 1:1) for (i410 in 1:1) for (i411 in 1:1) for (i412 in 1:1) for (i413 in 1:1) for (i414 in 1:1) for (i415 in 1:1) for (i416 in 1:1) for (i417 in 1:1) for (i418 in 1:1) for (i419 in 1:1) for (i420 in 1:1) for (i421 in 1:1) for (i422 in 1:1) for (i423 in 1:1) for (i424 in 1:1) for (i425 in 1:1) for (i426 in 1:1) for (i427 in 1:1) for (i428 in 1:1) for (i429 in 1:1) for (i430 in 1:1) for (i431 in 1:1) for (i432 in 1:1) for (i433 in 1:1) for (i434 in 1:1) for (i435 in 1:1) for (i436 in 1:1) for (i437 in 1:1) for (i438 in 1:1) for (i439 in 1:1) for (i440 in 1:1) for (i441 in 1:1) for (i442 in 1:1) for (i443 in 1:1) for (i444 in 1:1) for (i445 in 1:1) for (i446 in 1:1) for (i447 in 1:1) for (i448 in 1:1) for (i449 in 1:1) for (i450 in 1:1) for (i451 in 1:1) for (i452 in 1:1) for (i453 in 1:1) for (i454 in 1:1) for (i455 in 1:1) for (i456 in 1:1) for (i457 in 1:1) for (i458 in 1:1) for (i459 in 1:1) for (i460 in 1:1) for (i461 in 1:1) for (i462 in 1:1) for (i463 in 1:1) for (i464 in 1:1) for (i465 in 1:1) for (i466 in 1:1) for (i467 in 1:1) for (i468 in 1:1) for (i469 in 1:1) for (i470 in 1:1) for (i471 in 1:1) for (i472 in 1:1) for (i473 in 1:1) for (i474 in 1:1) for (i475 in 1:1) for (i476 in 1:1) for (i477 in 1:1) for (i478 in 1:1) for (i479 in 1:1) for (i480 in 1:1) for (i481 in 1:1) for (i482 in 1:1) for (i483 in 1:1) for (i484 in 1:1) for (i485 in 1:1) for (i486 in 1:1) for (i487 in 1:1) for (i488 in 1:1) for (i489 in 1:1) for (i490 in 1:1) for (i491 in 1:1) for (i492 in 1:1) for (i493 in 1:1) for (i494 in 1:1) for (i495 in 1:1) for (i496 in 1:1) for (i497 in 1:1) for (i498 in 1:1) for (i499 in 1:1) for (i500 in 1:1) for (i501 in 1:1) for (i502 in 1:1) for (i503 in 1:1) for (i504 in 1:1) for (i505 in 1:1) for (i506 in 1:1) for (i507 in 1:1) for (i508 in 1:1) for (i509 in 1:1) for (i510 in 1:1) for (i511 in 1:1) for (i512 in 1:1) for (i513 in 1:1) for (i514 in 1:1) for (i515 in 1:1) for (i516 in 1:1) for (i517 in 1:1) for (i518 in 1:1) for (i519 in 1:1) for (i520 in 1:1) for (i521 in 1:1) for (i522 in 1:1) for (i523 in 1:1) for (i524 in 1:1) for (i525 in 1:1) for (i526 in 1:1) for (i527 in 1:1) for (i528 in 1:1) for (i529 in 1:1) for (i530 in 1:1) for (i531 in 1:1) for (i532 in 1:1) for (i533 in 1:1) for (i534 in 1:1) for (i535 in 1:1) for (i536 in 1:1) for (i537 in 1:1) for (i538 in 1:1) for (i539 in 1:1) for (i540 in 1:1) for (i541 in 1:1) for (i542 in 1:1) for (i543 in 1:1) for (i544 in 1:1) for (i545 in 1:1) for (i546 in 1:1) for (i547 in 1:1) for (i548 in 1:1) for (i549 in 1:1) for (i550 in 1:1) for (i551 in 1:1) for (i552 in 1:1) for (i553 in 1:1) for (i554 in 1:1) for (i555 in 1:1) for (i556 in 1:1) for (i557 in 1:1) for (i558 in 1:1) for (i559 in 1:1) for (i560 in 1:1) for (i561 in 1:1) for (i562 in 1:1) for (i563 in 1:1) for (i564 in 1:1) for (i565 in 1:1) for (i566 in 1:1) for (i567 in 1:1) for (i568 in 1:1) for (i569 in 1:1) for (i570 in 1:1) for (i571 in 1:1) for (i572 in 1:1) for (i573 in 1:1) for (i574 in 1:1) for (i575 in 1:1) for (i576 in 1:1) for (i577 in 1:1) for (i578 in 1:1) for (i579 in 1:1) for (i580 in 1:1) for (i581 in 1:1) for (i582 in 1:1) for (i583 in 1:1) for (i584 in 1:1) for (i585 in 1:1) for (i586 in 1:1) for (i587 in 1:1) for (i588 in 1:1) for (i589 in 1:1) for (i590 in 1:1) for (i591 in 1:1) for (i592 in 1:1) for (i593 in 1:1) for (i594 in 1:1) for (i595 in 1:1) for (i596 in 1:1) for (i597 in 1:1) for (i598 in 1:1) for (i599 in 1:1) for (i600 in 1:1) for (i601 in 1:1) for (i602 in 1:1) for (i603 in 1:1) for (i604 in 1:1) for (i605 in 1:1) for (i606 in 1:1) for (i607 in 1:1) for (i608 in 1:1) for (i609 in 1:1) for (i610 in 1:1) for (i611 in 1:1) for (i612 in 1:1) for (i613 in 1:1) for (i614 in 1:1) for (i615 in 1:1) for (i616 in 1:1) for (i617 in 1:1) for (i618 in 1:1) for (i619 in 1:1) for (i620 in 1:1) for (i621 in 1:1) for (i622 in 1:1) for (i623 in 1:1) for (i624 in 1:1) for (i625 in 1:1) for (i626 in 1:1) for (i627 in 1:1) for (i628 in 1:1) for (i629 in 1:1) for (i630 in 1:1) for (i631 in 1:1) for (i632 in 1:1) for (i633 in 1:1) for (i634 in 1:1) for (i635 in 1:1) for (i636 in 1:1) for (i637 in 1:1) for (i638 in 1:1) for (i639 in 1:1) for (i640 in 1:1) for (i641 in 1:1) for (i642 in 1:1) for (i643 in 1:1) for (i644 in 1:1) for (i645 in 1:1) for (i646 in 1:1) for (i647 in 1:1) for (i648 in 1:1) for (i649 in 1:1) for (i650 in 1:1) for (i651 in 1:1) for (i652 in 1:1) for (i653 in 1:1) for (i654 in 1:1) for (i655 in 1:1) for (i656 in 1:1) for (i657 in 1:1) for (i658 in 1:1) for (i659 in 1:1) for (i660 in 1:1) for (i661 in 1:1) for (i662 in 1:1) for (i663 in 1:1) for (i664 in 1:1) for (i665 in 1:1) for (i666 in 1:1) for (i667 in 1:1) for (i668 in 1:1) for (i669 in 1:1) for (i670 in 1:1) for (i671 in 1:1) for (i672 in 1:1) for (i673 in 1:1) for (i674 in 1:1) for (i675 in 1:1) for (i676 in 1:1) for (i677 in 1:1) for (i678 in 1:1) for (i679 in 1:1) for (i680 in 1:1) for (i681 in 1:1) for (i682 in 1:1) for (i683 in 1:1) for (i684 in 1:1) for (i685 in 1:1) for (i686 in 1:1) for (i687 in 1:1) for (i688 in 1:1) for (i689 in 1:1) for (i690 in 1:1) for (i691 in 1:1) for (i692 in 1:1) for (i693 in 1:1) for (i694 in 1:1) for (i695 in 1:1) for (i696 in 1:1) for (i697 in 1:1) for (i698 in 1:1) for (i699 in 1:1) for (i700 in 1:1) for (i701 in 1:1) for (i702 in 1:1) for (i703 in 1:1) for (i704 in 1:1) for (i705 in 1:1) for (i706 in 1:1) for (i707 in 1:1) for (i708 in 1:1) for (i709 in 1:1) for (i710 in 1:1) for (i711 in 1:1) for (i712 in 1:1) for (i713 in 1:1) for (i714 in 1:1) for (i715 in 1:1) for (i716 in 1:1) for (i717 in 1:1) for (i718 in 1:1) for (i719 in 1:1) for (i720 in 1:1) for (i721 in 1:1) for (i722 in 1:1) for (i723 in 1:1) for (i724 in 1:1) for (i725 in 1:1) for (i726 in 1:1) for (i727 in 1:1) for (i728 in 1:1) for (i729 in 1:1) for (i730 in 1:1) for (i731 in 1:1) for (i732 in 1:1) for (i733 in 1:1) for (i734 in 1:1) for (i735 in 1:1) for (i736 in 1:1) for (i737 in 1:1) for (i738 in 1:1) for (i739 in 1:1) for (i740 in 1:1) for (i741 in 1:1) for (i742 in 1:1) for (i743 in 1:1) for (i744 in 1:1) for (i745 in 1:1) for (i746 in 1:1) for (i747 in 1:1) for (i748 in 1:1) for (i749 in 1:1) for (i750 in 1:1) for (i751 in 1:1) for (i752 in 1:1) for (i753 in 1:1) for (i754 in 1:1) for (i755 in 1:1) for (i756 in 1:1) for (i757 in 1:1) for (i758 in 1:1) for (i759 in 1:1) for (i760 in 1:1) for (i761 in 1:1) for (i762 in 1:1) for (i763 in 1:1) for (i764 in 1:1) for (i765 in 1:1) for (i766 in 1:1) for (i767 in 1:1) for (i768 in 1:1) for (i769 in 1:1) for (i770 in 1:1) for (i771 in 1:1) for (i772 in 1:1) for (i773 in 1:1) for (i774 in 1:1) for (i775 in 1:1) for (i776 in 1:1) for (i777 in 1:1) for (i778 in 1:1) for (i779 in 1:1) for (i780 in 1:1) for (i781 in 1:1) for (i782 in 1:1) for (i783 in 1:1) for (i784 in 1:1) for (i785 in 1:1) for (i786 in 1:1) for (i787 in 1:1) for (i788 in 1:1) for (i789 in 1:1) for (i790 in 1:1) for (i791 in 1:1) for (i792 in 1:1) for (i793 in 1:1) for (i794 in 1:1) for (i795 in 1:1) for (i796 in 1:1) for (i797 in 1:1) for (i798 in 1:1) for (i799 in 1:1) for (i800 in 1:1) for (i801 in 1:1) for (i802 in 1:1) for (i803 in 1:1) for (i804 in 1:1) for (i805 in 1:1) for (i806 in 1:1) for (i807 in 1:1) for (i808 in 1:1) for (i809 in 1:1) for (i810 in 1:1) for (i811 in 1:1) for (i812 in 1:1) for (i813 in 1:1) for (i814 in 1:1) for (i815 in 1:1) for (i816 in 1:1) for (i817 in 1:1) for (i818 in 1:1) for (i819 in 1:1) for (i820 in 1:1) for (i821 in 1:1) for (i822 in 1:1) for (i823 in 1:1) for (i824 in 1:1) for (i825 in 1:1) for (i826 in 1:1) for (i827 in 1:1) for (i828 in 1:1) for (i829 in 1:1) for (i830 in 1:1) for (i831 in 1:1) for (i832 in 1:1) for (i833 in 1:1) for (i834 in 1:1) for (i835 in 1:1) for (i836 in 1:1) for (i837 in 1:1) for (i838 in 1:1) for (i839 in 1:1) for (i840 in 1:1) for (i841 in 1:1) for (i842 in 1:1) for (i843 in 1:1) for (i844 in 1:1) for (i845 in 1:1) for (i846 in 1:1) for (i847 in 1:1) for (i848 in 1:1) for (i849 in 1:1) for (i850 in 1:1) for (i851 in 1:1) for (i852 in 1:1) for (i853 in 1:1) for (i854 in 1:1) for (i855 in 1:1) for (i856 in 1:1) for (i857 in 1:1) for (i858 in 1:1) for (i859 in 1:1) for (i860 in 1:1) for (i861 in 1:1) for (i862 in 1:1) for (i863 in 1:1) for (i864 in 1:1) for (i865 in 1:1) for (i866 in 1:1) for (i867 in 1:1) for (i868 in 1:1) for (i869 in 1:1) for (i870 in 1:1) for (i871 in 1:1) for (i872 in 1:1) for (i873 in 1:1) for (i874 in 1:1) for (i875 in 1:1) for (i876 in 1:1) for (i877 in 1:1) for (i878 in 1:1) for (i879 in 1:1) for (i880 in 1:1) for (i881 in 1:1) for (i882 in 1:1) for (i883 in 1:1) for (i884 in 1:1) for (i885 in 1:1) for (i886 in 1:1) for (i887 in 1:1) for (i888 in 1:1) for (i889 in 1:1) for (i890 in 1:1) for (i891 in 1:1) for (i892 in 1:1) for (i893 in 1:1) for (i894 in 1:1) for (i895 in 1:1) for (i896 in 1:1) for (i897 in 1:1) for (i898 in 1:1) for (i899 in 1:1) for (i900 in 1:1) for (i901 in 1:1) for (i902 in 1:1) for (i903 in 1:1) for (i904 in 1:1) for (i905 in 1:1) for (i906 in 1:1) for (i907 in 1:1) for (i908 in 1:1) for (i909 in 1:1) for (i910 in 1:1) for (i911 in 1:1) for (i912 in 1:1) for (i913 in 1:1) for (i914 in 1:1) for (i915 in 1:1) for (i916 in 1:1) for (i917 in 1:1) for (i918 in 1:1) for (i919 in 1:1) for (i920 in 1:1) for (i921 in 1:1) for (i922 in 1:1) for (i923 in 1:1) for (i924 in 1:1) for (i925 in 1:1) for (i926 in 1:1) for (i927 in 1:1) for (i928 in 1:1) for (i929 in 1:1) for (i930 in 1:1) for (i931 in 1:1) for (i932 in 1:1) for (i933 in 1:1) for (i934 in 1:1) for (i935 in 1:1) for (i936 in 1:1) for (i937 in 1:1) for (i938 in 1:1) for (i939 in 1:1) for (i940 in 1:1) for (i941 in 1:1) for (i942 in 1:1) for (i943 in 1:1) for (i944 in 1:1) for (i945 in 1:1) for (i946 in 1:1) for (i947 in 1:1) for (i948 in 1:1) for (i949 in 1:1) for (i950 in 1:1) for (i951 in 1:1) for (i952 in 1:1) for (i953 in 1:1) for (i954 in 1:1) for (i955 in 1:1) for (i956 in 1:1) for (i957 in 1:1) for (i958 in 1:1) for (i959 in 1:1) for (i960 in 1:1) for (i961 in 1:1) for (i962 in 1:1) for (i963 in 1:1) for (i964 in 1:1) for (i965 in 1:1) for (i966 in 1:1) for (i967 in 1:1) for (i968 in 1:1) for (i969 in 1:1) for (i970 in 1:1) for (i971 in 1:1) for (i972 in 1:1) for (i973 in 1:1) for (i974 in 1:1) for (i975 in 1:1) for (i976 in 1:1) for (i977 in 1:1) for (i978 in 1:1) for (i979 in 1:1) for (i980 in 1:1) for (i981 in 1:1) for (i982 in 1:1) for (i983 in 1:1) for (i984 in 1:1) for (i985 in 1:1) for (i986 in 1:1) for (i987 in 1:1) for (i988 in 1:1) for (i989 in 1:1) for (i990 in 1:1) for (i991 in 1:1) for (i992 in 1:1) for (i993 in 1:1) for (i994 in 1:1) for (i995 in 1:1) for (i996 in 1:1) for (i997 in 1:1) for (i998 in 1:1) for (i999 in 1:1) for (i1000 in 1:1) counter &lt;- counter +</span></span>
+<span id="cb11-37"><a href="#cb11-37" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;...</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-38"><a href="#cb11-38" tabindex="-1"></a><span class="co">#&gt; ...</span></span>
+<span id="cb11-39"><a href="#cb11-39" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Last 3 lines:</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="fu">paste</span>(func_str[(<span class="fu">length</span>(func_str)<span class="sc">-</span><span class="dv">2</span>)<span class="sc">:</span><span class="fu">length</span>(func_str)], <span class="at">collapse =</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>), <span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-40"><a href="#cb11-40" tabindex="-1"></a><span class="co">#&gt; Last 3 lines:</span></span>
+<span id="cb11-41"><a href="#cb11-41" tabindex="-1"></a><span class="co">#&gt;          1</span></span>
+<span id="cb11-42"><a href="#cb11-42" tabindex="-1"></a><span class="co">#&gt;     return(counter)</span></span>
+<span id="cb11-43"><a href="#cb11-43" tabindex="-1"></a><span class="co">#&gt; }</span></span>
+<span id="cb11-44"><a href="#cb11-44" tabindex="-1"></a></span>
+<span id="cb11-45"><a href="#cb11-45" tabindex="-1"></a><span class="co"># Execute the monster</span></span>
+<span id="cb11-46"><a href="#cb11-46" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;⚡ Executing 1000-nested-loops function (created without loops)...</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-47"><a href="#cb11-47" tabindex="-1"></a><span class="co">#&gt; ⚡ Executing 1000-nested-loops function (created without loops)...</span></span>
+<span id="cb11-48"><a href="#cb11-48" tabindex="-1"></a>start_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb11-49"><a href="#cb11-49" tabindex="-1"></a>thousand_result <span class="ot">&lt;-</span> <span class="fu">thousand_loops_func</span>()</span>
+<span id="cb11-50"><a href="#cb11-50" tabindex="-1"></a>end_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb11-51"><a href="#cb11-51" tabindex="-1"></a></span>
+<span id="cb11-52"><a href="#cb11-52" tabindex="-1"></a>execution_time <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">as.numeric</span>(end_time <span class="sc">-</span> start_time, <span class="at">units =</span> <span class="st">&quot;secs&quot;</span>) <span class="sc">*</span> <span class="dv">1000</span>, <span class="dv">2</span>)</span>
+<span id="cb11-53"><a href="#cb11-53" tabindex="-1"></a></span>
+<span id="cb11-54"><a href="#cb11-54" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🏆 RESULTS:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-55"><a href="#cb11-55" tabindex="-1"></a><span class="co">#&gt; 🏆 RESULTS:</span></span>
+<span id="cb11-56"><a href="#cb11-56" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Iterations completed:&quot;</span>, thousand_result, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-57"><a href="#cb11-57" tabindex="-1"></a><span class="co">#&gt; - Iterations completed: 1</span></span>
+<span id="cb11-58"><a href="#cb11-58" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Expected result:&quot;</span>, <span class="dv">1</span><span class="sc">^</span><span class="dv">1000</span>, <span class="st">&quot;(each loop runs once)</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-59"><a href="#cb11-59" tabindex="-1"></a><span class="co">#&gt; - Expected result: 1 (each loop runs once)</span></span>
+<span id="cb11-60"><a href="#cb11-60" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Execution time:&quot;</span>, execution_time, <span class="st">&quot;milliseconds</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-61"><a href="#cb11-61" tabindex="-1"></a><span class="co">#&gt; - Execution time: 4.94 milliseconds</span></span>
+<span id="cb11-62"><a href="#cb11-62" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Call stack depth: 1000 levels</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-63"><a href="#cb11-63" tabindex="-1"></a><span class="co">#&gt; - Call stack depth: 1000 levels</span></span>
+<span id="cb11-64"><a href="#cb11-64" tabindex="-1"></a></span>
+<span id="cb11-65"><a href="#cb11-65" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🎉 SUCCESS: We executed 1000 nested loops created via zero-loop construction!</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-66"><a href="#cb11-66" tabindex="-1"></a><span class="co">#&gt; 🎉 SUCCESS: We executed 1000 nested loops created via zero-loop construction!</span></span>
+<span id="cb11-67"><a href="#cb11-67" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🤯 Meta-achievement: Used functional programming to avoid loops while creating loops!</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-68"><a href="#cb11-68" tabindex="-1"></a><span class="co">#&gt; 🤯 Meta-achievement: Used functional programming to avoid loops while creating loops!</span></span>
+<span id="cb11-69"><a href="#cb11-69" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;🏅 This demonstrates R&#39;s ultimate metaprogramming power!</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-70"><a href="#cb11-70" tabindex="-1"></a><span class="co">#&gt; 🏅 This demonstrates R&#39;s ultimate metaprogramming power!</span></span></code></pre></div>
 
 </body>
 </html>

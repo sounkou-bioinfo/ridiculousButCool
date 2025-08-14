@@ -8,8 +8,15 @@ output:
     toc_depth: 2
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%",
+  message = FALSE,
+  warning = FALSE
+)
 ```
 
 ## Creating Functions with N Nested Loops of K Iterations
