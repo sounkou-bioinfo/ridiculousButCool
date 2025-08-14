@@ -407,9 +407,7 @@ Our functional approaches demonstrate several key principles:
 1. **Pure Functional AST Composition** - Using `Reduce()` and `Map()` to build language objects
 2. **Point-Free Programming** - Eliminating intermediate variables through composition
 3. **Codetools-Inspired Patterns** - Leveraging `Tailcall()` and walker patterns from R's internals
-4. **Lambda Syntax** - Using `\()` for ultra-concise anonymous functions (R 4.1+)
-5. **Pipe Operator Integration** - Combining `|>` with functional composition
-6. **Zero-Loop Construction** - Building arbitrary nested loops without explicit iteration
+4. **Zero-Loop Construction** - Building arbitrary nested loops without explicit iteration
 
 ### 📊 **Code Golf Results:**
 - **Ultra-Concise Version**: 4 lines of core logic
@@ -418,18 +416,19 @@ Our functional approaches demonstrate several key principles:
 - **Point-Free Style**: No intermediate variables, pure function composition
 
 ### 🎭 **The Philosophical Achievement:**
+
 We've achieved the programming equivalent of M.C. Escher's "Drawing Hands" - **loops creating loops without being loops themselves!**
 
 Key R features that make this possible:
+
 - `call()` - Language object construction
 - `Reduce()` - Functional fold operation  
 - `Map()` - Functional mapping without loops
 - `Tailcall()` - Stack-efficient recursion from R internals
-- `\()` - Lambda syntax for anonymous functions
-- `|>` - Native pipe operator for composition
 - `body<-()` - Direct function body manipulation
 
 ### 🏆 **The Ultimate Meta-Programming Truth:**
+
 R's homoiconic nature means we can treat code as data, manipulate ASTs as regular objects, and compose complex nested structures through pure functional programming - **all without writing a single explicit loop to generate unlimited nested loops!**
 
 This isn't just about avoiding loops for the sake of it - it's about demonstrating that **R's functional programming capabilities can elegantly solve problems that seem to require imperative constructs.**

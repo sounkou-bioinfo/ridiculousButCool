@@ -103,7 +103,7 @@ print(nested_3_5)
 #>         1
 #>     return(counter)
 #> }
-#> <environment: 0x5ac893473e20>
+#> <environment: 0x634b476f74e0>
 cat("\n")
 result1 <- nested_3_5()
 cat("3 nested loops of 5 iterations:", result1, "total iterations\n")
@@ -140,7 +140,7 @@ print(nested_4_3)
 #>         1
 #>     return(counter)
 #> }
-#> <environment: 0x5ac891ea53f0>
+#> <environment: 0x634b46129528>
 cat("\n")
 result2 <- nested_4_3()
 cat("4 nested loops of 3 iterations:", result2, "total iterations\n")
@@ -186,7 +186,7 @@ print(nested_2_10)
 #>     for (i2 in 1:10) for (i1 in 1:10) counter <- counter + 1
 #>     return(counter)
 #> }
-#> <environment: 0x5ac893415a80>
+#> <environment: 0x634b47699220>
 cat("\n")
 result3 <- nested_2_10()
 cat("2 nested loops of 10 iterations:", result3, "total iterations\n")
@@ -227,7 +227,7 @@ print(nested_mapreduce)
 #>         1
 #>     return(counter)
 #> }
-#> <environment: 0x5ac891085a28>
+#> <environment: 0x634b450407d8>
 cat("\n")
 result_mapreduce <- nested_mapreduce()
 cat("Map-Reduce pattern - 3 nested loops of 4 iterations:", result_mapreduce, "total iterations\n")
@@ -272,7 +272,7 @@ print(nested_pointfree)
 #>     for (i1 in 1:5) for (i2 in 1:5) counter <- counter + 1
 #>     return(counter)
 #> }
-#> <environment: 0x5ac893344238>
+#> <environment: 0x634b475c75f0>
 cat("\n")
 result_pointfree <- nested_pointfree()
 cat("Point-free style - 2 nested loops of 5 iterations:", result_pointfree, "total iterations\n")
@@ -331,7 +331,7 @@ print(nested_walker)
 #>         1
 #>     return(counter)
 #> }
-#> <environment: 0x5ac894d7cdf0>
+#> <environment: 0x634b49001f40>
 cat("\n")
 result_walker <- nested_walker()
 cat("Walker pattern - 5 nested loops of 2 iterations:", result_walker, "total iterations\n")
@@ -424,15 +424,15 @@ if (requireNamespace("microbenchmark", quietly = TRUE)) {
   timing_test("One-liner", dynamic_oneliner)
 }
 #> Unit: milliseconds
-#>              expr       min        lq      mean    median        uq        max
-#>            static  3.308103  3.965065  4.654959  4.438868  5.087449   8.482923
-#>     functional_v1  3.230579  3.762176  4.831938  4.252671  5.150900  28.527858
-#>  ultra_concise_v2  3.262636  3.678297  4.771576  4.366129  4.991941  28.689820
-#>       tailcall_v3  3.252300  3.668449  4.678603  4.345769  4.898494  24.761528
-#>      mapreduce_v4 22.683680 26.437020 30.492731 29.541011 33.419298  49.312623
-#>      pointfree_v5 22.500347 26.188874 30.454627 28.539836 32.810247 115.393648
-#>         walker_v6 22.304791 27.018763 30.931807 29.871885 33.842326  48.434439
-#>          oneliner  3.316414  3.888938  4.787483  4.369796  4.787411  43.326597
+#>              expr       min        lq      mean    median        uq       max
+#>            static  3.490528  4.381144  5.246997  4.935090  5.573997  15.67972
+#>     functional_v1 27.742353 31.725820 34.421562 33.573541 36.160218  56.35542
+#>  ultra_concise_v2  3.679099  4.407893  5.481982  4.887562  5.658470  30.26837
+#>       tailcall_v3  3.650883  4.244185  5.457232  4.951956  5.572636  31.34847
+#>      mapreduce_v4 27.873165 30.672788 34.249480 33.538201 35.727795  53.26110
+#>      pointfree_v5  3.552407  4.225607  5.355192  4.906524  5.384099  36.08552
+#>         walker_v6 27.071807 30.416471 34.373499 33.045401 35.571525 124.63002
+#>          oneliner  3.408744  4.624122  5.753809  5.056719  5.781846  47.07561
 #>  neval
 #>    100
 #>    100
@@ -496,7 +496,7 @@ print(matrix_builder)
 #>     for (i1 in 1:4) for (i2 in 1:5) result[i1, i2] <- i1 * i2
 #>     return(result)
 #> }
-#> <environment: 0x5ac896b2bb00>
+#> <environment: 0x634b4aeaf588>
 cat("\n")
 my_matrix <- matrix_builder()
 print(my_matrix)
@@ -547,11 +547,7 @@ Our functional approaches demonstrate several key principles:
     through composition
 3.  **Codetools-Inspired Patterns** - Leveraging `Tailcall()` and walker
     patterns from R’s internals
-4.  **Lambda Syntax** - Using `\()` for ultra-concise anonymous
-    functions (R 4.1+)
-5.  **Pipe Operator Integration** - Combining `|>` with functional
-    composition
-6.  **Zero-Loop Construction** - Building arbitrary nested loops without
+4.  **Zero-Loop Construction** - Building arbitrary nested loops without
     explicit iteration
 
 ### 📊 **Code Golf Results:**
@@ -568,12 +564,13 @@ Our functional approaches demonstrate several key principles:
 We’ve achieved the programming equivalent of M.C. Escher’s “Drawing
 Hands” - **loops creating loops without being loops themselves!**
 
-Key R features that make this possible: - `call()` - Language object
-construction - `Reduce()` - Functional fold operation  
-- `Map()` - Functional mapping without loops - `Tailcall()` -
-Stack-efficient recursion from R internals - `\()` - Lambda syntax for
-anonymous functions - `|>` - Native pipe operator for composition -
-`body<-()` - Direct function body manipulation
+Key R features that make this possible:
+
+- `call()` - Language object construction
+- `Reduce()` - Functional fold operation  
+- `Map()` - Functional mapping without loops
+- `Tailcall()` - Stack-efficient recursion from R internals
+- `body<-()` - Direct function body manipulation
 
 ### 🏆 **The Ultimate Meta-Programming Truth:**
 
@@ -684,7 +681,7 @@ cat("- Iterations completed:", thousand_result, "\n")
 cat("- Expected result:", 1^1000, "(each loop runs once)\n")
 #> - Expected result: 1 (each loop runs once)
 cat("- Execution time:", execution_time, "milliseconds\n")
-#> - Execution time: 4.94 milliseconds
+#> - Execution time: 5.49 milliseconds
 cat("- Call stack depth: 1000 levels\n\n")
 #> - Call stack depth: 1000 levels
 
