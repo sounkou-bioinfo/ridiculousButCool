@@ -86,7 +86,7 @@
         async function loadFiles() {
             const owner = 'sounkou-bioinfo';
             const repo = 'ridiculousButCool';
-            const path = 'ridiculousButCool'; // subfolder
+            const path = ''; // root directory, not subfolder
             
             // Clear loading message
             const clearLoadingMessage = () => {
@@ -141,9 +141,9 @@
                     errorRow.remove();
                     // Fallback to static list
                     const fallbackFiles = [
-                     //   'NestLoopsFunction.html',
-                      //  'NestLoopsFunction.md', 
-                       // 'NestLoopsFunction.Rmd'
+                        'NestLoopsFunction.html',
+                        'NestLoopsFunction.md', 
+                        'NestLoopsFunction.Rmd'
                     ];
                     fallbackFiles.forEach(file => {
                         addFileRow(file, '-');
