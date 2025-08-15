@@ -103,7 +103,7 @@ print(nested_3_5)
 #>         1
 #>     return(counter)
 #> }
-#> <environment: 0x556bd9ea74e0>
+#> <environment: 0x5d8f12221a58>
 cat("\n")
 result1 <- nested_3_5()
 cat("3 nested loops of 5 iterations:", result1, "total iterations\n")
@@ -140,7 +140,7 @@ print(nested_4_3)
 #>         1
 #>     return(counter)
 #> }
-#> <environment: 0x556bd88d9528>
+#> <environment: 0x5d8f10c4fe00>
 cat("\n")
 result2 <- nested_4_3()
 cat("4 nested loops of 3 iterations:", result2, "total iterations\n")
@@ -186,7 +186,7 @@ print(nested_2_10)
 #>     for (i2 in 1:10) for (i1 in 1:10) counter <- counter + 1
 #>     return(counter)
 #> }
-#> <environment: 0x556bd9e49220>
+#> <environment: 0x5d8f121be620>
 cat("\n")
 result3 <- nested_2_10()
 cat("2 nested loops of 10 iterations:", result3, "total iterations\n")
@@ -227,7 +227,7 @@ print(nested_mapreduce)
 #>         1
 #>     return(counter)
 #> }
-#> <environment: 0x556bd77f07d8>
+#> <environment: 0x5d8f0fb8d658>
 cat("\n")
 result_mapreduce <- nested_mapreduce()
 cat("Map-Reduce pattern - 3 nested loops of 4 iterations:", result_mapreduce, "total iterations\n")
@@ -272,7 +272,7 @@ print(nested_pointfree)
 #>     for (i1 in 1:5) for (i2 in 1:5) counter <- counter + 1
 #>     return(counter)
 #> }
-#> <environment: 0x556bd9d775f0>
+#> <environment: 0x5d8f120ed988>
 cat("\n")
 result_pointfree <- nested_pointfree()
 cat("Point-free style - 2 nested loops of 5 iterations:", result_pointfree, "total iterations\n")
@@ -331,7 +331,7 @@ print(nested_walker)
 #>         1
 #>     return(counter)
 #> }
-#> <environment: 0x556bdb7b1f40>
+#> <environment: 0x5d8f13b21d30>
 cat("\n")
 result_walker <- nested_walker()
 cat("Walker pattern - 5 nested loops of 2 iterations:", result_walker, "total iterations\n")
@@ -425,14 +425,14 @@ if (requireNamespace("microbenchmark", quietly = TRUE)) {
 }
 #> Unit: milliseconds
 #>              expr       min        lq      mean    median        uq       max
-#>            static  3.788610  4.353486  5.375706  5.013801  5.611292  14.30943
-#>     functional_v1 26.548626 30.335455 34.446255 32.102614 35.947726 136.73651
-#>  ultra_concise_v2  3.760324  4.282493  5.437483  4.932016  5.414620  38.40621
-#>       tailcall_v3  3.781695  4.280118  5.442646  4.911344  5.330984  35.16439
-#>      mapreduce_v4  3.803557  4.438762  5.513396  4.948989  5.583286  39.01306
-#>      pointfree_v5 26.449660 30.486591 33.879743 32.504026 35.400694  57.30302
-#>         walker_v6 27.215261 30.777969 34.053825 33.283769 36.028497  50.19702
-#>          oneliner  3.943309  4.502388  5.570772  5.079522  5.743398  31.27108
+#>            static  3.698305  4.267651  5.011830  4.868740  5.330950  17.76706
+#>     functional_v1  3.730084  4.285182  5.370850  4.892242  5.559541  32.06804
+#>  ultra_concise_v2  3.752712  4.140611  5.107915  4.758671  5.330671  34.69009
+#>       tailcall_v3  3.614775  4.266394  5.227520  4.725810  5.473845  29.84136
+#>      mapreduce_v4 26.077337 29.195854 33.521531 31.800027 34.784030 116.71344
+#>      pointfree_v5 25.775204 29.498268 32.715182 32.107573 34.919627  52.74099
+#>         walker_v6  3.616871  4.195576  5.488486  4.715788  5.201744  65.56944
+#>          oneliner  3.609468  4.306971  5.288202  4.824461  5.387277  38.83797
 #>  neval
 #>    100
 #>    100
@@ -496,7 +496,7 @@ print(matrix_builder)
 #>     for (i1 in 1:4) for (i2 in 1:5) result[i1, i2] <- i1 * i2
 #>     return(result)
 #> }
-#> <environment: 0x556bdd5dcb40>
+#> <environment: 0x5d8f12c74ef8>
 cat("\n")
 my_matrix <- matrix_builder()
 print(my_matrix)
@@ -514,12 +514,10 @@ print(my_matrix)
 # This would create the equivalent of the benchmark from the meme
 
 create_billion_iteration_function <- function() {
-  # For 1 billion iterations, we could do 10 loops of 100 iterations each
-  # 100^10 = 10^20 (way too much!)
-  # Let's do 4 loops of 178 iterations: 178^4 ≈ 1 billion
-  
-  k <- 178  # 178^4 = 1,002,002,816 ≈ 1 billion
-  n <- 4
+
+
+  k <- 10^9 
+  n <- 1
   
   cat("Creating function with", n, "nested loops of", k, "iterations each\n")
   cat("Total iterations:", k^n, "\n")
@@ -681,7 +679,7 @@ cat("- Iterations completed:", thousand_result, "\n")
 cat("- Expected result:", 1^1000, "(each loop runs once)\n")
 #> - Expected result: 1 (each loop runs once)
 cat("- Execution time:", execution_time, "milliseconds\n")
-#> - Execution time: 5.52 milliseconds
+#> - Execution time: 7.33 milliseconds
 cat("- Call stack depth: 1000 levels\n\n")
 #> - Call stack depth: 1000 levels
 

@@ -706,7 +706,7 @@ Pure Functional AST Composition (No Loops!)</h2>
 <span id="cb1-33"><a href="#cb1-33" tabindex="-1"></a><span class="co">#&gt;         1</span></span>
 <span id="cb1-34"><a href="#cb1-34" tabindex="-1"></a><span class="co">#&gt;     return(counter)</span></span>
 <span id="cb1-35"><a href="#cb1-35" tabindex="-1"></a><span class="co">#&gt; }</span></span>
-<span id="cb1-36"><a href="#cb1-36" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x556bd9ea74e0&gt;</span></span>
+<span id="cb1-36"><a href="#cb1-36" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x5d8f12221a58&gt;</span></span>
 <span id="cb1-37"><a href="#cb1-37" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb1-38"><a href="#cb1-38" tabindex="-1"></a>result1 <span class="ot">&lt;-</span> <span class="fu">nested_3_5</span>()</span>
 <span id="cb1-39"><a href="#cb1-39" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;3 nested loops of 5 iterations:&quot;</span>, result1, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
@@ -740,7 +740,7 @@ Ultra-Concise Language Object Composition</h2>
 <span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a><span class="co">#&gt;         1</span></span>
 <span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a><span class="co">#&gt;     return(counter)</span></span>
 <span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a><span class="co">#&gt; }</span></span>
-<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x556bd88d9528&gt;</span></span>
+<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x5d8f10c4fe00&gt;</span></span>
 <span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a>result2 <span class="ot">&lt;-</span> <span class="fu">nested_4_3</span>()</span>
 <span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;4 nested loops of 3 iterations:&quot;</span>, result2, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
@@ -783,7 +783,7 @@ Codetools-Inspired AST Walking Pattern</h2>
 <span id="cb3-32"><a href="#cb3-32" tabindex="-1"></a><span class="co">#&gt;     for (i2 in 1:10) for (i1 in 1:10) counter &lt;- counter + 1</span></span>
 <span id="cb3-33"><a href="#cb3-33" tabindex="-1"></a><span class="co">#&gt;     return(counter)</span></span>
 <span id="cb3-34"><a href="#cb3-34" tabindex="-1"></a><span class="co">#&gt; }</span></span>
-<span id="cb3-35"><a href="#cb3-35" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x556bd9e49220&gt;</span></span>
+<span id="cb3-35"><a href="#cb3-35" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x5d8f121be620&gt;</span></span>
 <span id="cb3-36"><a href="#cb3-36" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb3-37"><a href="#cb3-37" tabindex="-1"></a>result3 <span class="ot">&lt;-</span> <span class="fu">nested_2_10</span>()</span>
 <span id="cb3-38"><a href="#cb3-38" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;2 nested loops of 10 iterations:&quot;</span>, result3, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
@@ -821,7 +821,7 @@ Codetools-Inspired AST Walking Pattern</h2>
 <span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a><span class="co">#&gt;         1</span></span>
 <span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a><span class="co">#&gt;     return(counter)</span></span>
 <span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a><span class="co">#&gt; }</span></span>
-<span id="cb4-30"><a href="#cb4-30" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x556bd77f07d8&gt;</span></span>
+<span id="cb4-30"><a href="#cb4-30" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x5d8f0fb8d658&gt;</span></span>
 <span id="cb4-31"><a href="#cb4-31" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb4-32"><a href="#cb4-32" tabindex="-1"></a>result_mapreduce <span class="ot">&lt;-</span> <span class="fu">nested_mapreduce</span>()</span>
 <span id="cb4-33"><a href="#cb4-33" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Map-Reduce pattern - 3 nested loops of 4 iterations:&quot;</span>, result_mapreduce, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
@@ -863,7 +863,7 @@ Point-Free Functional Style (Ultimate Conciseness)</h2>
 <span id="cb5-31"><a href="#cb5-31" tabindex="-1"></a><span class="co">#&gt;     for (i1 in 1:5) for (i2 in 1:5) counter &lt;- counter + 1</span></span>
 <span id="cb5-32"><a href="#cb5-32" tabindex="-1"></a><span class="co">#&gt;     return(counter)</span></span>
 <span id="cb5-33"><a href="#cb5-33" tabindex="-1"></a><span class="co">#&gt; }</span></span>
-<span id="cb5-34"><a href="#cb5-34" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x556bd9d775f0&gt;</span></span>
+<span id="cb5-34"><a href="#cb5-34" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x5d8f120ed988&gt;</span></span>
 <span id="cb5-35"><a href="#cb5-35" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb5-36"><a href="#cb5-36" tabindex="-1"></a>result_pointfree <span class="ot">&lt;-</span> <span class="fu">nested_pointfree</span>()</span>
 <span id="cb5-37"><a href="#cb5-37" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Point-free style - 2 nested loops of 5 iterations:&quot;</span>, result_pointfree, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
@@ -919,7 +919,7 @@ Codetools-Inspired Walker Pattern (Zero Loops!)</h2>
 <span id="cb6-34"><a href="#cb6-34" tabindex="-1"></a><span class="co">#&gt;         1</span></span>
 <span id="cb6-35"><a href="#cb6-35" tabindex="-1"></a><span class="co">#&gt;     return(counter)</span></span>
 <span id="cb6-36"><a href="#cb6-36" tabindex="-1"></a><span class="co">#&gt; }</span></span>
-<span id="cb6-37"><a href="#cb6-37" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x556bdb7b1f40&gt;</span></span>
+<span id="cb6-37"><a href="#cb6-37" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x5d8f13b21d30&gt;</span></span>
 <span id="cb6-38"><a href="#cb6-38" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb6-39"><a href="#cb6-39" tabindex="-1"></a>result_walker <span class="ot">&lt;-</span> <span class="fu">nested_walker</span>()</span>
 <span id="cb6-40"><a href="#cb6-40" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Walker pattern - 5 nested loops of 2 iterations:&quot;</span>, result_walker, <span class="st">&quot;total iterations</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
@@ -1010,14 +1010,14 @@ Comparison: Functional vs Traditional Approaches</h2>
 <span id="cb7-67"><a href="#cb7-67" tabindex="-1"></a>}</span>
 <span id="cb7-68"><a href="#cb7-68" tabindex="-1"></a><span class="co">#&gt; Unit: milliseconds</span></span>
 <span id="cb7-69"><a href="#cb7-69" tabindex="-1"></a><span class="co">#&gt;              expr       min        lq      mean    median        uq       max</span></span>
-<span id="cb7-70"><a href="#cb7-70" tabindex="-1"></a><span class="co">#&gt;            static  3.788610  4.353486  5.375706  5.013801  5.611292  14.30943</span></span>
-<span id="cb7-71"><a href="#cb7-71" tabindex="-1"></a><span class="co">#&gt;     functional_v1 26.548626 30.335455 34.446255 32.102614 35.947726 136.73651</span></span>
-<span id="cb7-72"><a href="#cb7-72" tabindex="-1"></a><span class="co">#&gt;  ultra_concise_v2  3.760324  4.282493  5.437483  4.932016  5.414620  38.40621</span></span>
-<span id="cb7-73"><a href="#cb7-73" tabindex="-1"></a><span class="co">#&gt;       tailcall_v3  3.781695  4.280118  5.442646  4.911344  5.330984  35.16439</span></span>
-<span id="cb7-74"><a href="#cb7-74" tabindex="-1"></a><span class="co">#&gt;      mapreduce_v4  3.803557  4.438762  5.513396  4.948989  5.583286  39.01306</span></span>
-<span id="cb7-75"><a href="#cb7-75" tabindex="-1"></a><span class="co">#&gt;      pointfree_v5 26.449660 30.486591 33.879743 32.504026 35.400694  57.30302</span></span>
-<span id="cb7-76"><a href="#cb7-76" tabindex="-1"></a><span class="co">#&gt;         walker_v6 27.215261 30.777969 34.053825 33.283769 36.028497  50.19702</span></span>
-<span id="cb7-77"><a href="#cb7-77" tabindex="-1"></a><span class="co">#&gt;          oneliner  3.943309  4.502388  5.570772  5.079522  5.743398  31.27108</span></span>
+<span id="cb7-70"><a href="#cb7-70" tabindex="-1"></a><span class="co">#&gt;            static  3.698305  4.267651  5.011830  4.868740  5.330950  17.76706</span></span>
+<span id="cb7-71"><a href="#cb7-71" tabindex="-1"></a><span class="co">#&gt;     functional_v1  3.730084  4.285182  5.370850  4.892242  5.559541  32.06804</span></span>
+<span id="cb7-72"><a href="#cb7-72" tabindex="-1"></a><span class="co">#&gt;  ultra_concise_v2  3.752712  4.140611  5.107915  4.758671  5.330671  34.69009</span></span>
+<span id="cb7-73"><a href="#cb7-73" tabindex="-1"></a><span class="co">#&gt;       tailcall_v3  3.614775  4.266394  5.227520  4.725810  5.473845  29.84136</span></span>
+<span id="cb7-74"><a href="#cb7-74" tabindex="-1"></a><span class="co">#&gt;      mapreduce_v4 26.077337 29.195854 33.521531 31.800027 34.784030 116.71344</span></span>
+<span id="cb7-75"><a href="#cb7-75" tabindex="-1"></a><span class="co">#&gt;      pointfree_v5 25.775204 29.498268 32.715182 32.107573 34.919627  52.74099</span></span>
+<span id="cb7-76"><a href="#cb7-76" tabindex="-1"></a><span class="co">#&gt;         walker_v6  3.616871  4.195576  5.488486  4.715788  5.201744  65.56944</span></span>
+<span id="cb7-77"><a href="#cb7-77" tabindex="-1"></a><span class="co">#&gt;          oneliner  3.609468  4.306971  5.288202  4.824461  5.387277  38.83797</span></span>
 <span id="cb7-78"><a href="#cb7-78" tabindex="-1"></a><span class="co">#&gt;  neval</span></span>
 <span id="cb7-79"><a href="#cb7-79" tabindex="-1"></a><span class="co">#&gt;    100</span></span>
 <span id="cb7-80"><a href="#cb7-80" tabindex="-1"></a><span class="co">#&gt;    100</span></span>
@@ -1078,7 +1078,7 @@ Matrix Builder with Zero-Loop Construction</h2>
 <span id="cb8-33"><a href="#cb8-33" tabindex="-1"></a><span class="co">#&gt;     for (i1 in 1:4) for (i2 in 1:5) result[i1, i2] &lt;- i1 * i2</span></span>
 <span id="cb8-34"><a href="#cb8-34" tabindex="-1"></a><span class="co">#&gt;     return(result)</span></span>
 <span id="cb8-35"><a href="#cb8-35" tabindex="-1"></a><span class="co">#&gt; }</span></span>
-<span id="cb8-36"><a href="#cb8-36" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x556bdd5dcb40&gt;</span></span>
+<span id="cb8-36"><a href="#cb8-36" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x5d8f12c74ef8&gt;</span></span>
 <span id="cb8-37"><a href="#cb8-37" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb8-38"><a href="#cb8-38" tabindex="-1"></a>my_matrix <span class="ot">&lt;-</span> <span class="fu">matrix_builder</span>()</span>
 <span id="cb8-39"><a href="#cb8-39" tabindex="-1"></a><span class="fu">print</span>(my_matrix)</span>
@@ -1093,22 +1093,20 @@ Ultimate Test: Generating the 1 Billion Iteration Function</h2>
 <span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="co"># This would create the equivalent of the benchmark from the meme</span></span>
 <span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a></span>
 <span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>create_billion_iteration_function <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>  <span class="co"># For 1 billion iterations, we could do 10 loops of 100 iterations each</span></span>
-<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>  <span class="co"># 100^10 = 10^20 (way too much!)</span></span>
-<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>  <span class="co"># Let&#39;s do 4 loops of 178 iterations: 178^4 ≈ 1 billion</span></span>
-<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>  </span>
-<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>  k <span class="ot">&lt;-</span> <span class="dv">178</span>  <span class="co"># 178^4 = 1,002,002,816 ≈ 1 billion</span></span>
-<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a>  </span>
-<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Creating function with&quot;</span>, n, <span class="st">&quot;nested loops of&quot;</span>, k, <span class="st">&quot;iterations each</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Total iterations:&quot;</span>, k<span class="sc">^</span>n, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a>  </span>
-<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a>  <span class="fu">create_nested_loops_v1</span>(n, k)</span>
-<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a>}</span>
-<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a></span>
-<span id="cb9-18"><a href="#cb9-18" tabindex="-1"></a><span class="co"># Generate but don&#39;t run (for your sanity)</span></span>
-<span id="cb9-19"><a href="#cb9-19" tabindex="-1"></a>billion_func <span class="ot">&lt;-</span> <span class="fu">create_billion_iteration_function</span>()</span>
-<span id="cb9-20"><a href="#cb9-20" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Function created! (But we won&#39;t run it...)</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>  k <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">9</span> </span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>  </span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Creating function with&quot;</span>, n, <span class="st">&quot;nested loops of&quot;</span>, k, <span class="st">&quot;iterations each</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Total iterations:&quot;</span>, k<span class="sc">^</span>n, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a>  </span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a>  <span class="fu">create_nested_loops_v1</span>(n, k)</span>
+<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a>}</span>
+<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a><span class="co"># Generate but don&#39;t run (for your sanity)</span></span>
+<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a>billion_func <span class="ot">&lt;-</span> <span class="fu">create_billion_iteration_function</span>()</span>
+<span id="cb9-18"><a href="#cb9-18" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Function created! (But we won&#39;t run it...)</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
 <h2 id="conclusion-the-art-of-loop-free-loop-generation">Conclusion: The
 Art of Loop-Free Loop Generation</h2>
 <p><strong>Achievement Unlocked: We’ve created nested loops without
@@ -1256,7 +1254,7 @@ Construction!)</h2>
 <span id="cb11-58"><a href="#cb11-58" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Expected result:&quot;</span>, <span class="dv">1</span><span class="sc">^</span><span class="dv">1000</span>, <span class="st">&quot;(each loop runs once)</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb11-59"><a href="#cb11-59" tabindex="-1"></a><span class="co">#&gt; - Expected result: 1 (each loop runs once)</span></span>
 <span id="cb11-60"><a href="#cb11-60" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Execution time:&quot;</span>, execution_time, <span class="st">&quot;milliseconds</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb11-61"><a href="#cb11-61" tabindex="-1"></a><span class="co">#&gt; - Execution time: 5.52 milliseconds</span></span>
+<span id="cb11-61"><a href="#cb11-61" tabindex="-1"></a><span class="co">#&gt; - Execution time: 7.33 milliseconds</span></span>
 <span id="cb11-62"><a href="#cb11-62" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;- Call stack depth: 1000 levels</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span>
 <span id="cb11-63"><a href="#cb11-63" tabindex="-1"></a><span class="co">#&gt; - Call stack depth: 1000 levels</span></span>
 <span id="cb11-64"><a href="#cb11-64" tabindex="-1"></a></span>

@@ -378,12 +378,10 @@ print(my_matrix)
 # This would create the equivalent of the benchmark from the meme
 
 create_billion_iteration_function <- function() {
-  # For 1 billion iterations, we could do 10 loops of 100 iterations each
-  # 100^10 = 10^20 (way too much!)
-  # Let's do 4 loops of 178 iterations: 178^4 ≈ 1 billion
-  
-  k <- 178  # 178^4 = 1,002,002,816 ≈ 1 billion
-  n <- 4
+
+
+  k <- 10^9 
+  n <- 1
   
   cat("Creating function with", n, "nested loops of", k, "iterations each\n")
   cat("Total iterations:", k^n, "\n")
